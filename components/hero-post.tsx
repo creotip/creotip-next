@@ -3,6 +3,8 @@ import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import Link from 'next/link'
 import type { Author } from '../types/author'
+import { Box } from '@chakra-ui/react'
+import Image from 'next/image'
 
 type Props = {
   title: string
@@ -22,10 +24,16 @@ const HeroPost = ({
   slug,
 }: Props) => {
   return (
-    <section>
-      <div className="mb-8 md:mb-16">
-        <CoverImage title={title} src={coverImage} slug={slug} />
-      </div>
+    <Box as="section" mb="40px">
+      <Box className="cover-image " w="100%" h="300px" pos="relative">
+        <Image
+          layout="fill"
+          src={coverImage}
+          alt={`Cover Image for ${title}`}
+          priority
+          objectFit="cover"
+        />
+      </Box>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
           <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
@@ -42,7 +50,7 @@ const HeroPost = ({
           <Avatar name={author.name} picture={author.picture} />
         </div>
       </div>
-    </section>
+    </Box>
   )
 }
 

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Box } from '@chakra-ui/react'
 
 type Props = {
   title: string
@@ -9,16 +10,10 @@ type Props = {
 
 const CoverImage = ({ title, src, slug }: Props) => {
   const image = (
-    <Image
-      src={src}
-      alt={`Cover Image for ${title}`}
-      layout="fill"
-      objectFit="cover"
-      quality={100}
-    />
+    <Image layout="fill" src={src} alt={`Cover Image for ${title}`} />
   )
   return (
-    <div className="sm:mx-0">
+    <Box className="cover-image " w="100%" h="300px" pos="relative">
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title}>{image}</a>
@@ -26,7 +21,7 @@ const CoverImage = ({ title, src, slug }: Props) => {
       ) : (
         image
       )}
-    </div>
+    </Box>
   )
 }
 

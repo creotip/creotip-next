@@ -10,7 +10,7 @@ const MoreStories = ({ posts }: Props) => {
   return (
     <section>
       <Box as="h2">More Stories</Box>
-      <Grid>
+      <Grid gridGap="40px">
         {posts.map((post) => (
           <PostPreview
             key={post.slug}
