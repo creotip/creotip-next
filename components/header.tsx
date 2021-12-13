@@ -13,13 +13,15 @@ const Header = () => {
   const { toggleColorMode: toggleMode } = useColorMode()
   const text = useColorModeValue('dark', 'light')
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
+
+  console.log(text)
   return (
     <Box
       position="sticky"
       top="0"
       zIndex="12"
-      bgColor="white"
-      borderBottom="2px dotted "
+      bgColor={text === 'dark' ? 'white' : '#141922'}
+      borderBottom="2px dotted"
       w="100%"
       mb="3rem"
     >
