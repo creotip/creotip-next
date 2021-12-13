@@ -13,7 +13,7 @@ const CoverImage = ({ title, src, slug }: Props) => {
     <Image layout="fill" src={src} alt={`Cover Image for ${title}`} />
   )
   return (
-    <Box className="cover-image " w="100%" h="300px" pos="relative">
+    <Box className="cover-image " w="100%" h="350px" pos="relative">
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title}>{image}</a>
