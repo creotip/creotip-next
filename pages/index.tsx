@@ -23,9 +23,7 @@ const Home = ({ allPosts }: Props) => {
     <Layout>
       <SEO title="creotip - fullstack blog" />
 
-      <Container>
-        <Header />
-      </Container>
+      <Header />
 
       <Container>
         {heroPost && (

@@ -11,7 +11,7 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       {/*<Meta />*/}
-      <Flex h="100vh" alignItems="center" flexDir="column">
+      <Flex minHeight="100vh" alignItems="center" flexDir="column">
         {children}
       </Flex>
     </>

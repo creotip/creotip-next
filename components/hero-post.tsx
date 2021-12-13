@@ -43,7 +43,7 @@ const HeroPost = ({
 }: Props) => {
   return (
     <Box as="section" mb="40px">
-      <Box className="cover-image " w="100%" h="350px" pos="relative">
+      <Box className="cover-image " w="100%" h="350px" pos="relative" mb="1rem">
         <Image
           layout="fill"
           src={coverImage}
@@ -59,14 +59,14 @@ const HeroPost = ({
       </Box>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
-          <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
+          <Box mb="0.5rem">
+            <DateFormatter dateString={date} />
+          </Box>
+          <Box as="h3" fontWeight="800" fontSize="1.3rem" mb="1rem">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
               <a className="hover:underline">{title}</a>
             </Link>
-          </h3>
-          <div className="mb-4 md:mb-0 text-lg">
-            <DateFormatter dateString={date} />
-          </div>
+          </Box>
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
