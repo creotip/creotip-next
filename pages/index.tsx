@@ -10,6 +10,7 @@ import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import { getAllPosts } from 'lib/api'
 import Header from '../components/header'
+import SEO from 'components/seo'
 
 type Props = {
   allPosts: PostType[]
@@ -20,12 +21,13 @@ const Home = ({ allPosts }: Props) => {
   const morePosts = allPosts.slice(1)
   return (
     <Layout>
-      <Head>
-        <title>Create Next App</title>
-      </Head>
+      <SEO title="creotip - fullstack blog" />
 
       <Container>
         <Header />
+      </Container>
+
+      <Container>
         {heroPost && (
           <HeroPost
             title={heroPost.title}
