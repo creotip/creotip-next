@@ -59,13 +59,13 @@ const HeroPost = ({
       </Box>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
-          <Box mb="0.5rem">
-            <DateFormatter dateString={date} />
-          </Box>
           <Box as="h3" fontWeight="800" fontSize="1.3rem" mb="1rem">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
               <a className="hover:underline">{title}</a>
             </Link>
+          </Box>
+          <Box mb="0.5rem">
+            <DateFormatter dateString={date} />
           </Box>
         </div>
         <div>

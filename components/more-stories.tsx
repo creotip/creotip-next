@@ -9,7 +9,7 @@ type Props = {
 const MoreStories = ({ posts }: Props) => {
   return (
     <section>
-      <Box as="h2">More Stories</Box>
+      {/*<Box as="h2">More Stories</Box>*/}
       <Grid gridGap="40px">
         {posts.map((post) => (
           <PostPreview

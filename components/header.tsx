@@ -14,14 +14,13 @@ const Header = () => {
   const text = useColorModeValue('dark', 'light')
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
 
-  console.log(text)
   return (
     <Box
       position="sticky"
       top="0"
       zIndex="12"
       bgColor={text === 'dark' ? 'white' : '#141922'}
-      borderBottom="2px dotted"
+      borderBottom="4px double #c8c7cc"
       w="100%"
       mb="3rem"
     >
@@ -33,6 +32,7 @@ const Header = () => {
         h="60px"
         maxWidth="750px"
         mx="auto"
+        px={2}
       >
         <Box fontWeight="800" letterSpacing="2px">
           <Link href="/">
