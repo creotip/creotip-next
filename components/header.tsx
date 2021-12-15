@@ -3,7 +3,6 @@ import {
   Box,
   Grid,
   IconButton,
-  SimpleGrid,
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
@@ -20,7 +19,7 @@ const Header = () => {
       top="0"
       zIndex="12"
       bgColor={text === 'dark' ? 'white' : '#141922'}
-      borderBottom="4px double #c8c7cc"
+      borderBottom="1px solid #80808033"
       w="100%"
       mb="3rem"
     >
