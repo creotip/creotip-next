@@ -1,18 +1,18 @@
 const baseUrl = 'https://github.com/chakra-ui/chakra-ui'
 
 const siteConfig = {
-  copyright: `Copyright © ${new Date().getFullYear()} Segun Adebayo. All Rights Reserved.`,
+  copyright: `Copyright © ${new Date().getFullYear()} creotip. All Rights Reserved.`,
   algolia: {
     apiKey: 'df1dcc41f7b8e5d68e73dd56d1e19701',
     indexName: 'chakra-ui',
     inputSelector: '#algolia-search',
   },
   author: {
-    name: 'Segun Adebayo',
-    github: 'https://github.com/segunadebayo',
+    name: 'Ruslan Elishaev',
+    github: 'https://github.com/creotip',
     twitter: 'https://twitter.com/thesegunadebayo',
-    linkedin: 'https://linkedin.com/in/thesegunadebayo',
-    email: 'sage@adebayosegun.com',
+    linkedin: 'https://www.linkedin.com/in/ruslan-elisha-aa6a5912a/',
+    email: 'creotip@gmail.com',
   },
   repo: {
     url: baseUrl,
@@ -27,10 +27,10 @@ const siteConfig = {
   },
   youtube: 'https://www.youtube.com/channel/UC4TmDovH46TB4S0SM0Y4CIg',
   seo: {
-    title: 'Chakra UI',
-    titleTemplate: '%s - Chakra UI',
+    title: 'creotip',
+    titleTemplate: '%s | creotip',
     description:
-      'Simple, Modular and Accessible UI Components for your React Applications.',
+      'A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
     siteUrl: 'https://chakra-ui.com',
     twitter: {
       handle: '@chakra-ui',

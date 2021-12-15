@@ -21,7 +21,7 @@ const Home = ({ allPosts }: Props) => {
   const morePosts = allPosts.slice(1)
   return (
     <Layout>
-      <SEO title="creotip - fullstack blog" />
+      <SEO title="A blog for fullstack comrades" />
 
       <Container>
         {heroPost && (

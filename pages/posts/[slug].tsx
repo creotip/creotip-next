@@ -1,16 +1,17 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import Container from '../../components/container'
-import PostBody from '../../components/post-body'
+import Container from 'components/container'
+import PostBody from 'components/post-body'
 import Header from '../../components/header'
-import PostHeader from '../../components/post-header'
-import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
-import PostTitle from '../../components/post-title'
+import PostHeader from 'components/post-header'
+import Layout from 'components/layout'
+import { getPostBySlug, getAllPosts } from 'lib/api'
+import PostTitle from 'components/post-title'
 import Head from 'next/head'
-import { CMS_NAME } from '../../lib/constants'
-import markdownToHtml from '../../lib/markdownToHtml'
-import type { PostType } from '../../types/post'
+import { CMS_NAME } from 'lib/constants'
+import markdownToHtml from 'lib/markdownToHtml'
+import type { PostType } from 'types/post'
+import SEO from 'components/seo'
 
 type Props = {
   post: PostType
@@ -31,10 +32,9 @@ const Post = ({ post, morePosts, preview }: Props) => {
         ) : (
           <>
             <article className="mb-32">
+              {/*<SEO title={post.title} />*/}
               <Head>
-                <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
-                </title>
+                <title>{post.title} | creotip blog</title>
                 <meta property="og:image" content={post.ogImage.url} />
               </Head>
               <PostHeader
