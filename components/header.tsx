@@ -7,10 +7,11 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { FaMoon, FaSun, FaYoutube } from 'react-icons/fa'
+import { Logo } from 'components/logo'
 
 const Header = () => {
   const { toggleColorMode: toggleMode } = useColorMode()
-  const text = useColorModeValue('dark', 'light')
+  const mode = useColorModeValue('dark', 'light')
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
 
   return (
@@ -18,7 +19,7 @@ const Header = () => {
       position="sticky"
       top="0"
       zIndex="12"
-      bgColor={text === 'dark' ? 'white' : '#141922'}
+      bgColor={mode === 'dark' ? 'white' : '#141922'}
       borderBottom="1px solid #80808033"
       w="100%"
       mb="3rem"
@@ -35,7 +36,9 @@ const Header = () => {
       >
         <Box fontWeight="800" letterSpacing="2px">
           <Link href="/">
-            <a className="hover:underline">CREOTIP</a>
+            <a className="hover:underline">
+              <Logo mode={mode} />
+            </a>
           </Link>
         </Box>
 
@@ -55,7 +58,7 @@ const Header = () => {
               <IconButton
                 size="md"
                 fontSize="lg"
-                aria-label={`Switch to ${text} mode`}
+                aria-label={`Switch to ${mode} mode`}
                 variant="ghost"
                 color="current"
                 ml={{ base: '0', md: '3' }}
