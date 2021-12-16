@@ -53,7 +53,6 @@ const Header = () => {
           >
             <li>About</li>
             <li>Contact</li>
-            <li>Goodies</li>
             <Box>
               <IconButton
                 size="md"
