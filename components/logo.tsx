@@ -26,3 +26,49 @@ export const Logo = ({ mode }: { mode: string }) => (
     </g>
   </svg>
 )
+
+export const CreotipLogo = ({ mode }: { mode: string }) => (
+  <svg
+    width="139.637"
+    height="31.311"
+    viewBox="0 0 139.637 31.311"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      id="svgGroup"
+      strokeLinecap="round"
+      fillRule="evenodd"
+      fontSize="9pt"
+      stroke={mode === 'dark' ? '#2d3748' : 'white'}
+      strokeWidth="0.25mm"
+      fill={mode === 'dark' ? '#2d3748' : 'white'}
+      style={{
+        stroke: mode === 'dark' ? '#2d3748' : 'white',
+        strokeWidth: '0.25mm',
+        fill: mode === 'dark' ? '#2d3748' : 'white',
+      }}
+    >
+      <path
+        d="M2000,1252.5c412.9,0,747.5,334.7,747.5,747.5s-334.7,747.5-747.5,747.5s-747.5-334.7-747.5-747.5 S1587.1,1252.5,2000,1252.5z"
+        vectorEffect="non-scaling-stroke"
+      />
+    </g>
+  </svg>
+)
+
+export const ReactIcon = ({ mode }: { mode: string }) => (
+  <svg
+    stroke="currentColor"
+    fill="none"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    height="1em"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M2000.2,1681.3c174.7,0,318.5,143.8,318.5,318.5s-143.8,318.5-318.5,318.5"></path>
+    {/*<polyline points="22 4 12 14.01 9 11.01"></polyline>*/}
+  </svg>
+)

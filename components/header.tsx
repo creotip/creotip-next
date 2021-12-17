@@ -1,13 +1,19 @@
 import Link from 'next/link'
+import Image from 'next/image'
+
 import {
   Box,
+  Flex,
   Grid,
   IconButton,
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
 import { FaMoon, FaSun, FaYoutube } from 'react-icons/fa'
-import { Logo } from 'components/logo'
+import { CreotipLogo, Logo, ReactIcon } from 'components/logo'
+import logoImage from '../images/creotip-logo2.svg'
+import logoImageWhite from '../images/creotip-logo-white.svg'
+import yellowStroke from '../images/yellow-stroke.png'
 
 const Header = () => {
   const { toggleColorMode: toggleMode } = useColorMode()
@@ -34,13 +40,27 @@ const Header = () => {
         mx="auto"
         px={2}
       >
-        <Box fontWeight="800" letterSpacing="2px">
+        <Flex
+          fontWeight="800"
+          letterSpacing="2px"
+          backgroundImage="/yellow-stroke.png"
+        >
           <Link href="/">
-            <a className="hover:underline">
-              <Logo mode={mode} />
-            </a>
+            <Box
+              as="a"
+              display="flex"
+              cursor="pointer"
+              className="hover:underline"
+            >
+              <Image
+                src={mode === 'dark' ? logoImage : logoImageWhite}
+                height={60}
+                width={60}
+                alt="creotip logo"
+              />
+            </Box>
           </Link>
-        </Box>
+        </Flex>
 
         <Box as="nav">
           <Grid

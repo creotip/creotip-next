@@ -4,6 +4,9 @@ import { Dict } from '@chakra-ui/utils'
 
 const customTheme = extendTheme({
   config: {},
+  colors: {
+    bez: '#f7ebd4',
+  },
   fonts: {
     heading: 'Inter, -apple-system, sans-serif',
     body: 'Inter, -apple-system, sans-serif',
