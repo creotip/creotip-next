@@ -14,6 +14,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
         <meta name="theme-color" content="#319795" />
+        <meta
+          name="google-site-verification"
+          content="ZVD8deiXHUw9PANTqZYO6QMgOVtHKtqpHrU96JGo1zI"
+        />
       </Head>
       <DefaultSeo {...seo} />
       <ChakraProvider theme={customTheme}>
