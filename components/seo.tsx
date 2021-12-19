@@ -4,12 +4,13 @@ import siteConfig from 'configs/site-config'
 
 export interface SEOProps extends Pick<NextSeoProps, 'title' | 'description'> {}
 
-const SEO = ({ title, description }: SEOProps) => (
+const SEO = ({ title, description, ...props }: SEOProps) => (
   <NextSeo
     title={title}
     description={description}
     openGraph={{ title, description }}
     titleTemplate={siteConfig.seo.titleTemplate}
+    {...props}
   />
 )
 

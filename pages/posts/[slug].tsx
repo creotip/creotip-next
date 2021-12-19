@@ -12,6 +12,7 @@ import { CMS_NAME } from 'lib/constants'
 import markdownToHtml from 'lib/markdownToHtml'
 import type { PostType } from 'types/post'
 import SEO from 'components/seo'
+import siteConfig from 'configs/site-config'
 
 type Props = {
   post: PostType
@@ -32,11 +33,15 @@ const Post = ({ post, morePosts, preview }: Props) => {
         ) : (
           <>
             <article className="mb-32">
-              {/*<SEO title={post.title} />*/}
-              <Head>
-                <title>{post.title} | creotip blog</title>
-                <meta property="og:image" content={post.ogImage.url} />
-              </Head>
+              <SEO
+                title={post.title}
+                description={post.excerpt || siteConfig.seo.description}
+              />
+              {/*<Head>*/}
+              {/*  <title>{post.title} | creotip blog</title>*/}
+              {/*  <meta property="og:image" content={post.ogImage.url} />*/}
+              {/*  <meta name="description" content={post.excerpt} />*/}
+              {/*</Head>*/}
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
@@ -63,6 +68,7 @@ type Params = {
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, [
     'title',
+    'excerpt',
     'date',
     'slug',
     'author',

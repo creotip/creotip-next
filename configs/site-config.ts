@@ -43,21 +43,21 @@ const siteConfig = {
       url: 'https://chakra-ui.com',
       title: 'Chakra UI',
       description:
-        'Simple, Modular and Accessible UI Components for your React Applications.',
+        'A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
       site_name:
-        'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
+        'creotip: A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
       images: [
         {
           url: 'https://chakra-ui.com/og-image.png',
           width: 1240,
           height: 480,
-          alt: 'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
+          alt: 'creotip: A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
         },
         {
           url: 'https://chakra-ui.com/twitter-og-image.png',
           width: 1012,
           height: 506,
-          alt: 'Chakra UI: Simple, Modular and Accessible UI Components for your React Applications.',
+          alt: 'creotip: A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
         },
       ],
     },
