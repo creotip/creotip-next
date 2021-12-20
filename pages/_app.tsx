@@ -28,6 +28,10 @@ function MyApp({
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
           <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+          <meta
+            name="google-site-verification"
+            content="aTbQBMj8oiDmPHyuWHqMoxuv3NGKzHWCLV3rzlIJawo"
+          />
           <Box
             as="meta"
             name="theme-color"
