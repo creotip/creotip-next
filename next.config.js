@@ -5,4 +5,7 @@ module.exports = {
     optimizeFonts: true,
     modern: true,
   },
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
 }
