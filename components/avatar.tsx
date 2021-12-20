@@ -1,16 +1,24 @@
-import Image from 'next/image'
+import Image, { ImageProps } from 'next/image'
+import { Box, Flex } from '@chakra-ui/react'
+import styled from '@emotion/styled'
 
 type Props = {
   name: string
   picture: string
 }
 
+const Img = styled(Image)`
+  border-radius: 50%;
+`
+
 const Avatar = ({ name, picture }: Props) => {
   return (
-    <div className="flex items-center">
-      {/*<Image src={picture} layout="fill" alt={name} />*/}
-      <div className="text-xl font-bold">{name}</div>
-    </div>
+    <Flex alignItems="center">
+      <Box>
+        <Img src={picture} alt={name} width="30px" height="30px" />
+      </Box>
+      <Box mx={2}>By {name},</Box>
+    </Flex>
   )
 }
 

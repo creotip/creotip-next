@@ -3,7 +3,7 @@ import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import Link from 'next/link'
 import type { Author } from '../types/author'
-import { Box } from '@chakra-ui/react'
+import { Box, Flex, useColorModeValue } from '@chakra-ui/react'
 
 type Props = {
   title: string
@@ -22,22 +22,30 @@ const PostPreview = ({
   author,
   slug,
 }: Props) => {
+  const mode = useColorModeValue('light', 'dark')
+
   return (
-    <Box>
+    <Box
+      as="section"
+      boxShadow="xl"
+      rounded="md"
+      p="6"
+      border={mode === 'dark' ? '1px solid #dadada45' : '1px solid transparent'}
+    >
       {/*<Box mb="1rem">*/}
       {/*  <CoverImage slug={slug} title={title} src={coverImage} />*/}
       {/*</Box>*/}
 
-      <Box as="h2" fontWeight="800" fontSize="1.3rem" mb="1rem">
+      <Box as="h2" fontWeight="600" fontSize="1.3rem" mb="1rem">
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a className="hover:underline">{title}</a>
         </Link>
       </Box>
-      <Box mb="0.5rem">
+      <Flex mb="0.5rem" fontSize="sm" alignItems="center">
+        <Avatar name={author.name} picture={author.picture} />
         <DateFormatter dateString={date} />
-      </Box>
+      </Flex>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author.name} picture={author.picture} />
     </Box>
   )
 }

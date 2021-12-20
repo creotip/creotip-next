@@ -2,7 +2,7 @@ import Avatar from './avatar'
 import DateFormatter from './date-formatter'
 import Link from 'next/link'
 import type { Author } from '../types/author'
-import { Box } from '@chakra-ui/react'
+import { Box, Flex, useColorMode, useColorModeValue } from '@chakra-ui/react'
 import Image from 'next/image'
 
 type Props = {
@@ -41,37 +41,30 @@ const HeroPost = ({
   author,
   slug,
 }: Props) => {
+  const mode = useColorModeValue('light', 'dark')
+
   return (
-    <Box as="section" mb="40px">
-      <Box className="cover-image " w="100%" h="350px" pos="relative" mb="1rem">
-        <Image
-          layout="fill"
-          src={coverImage}
-          alt={`Cover Image for ${title}`}
-          priority
-          objectFit="cover"
-          sizes="50vw"
-          // placeholder="blur"
-          // blurDataURL={`data:image/svg+xml;base64,${toBase64(
-          //   shimmer(700, 475)
-          // )}`}
-        />
-      </Box>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
-        <div>
-          <Box as="h3" fontWeight="800" fontSize="1.3rem" mb="1rem">
-            <Link as={`/posts/${slug}`} href="/posts/[slug]">
-              <a className="hover:underline">{title}</a>
-            </Link>
-          </Box>
-          <Box mb="0.5rem">
-            <DateFormatter dateString={date} />
-          </Box>
-        </div>
-        <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+    <Box
+      as="section"
+      mb="40px"
+      boxShadow="xl"
+      rounded="md"
+      p="6"
+      border={mode === 'dark' ? '1px solid #dadada45' : '1px solid transparent'}
+    >
+      <Box>
+        <Box as="h2" fontWeight="600" fontSize="1.3rem" mb="1rem">
+          <Link as={`/posts/${slug}`} href="/posts/[slug]">
+            <a className="hover:underline">{title}</a>
+          </Link>
+        </Box>
+        <Flex mb="0.5rem" fontSize="sm" alignItems="center">
           <Avatar name={author.name} picture={author.picture} />
-        </div>
+          <DateFormatter dateString={date} />
+        </Flex>
+      </Box>
+      <div>
+        <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
       </div>
     </Box>
   )

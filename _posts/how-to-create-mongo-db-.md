@@ -5,13 +5,13 @@ coverImage: '/assets/blog/dynamic-routing/cover.jpg'
 date: '2020-03-16T05:35:07.322Z'
 author:
   name: Ruslan Elishaev
-  picture: '/assets/blog/authors/jj.jpeg'
+  picture: '/assets/blog/authors/ruslan.png'
 ogImage:
   url: '/assets/blog/dynamic-routing/cover.jpg'
 ---
 
 
-- sign in to atlas:
+- Sign in to atlas:
   https://www.mongodb.com/cloud/atlas
 
 - Choose free deployment option
@@ -26,8 +26,8 @@ ogImage:
 - Repeat the same, but choose "ADD CURRENT IP ADDRESS"
 - On the left pane (sidebar), click on "Databases", then click on "Connect". Choose "Connect your application". Choose DRIVER node.js, choose VERSION 4.0 or later.
 
-<img width="808" alt="Screen Shot 2021-10-05 at 20 47 05" src="https://user-images.githubusercontent.com/88276747/136075839-a70517ee-1fe3-4434-b8b6-36ddd553fc8a.png">
 
+![mongodb, the Linux mascot](/assets/blog/mongodb-atlas-how-to-create/mongodb-connnect.png)
 ### Copy connection URI string and replace password and database name:
 
 Before:

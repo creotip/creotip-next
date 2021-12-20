@@ -1,4 +1,4 @@
-import { Flex } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import React from 'react'
 import Header from 'components/header'
 // import Meta from './meta'
@@ -16,13 +16,13 @@ const Layout = ({ children }: Props) => {
         <Header />
         {children}
 
-        <footer>
+        <Box as="footer" p={5} mt={8}>
           <a
             href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Powered by {/*<span>*/}
+            Powered by creotip{/*<span>*/}
             {/*  <Image*/}
             {/*    src="/vercel.svg"*/}
             {/*    alt="Vercel Logo"*/}
@@ -32,7 +32,7 @@ const Layout = ({ children }: Props) => {
             {/*  />*/}
             {/*</span>*/}
           </a>
-        </footer>
+        </Box>
       </Flex>
     </>
   )
