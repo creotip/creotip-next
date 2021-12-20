@@ -7,7 +7,7 @@ type Props = {
 
 const Container = ({ children }: Props) => {
   return (
-    <Box maxW="750px" w="full" mx="auto">
+    <Box maxW="750px" w="full" mx="auto" px={3}>
       {children}
     </Box>
   )
