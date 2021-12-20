@@ -1,9 +1,8 @@
-import { extendTheme } from '@chakra-ui/react'
+import { extendTheme, Theme } from '@chakra-ui/react'
 import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools'
 import { Dict } from '@chakra-ui/utils'
 
 const customTheme = extendTheme({
-  config: {},
   colors: {
     bez: '#f7ebd4',
   },

@@ -17,7 +17,7 @@ import yellowStroke from '../images/yellow-stroke.png'
 
 const Header = () => {
   const { toggleColorMode: toggleMode } = useColorMode()
-  const mode = useColorModeValue('dark', 'light')
+  const mode = useColorModeValue('light', 'dark')
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
 
   return (
@@ -25,7 +25,7 @@ const Header = () => {
       position="sticky"
       top="0"
       zIndex="12"
-      bgColor={mode === 'dark' ? 'white' : '#141922'}
+      bgColor={mode === 'light' ? 'white' : '#141922'}
       borderBottom="1px solid #80808033"
       w="100%"
       mb="3rem"
@@ -53,7 +53,7 @@ const Header = () => {
               className="hover:underline"
             >
               <Image
-                src={mode === 'dark' ? logoImage : logoImageWhite}
+                src={mode === 'light' ? logoImage : logoImageWhite}
                 height={60}
                 width={60}
                 alt="creotip logo"
