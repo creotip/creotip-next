@@ -12,7 +12,8 @@ const PostTitle = ({ children }: Props) => {
       itemProp="headline"
       mb="1rem"
       fontSize={['1.75rem', '2rem', '2.7rem']}
-      fontWeight="300"
+      fontWeight="500"
+      fontFamily="'Playfair Display', serif"
     >
       {children}
     </Heading>

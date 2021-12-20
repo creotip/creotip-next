@@ -9,6 +9,7 @@ import PostTitle from 'components/post-title'
 import type { PostType } from 'types/post'
 import SEO from 'components/seo'
 import siteConfig from 'configs/site-config'
+import Head from 'next/head'
 
 type Props = {
   post: PostType

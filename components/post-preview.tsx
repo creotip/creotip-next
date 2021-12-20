@@ -3,7 +3,7 @@ import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import Link from 'next/link'
 import type { Author } from '../types/author'
-import { Box, Flex, useColorModeValue } from '@chakra-ui/react'
+import { Box, Divider, Flex, useColorModeValue } from '@chakra-ui/react'
 
 type Props = {
   title: string
@@ -45,6 +45,7 @@ const PostPreview = ({
         <Avatar name={author.name} picture={author.picture} />
         <DateFormatter dateString={date} />
       </Flex>
+
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
     </Box>
   )
