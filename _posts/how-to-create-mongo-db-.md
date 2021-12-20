@@ -1,13 +1,13 @@
 ---
 title: 'How to create free mongodb cloud database with mongodb atlas'
 excerpt: 'Create free mongodb cloud database with mongodb atlas and use it in your react application'
-coverImage: '/assets/blog/mongodb-atlas-how-to-create/cover.jpeg'
+coverImage: '/assets/blog/mongodb-atlas-how-to-create/cover.webp'
 date: '2020-03-16T05:35:07.322Z'
 author:
   name: Ruslan Elishaev
   picture: '/assets/blog/authors/ruslan.png'
 ogImage:
-  url: '/assets/blog/mongodb-atlas-how-to-create/cover.jpeg'
+  url: '/assets/blog/mongodb-atlas-how-to-create/cover.webp'
 ---
 
 
