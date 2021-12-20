@@ -10,10 +10,24 @@ type Props = {
 
 const CoverImage = ({ title, src, slug }: Props) => {
   const image = (
-    <Image layout="fill" src={src} alt={`Cover Image for ${title}`} />
+    <Image
+      width={700}
+      height={375}
+      layout="responsive"
+      // objectFit="contain"
+      src={src}
+      alt={`Cover Image for ${title}`}
+    />
   )
   return (
-    <Box className="cover-image " w="100%" h="350px" pos="relative">
+    <Box
+      position="relative"
+      w="100%"
+      h="100%"
+      boxShadow="2xl"
+      rounded="md"
+      overflow="hidden"
+    >
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
           <a aria-label={title}>{image}</a>
