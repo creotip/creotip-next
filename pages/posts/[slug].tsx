@@ -33,7 +33,12 @@ const Post = ({ post, morePosts, preview }: Props) => {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <article itemScope itemType="http://schema.org/Article">
+            <Box
+              as="article"
+              mb="2rem"
+              itemScope
+              itemType="http://schema.org/Article"
+            >
               <SEO
                 title={post.title}
                 description={post.excerpt || siteConfig.seo.description}
@@ -45,7 +50,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
                 author={post.author}
               />
               <PostBody content={post.content} />
-            </article>
+            </Box>
 
             <Giscus
               repo="creotip/creotip-next"
