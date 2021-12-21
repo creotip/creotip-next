@@ -10,6 +10,8 @@ import type { PostType } from 'types/post'
 import SEO from 'components/seo'
 import siteConfig from 'configs/site-config'
 import Head from 'next/head'
+import { Box, useColorModeValue } from '@chakra-ui/react'
+import { Giscus } from '@giscus/react'
 
 type Props = {
   post: PostType
@@ -19,6 +21,8 @@ type Props = {
 
 const Post = ({ post, morePosts, preview }: Props) => {
   const router = useRouter()
+  const mode = useColorModeValue('light', 'dark')
+
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
@@ -42,6 +46,17 @@ const Post = ({ post, morePosts, preview }: Props) => {
               />
               <PostBody content={post.content} />
             </article>
+
+            <Giscus
+              repo="creotip/creotip-next"
+              repoId="R_kgDOGgDw8A"
+              category="Announcements"
+              categoryId="DIC_kwDOGgDw8M4CAXd7"
+              mapping="pathname"
+              reactionsEnabled="1"
+              emitMetadata="0"
+              theme={mode === 'light' ? 'light' : 'dark'}
+            />
           </>
         )}
       </Container>
