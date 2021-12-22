@@ -17,9 +17,7 @@ const Layout = ({ children }: Props) => {
         {children}
 
         <Box as="footer" p={5} mt={8}>
-          <a href="https://creotip.io/" target="_blank">
-            Powered by creotip
-          </a>
+          <a href="https://creotip.io/">Powered by creotip</a>
         </Box>
       </Flex>
     </>
