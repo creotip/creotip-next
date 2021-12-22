@@ -17,20 +17,8 @@ const Layout = ({ children }: Props) => {
         {children}
 
         <Box as="footer" p={5} mt={8}>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by creotip{/*<span>*/}
-            {/*  <Image*/}
-            {/*    src="/vercel.svg"*/}
-            {/*    alt="Vercel Logo"*/}
-            {/*    layout="fixed"*/}
-            {/*    width={72}*/}
-            {/*    height={16}*/}
-            {/*  />*/}
-            {/*</span>*/}
+          <a href="https://creotip.io/" target="_blank">
+            Powered by creotip
           </a>
         </Box>
       </Flex>
