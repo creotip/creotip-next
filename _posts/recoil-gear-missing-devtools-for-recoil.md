@@ -63,10 +63,8 @@ ReactDOM.render(
   document.getElementById('root')
 )
 ```
-    
-  
-\
-\
+
+
 **Open up redux devtools and observe state changes in redux devtools**
 
 

@@ -9,14 +9,18 @@ import PostTitle from 'components/post-title'
 import type { PostType } from 'types/post'
 import SEO from 'components/seo'
 import siteConfig from 'configs/site-config'
-import Head from 'next/head'
 import { Box, useColorModeValue } from '@chakra-ui/react'
 import { Giscus } from '@giscus/react'
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
+import imageMetadata from 'lib/image-metadata'
+import rehypeHighlight from 'rehype-highlight'
 
 type Props = {
   post: PostType
   morePosts: PostType[]
   preview?: boolean
+  content: MDXRemoteSerializeResult
 }
 
 const Post = ({ post, morePosts, preview }: Props) => {
@@ -93,7 +97,11 @@ export async function getStaticProps({ params }: Params) {
     props: {
       post: {
         ...post,
-        content: post.content,
+        content: await serialize(post.content, {
+          mdxOptions: {
+            rehypePlugins: [imageMetadata, rehypeHighlight],
+          },
+        }),
       },
     },
   }

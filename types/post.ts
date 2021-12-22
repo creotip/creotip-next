@@ -1,4 +1,5 @@
 import type { Author } from './author'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 export type PostType = {
   slug: string
@@ -10,7 +11,7 @@ export type PostType = {
   ogImage: {
     url: string
   }
-  content: string
+  content: MDXRemoteSerializeResult
 }
 
 export default PostType
