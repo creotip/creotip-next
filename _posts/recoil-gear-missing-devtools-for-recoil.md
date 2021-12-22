@@ -21,7 +21,7 @@ For complex implementation check this excellent article:
 <https://jasonwatmore.com/post/2021/09/16/react-recoil-user-registration-and-login-example-tutorial>
 
 ## Recoil devtools
- _**Recoil**_ has functionality to allow you to observe and update state changes, but no built-in UI tool or browser extension. [Recoil-gear](https://github.com/creotip/recoil-gear) is a simple debug component that connects [_**Redux DevTools**_](https://github.com/zalmoxisus/redux-devtools-extension) to  _**Recoil**_ .
+ _**Recoil**_ has functionality to allow you to observe and update state changes, but no built-in UI tool or browser extension. [Recoil-gear](https://github.com/creotip/recoil-gear) is a simple debug component that connects [_**Redux DevTools**_](https://github.com/zalmoxisus/redux-devtools-extension) to  _**Recoil**_.\
  _**Redux DevTools**_ is one of the main features that developers love working with **_Redux_**, so recoil-gear is combining two great tools.
 
 ## Getting started with Recoil and recoil-gear
@@ -63,15 +63,16 @@ ReactDOM.render(
   document.getElementById('root')
 )
 ```
-
-Open up redux devtools and observe state changes in redux devtools
+    
+  
+\
+\
+**Open up redux devtools and observe state changes in redux devtools**
 
 
 ![recoil-gear devtools ](/assets/blog/recoil-gear/recoil-gear-redux.png)
 
 ### Resources
-<https://recoiljs.org/>
-
-<https://github.com/creotip/recoil-gear>
-
-<https://github.com/zalmoxisus/redux-devtools-extension>
+- [Recoil](https://recoiljs.org/)
+- [recoil-gear](https://github.com/creotip/recoil-gear)
+- [Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
