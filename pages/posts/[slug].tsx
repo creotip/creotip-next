@@ -15,15 +15,17 @@ import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import imageMetadata from 'lib/image-metadata'
 import rehypeHighlight from 'rehype-highlight'
+import { getPlaiceholder } from 'plaiceholder'
 
 type Props = {
   post: PostType
+  base64: string
   morePosts: PostType[]
   preview?: boolean
   content: MDXRemoteSerializeResult
 }
 
-const Post = ({ post, morePosts, preview }: Props) => {
+const Post = ({ post, morePosts, preview, base64 }: Props) => {
   const router = useRouter()
   const mode = useColorModeValue('light', 'dark')
 
@@ -50,6 +52,7 @@ const Post = ({ post, morePosts, preview }: Props) => {
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
+                base64={base64}
                 date={post.date}
                 author={post.author}
               />
@@ -93,8 +96,11 @@ export async function getStaticProps({ params }: Params) {
     'coverImage',
   ])
 
+  const { css, img, base64, blurhash } = await getPlaiceholder(post.coverImage)
+
   return {
     props: {
+      base64,
       post: {
         ...post,
         content: await serialize(post.content, {

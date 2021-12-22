@@ -10,9 +10,10 @@ type Props = {
   coverImage: string
   date: string
   author: Author
+  base64: string
 }
 
-const PostHeader = ({ title, coverImage, date, author }: Props) => {
+const PostHeader = ({ title, coverImage, date, author, base64 }: Props) => {
   return (
     <>
       <PostTitle>{title}</PostTitle>
@@ -22,7 +23,7 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
       </Flex>
 
       <Box mb={8}>
-        <CoverImage title={title} src={coverImage} />
+        <CoverImage title={title} src={coverImage} base64={base64} />
       </Box>
       <div className="max-w-2xl mx-auto">
         {/*<div className="block md:hidden mb-6">*/}

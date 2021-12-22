@@ -6,17 +6,19 @@ type Props = {
   title: string
   src: string
   slug?: string
+  base64: string
 }
 
-const CoverImage = ({ title, src, slug }: Props) => {
+const CoverImage = ({ title, src, slug, base64 }: Props) => {
   const image = (
     <Image
       width={700}
       height={375}
       layout="responsive"
-      // objectFit="contain"
       src={src}
       alt={`Cover Image for ${title}`}
+      blurDataURL={base64}
+      placeholder="blur"
     />
   )
   return (
