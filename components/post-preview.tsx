@@ -41,9 +41,11 @@ const PostPreview = ({
           <a className="hover:underline">{title}</a>
         </Link>
       </Box>
-      <Flex mb="0.5rem" fontSize="sm" alignItems="center">
-        <Avatar name={author.name} picture={author.picture} />
-        <DateFormatter dateString={date} />
+      <Divider mb={3} />
+      <Flex mb="0.5rem" fontSize="13px" alignItems="center">
+        {/*<Avatar name={author.name} picture={author.picture} />*/}
+        <DateFormatter dateString={date} /> <Box mx=".5rem"> • </Box>
+        <Box>by {author.name}</Box>
       </Flex>
 
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>

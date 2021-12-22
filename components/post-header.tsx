@@ -21,7 +21,7 @@ const PostHeader = ({ title, coverImage, date, author }: Props) => {
         <DateFormatter dateString={date} />
       </Flex>
 
-      <Box mb={5}>
+      <Box mb={8}>
         <CoverImage title={title} src={coverImage} />
       </Box>
       <div className="max-w-2xl mx-auto">

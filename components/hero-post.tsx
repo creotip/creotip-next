@@ -2,7 +2,13 @@ import Avatar from './avatar'
 import DateFormatter from './date-formatter'
 import Link from 'next/link'
 import type { Author } from '../types/author'
-import { Box, Flex, useColorMode, useColorModeValue } from '@chakra-ui/react'
+import {
+  Badge,
+  Box,
+  Flex,
+  useColorMode,
+  useColorModeValue,
+} from '@chakra-ui/react'
 import Image from 'next/image'
 
 type Props = {
@@ -52,15 +58,30 @@ const HeroPost = ({
       p="6"
       border={mode === 'dark' ? '1px solid #dadada45' : '1px solid transparent'}
     >
+      {/*<Box className="cover-image " w="100%" h="350px" pos="relative" mb="1rem">*/}
+      {/*  <Image*/}
+      {/*    layout="fill"*/}
+      {/*    src={coverImage}*/}
+      {/*    alt={`Cover Image for ${title}`}*/}
+      {/*    priority*/}
+      {/*    objectFit="cover"*/}
+      {/*    sizes="50vw"*/}
+      {/*    // placeholder="blur"*/}
+      {/*    // blurDataURL={`data:image/svg+xml;base64,${toBase64(*/}
+      {/*    //   shimmer(700, 475)*/}
+      {/*    // )}`}*/}
+      {/*  />*/}
+      {/*</Box>*/}
       <Box>
         <Box as="h2" fontWeight="600" fontSize="1.3rem" mb="1rem">
           <Link as={`/posts/${slug}`} href="/posts/[slug]">
             <a className="hover:underline">{title}</a>
           </Link>
         </Box>
-        <Flex mb="0.5rem" fontSize="sm" alignItems="center">
-          <Avatar name={author.name} picture={author.picture} />
-          <DateFormatter dateString={date} />
+        <Flex mb="0.5rem" fontSize="13px" alignItems="center">
+          {/*<Avatar name={author.name} picture={author.picture} />*/}
+          <DateFormatter dateString={date} /> <Box mx=".5rem"> • </Box>
+          <Box>by {author.name}</Box>
         </Flex>
       </Box>
       <div>

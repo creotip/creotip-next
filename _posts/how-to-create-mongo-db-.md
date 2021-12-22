@@ -9,11 +9,8 @@ author:
 ogImage:
   url: '/assets/blog/mongodb-atlas-how-to-create/cover.webp'
 ---
-
-
 - Sign in to atlas:
-  https://www.mongodb.com/cloud/atlas
-
+  [https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas)
 - Choose free deployment option
 - Create cluster with your favorite cloud provider. Click create
 - Wait few minutes for cluster provisioning
@@ -26,8 +23,8 @@ ogImage:
 - Repeat the same, but choose "ADD CURRENT IP ADDRESS"
 - On the left pane (sidebar), click on "Databases", then click on "Connect". Choose "Connect your application". Choose DRIVER node.js, choose VERSION 4.0 or later.
 
+![mongodb atlas](/assets/blog/mongodb-atlas-how-to-create/mongodb-connnect.png)
 
-![mongodb, the Linux mascot](/assets/blog/mongodb-atlas-how-to-create/mongodb-connnect.png)
 ### Copy connection URI string and replace password and database name:
 
 Before:
