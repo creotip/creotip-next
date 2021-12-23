@@ -16,16 +16,18 @@ import { serialize } from 'next-mdx-remote/serialize'
 import imageMetadata from 'lib/image-metadata'
 import rehypeHighlight from 'rehype-highlight'
 import { getPlaiceholder } from 'plaiceholder'
+import RecommendedPosts from 'components/recommended-posts'
+import { shuffle } from 'lib/shuffle'
 
 type Props = {
   post: PostType
   base64: string
-  morePosts: PostType[]
+  postsToRead: PostType[]
   preview?: boolean
   content: MDXRemoteSerializeResult
 }
 
-const Post = ({ post, morePosts, preview, base64 }: Props) => {
+const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   const router = useRouter()
   const mode = useColorModeValue('light', 'dark')
 
@@ -58,6 +60,8 @@ const Post = ({ post, morePosts, preview, base64 }: Props) => {
               />
               <PostBody content={post.content} />
             </Box>
+
+            <RecommendedPosts postsToRead={postsToRead} />
 
             <Giscus
               repo="creotip/creotip-next"
@@ -96,11 +100,24 @@ export async function getStaticProps({ params }: Params) {
     'coverImage',
   ])
 
+  const allPosts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'author',
+    'coverImage',
+    'excerpt',
+  ])
+
+  let randomPosts = shuffle(allPosts)
+  let postsToRead = [randomPosts[0], randomPosts[1]]
+
   const { css, img, base64, blurhash } = await getPlaiceholder(post.coverImage)
 
   return {
     props: {
       base64,
+      postsToRead,
       post: {
         ...post,
         content: await serialize(post.content, {
