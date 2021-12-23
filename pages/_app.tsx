@@ -31,7 +31,7 @@ function MyApp({
     useAckee(
       url,
       {
-        server: 'https://ackee-creotip.vercel.app/',
+        server: 'https://creotip.io/',
         domainId: 'ea31e3cd-6c5a-48a4-b290-99b4f734950e',
       },
       {
