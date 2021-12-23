@@ -1210,6 +1210,11 @@
   resolved "https://registry.yarnpkg.com/@trysound/sax/-/sax-0.2.0.tgz#cccaab758af56761eb7bf37af6f03f326dd798ad"
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
+"@types/ackee-tracker@*":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@types/ackee-tracker/-/ackee-tracker-5.0.2.tgz#f8440a4257431ab111ce10caa9394b8fc72e111a"
+  integrity sha512-0ieQOQmXlud6ez+USJLLdiXlo1if+vetB5ep0YpiE2IY+AzuEZe50ohbSNZq2VbbwG9ZBW2GhKShKEczRkmHuw==
+
 "@types/debug@^4.0.0":
   version "4.1.7"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.7.tgz#7cc0ea761509124709b8b2d1090d8f6c17aadb82"
@@ -1313,6 +1318,13 @@
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.6.tgz#250a7b16c3b91f672a24552ec64678eeb1d3a08d"
   integrity sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==
 
+"@types/use-ackee@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@types/use-ackee/-/use-ackee-2.0.0.tgz#0b29083a18b413215c5add229eb3096866d7e764"
+  integrity sha512-rLKdPEdtXZxfbBfptlRPV1DqJgNSVHYtHotlv8sc3bKmm0LCQ9yNARExGQL4zJ/CF2Wq5sD37LwRRraPiWOewA==
+  dependencies:
+    "@types/ackee-tracker" "*"
+
 "@types/warning@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/warning/-/warning-3.0.0.tgz#0d2501268ad8f9962b740d387c4654f5f8e23e52"
@@ -1361,6 +1373,13 @@
   dependencies:
     "@typescript-eslint/types" "4.33.0"
     eslint-visitor-keys "^2.0.0"
+
+ackee-tracker@^5.0.1:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/ackee-tracker/-/ackee-tracker-5.1.0.tgz#6c41ea5357973347c7c67a26009053bcc0345def"
+  integrity sha512-A7iKkGyUnEXuOzxultQB7hnm4bStYCo1c38MYRRihBfqUP8AImhtZOODb00t9xrXs/BTsg06bz1MKpXeMs9sYw==
+  dependencies:
+    platform "^1.3.6"
 
 acorn-jsx@^5.3.1:
   version "5.3.2"
@@ -4691,7 +4710,7 @@ plaiceholder@^2.2.0:
     node-cache "5.1.2"
     node-fetch "2.6.2"
 
-platform@1.3.6:
+platform@1.3.6, platform@^1.3.6:
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/platform/-/platform-1.3.6.tgz#48b4ce983164b209c2d45a107adb31f473a6e7a7"
   integrity sha512-fnWVljUchTro6RiCFvCXBbNhJc2NijN7oIQxbwsyL0buWJPG85v81ehlHI9fXrJsMNgTofEoWIQeClKpgxFLrg==
@@ -6008,6 +6027,13 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+use-ackee@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/use-ackee/-/use-ackee-3.0.0.tgz#d6ef77e68432765501691dba01a040bdda618a51"
+  integrity sha512-vErgP/OnZhSsxes8P/bePQqnjx8fV35iQsNBH+PomnNhHNl8CyRZqq1/gibaj9hF3edqKBr8CNOKSsnIYuycLw==
+  dependencies:
+    ackee-tracker "^5.0.1"
 
 use-callback-ref@^1.2.1, use-callback-ref@^1.2.3:
   version "1.2.5"
