@@ -31,11 +31,11 @@ function MyApp({
     useAckee(
       url,
       {
-        server: 'https://creotip.io/',
+        server: 'https://ackee-creotip.vercel.app/',
         domainId: 'ea31e3cd-6c5a-48a4-b290-99b4f734950e',
       },
       {
-        detailed: true,
+        detailed: false,
         ignoreLocalhost: true,
         ignoreOwnVisits: true,
       }
