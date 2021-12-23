@@ -35,7 +35,7 @@ function MyApp({
         domainId: 'ea31e3cd-6c5a-48a4-b290-99b4f734950e',
       },
       {
-        detailed: false,
+        detailed: true,
         ignoreLocalhost: true,
         ignoreOwnVisits: true,
       }
