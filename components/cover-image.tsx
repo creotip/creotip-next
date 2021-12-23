@@ -19,6 +19,7 @@ const CoverImage = ({ title, src, slug, base64 }: Props) => {
       alt={`Cover Image for ${title}`}
       blurDataURL={base64}
       placeholder="blur"
+      priority
     />
   )
   return (
