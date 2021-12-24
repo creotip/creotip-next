@@ -9,6 +9,8 @@ import { CacheProvider } from '@emotion/react'
 import createEmotionCache from 'lib/createEmotionCache'
 import { useRouter } from 'next/router'
 import { ackeeConfig } from 'configs/ackee-config'
+import useAckee from 'use-ackee'
+import { route } from 'next/dist/server/router'
 import { useEffect, useMemo } from 'react'
 import * as ackeeTracker from 'ackee-tracker'
 
@@ -42,13 +44,13 @@ function MyApp({
     instance.record(domainId, {
       ...attributes,
       siteLocation: url.href,
-    }).stop
+    })
   }
 
   useEffect(() => {
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
+      router.events.off('routeChangeComplete', () => instance.stop())
     }
   }, [router.events])
 
