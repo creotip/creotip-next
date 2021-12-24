@@ -1,7 +1,7 @@
 import type { Author } from './author'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
-export type PostType = {
+export interface Post {
   slug: string
   title: string
   date: string
@@ -12,6 +12,7 @@ export type PostType = {
     url: string
   }
   content: MDXRemoteSerializeResult
+  tags: string[]
 }
 
-export default PostType
+export default Post

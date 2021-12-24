@@ -12,15 +12,7 @@ const MoreStories = ({ posts }: Props) => {
       {/*<Box as="h2">More Stories</Box>*/}
       <SimpleGrid columns={[1, 1, 2]} gridGap="40px">
         {posts.map((post) => (
-          <PostPreview
-            key={post.slug}
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
-            slug={post.slug}
-            excerpt={post.excerpt}
-          />
+          <PostPreview key={post.slug} {...post} />
         ))}
       </SimpleGrid>
     </section>

@@ -2,17 +2,9 @@ import Avatar from './avatar'
 import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import Link from 'next/link'
-import type { Author } from '../types/author'
-import { Box, Divider, Flex, useColorModeValue } from '@chakra-ui/react'
-
-type Props = {
-  title: string
-  coverImage: string
-  date: string
-  excerpt: string
-  author: Author
-  slug: string
-}
+import type { Author } from 'types/author'
+import { Box, Divider, Flex, Tag, useColorModeValue } from '@chakra-ui/react'
+import type { Post } from 'types/post'
 
 const PostPreview = ({
   title,
@@ -21,16 +13,18 @@ const PostPreview = ({
   excerpt,
   author,
   slug,
-}: Props) => {
+  tags,
+}: Post) => {
   const mode = useColorModeValue('light', 'dark')
 
   return (
     <Box
       as="section"
-      boxShadow="xl"
+      // boxShadow="xl"
+      backgroundColor={mode === 'dark' ? 'gray.700' : 'gray.100'}
       rounded="md"
       p="6"
-      border={mode === 'dark' ? '1px solid #dadada45' : '1px solid transparent'}
+      // border={mode === 'dark' ? '1px solid #dadada45' : '1px solid transparent'}
     >
       {/*<Box mb="1rem">*/}
       {/*  <CoverImage slug={slug} title={title} src={coverImage} />*/}
@@ -41,14 +35,37 @@ const PostPreview = ({
           <a className="hover:underline">{title}</a>
         </Link>
       </Box>
-      <Divider mb={3} />
+      {/*<Divider mb={3} />*/}
       <Flex mb="0.5rem" fontSize="13px" alignItems="center">
         {/*<Avatar name={author.name} picture={author.picture} />*/}
-        <DateFormatter dateString={date} /> <Box mx=".5rem"> • </Box>
-        <Box>by {author.name}</Box>
+        {/*<DateFormatter dateString={date} /> <Box mx=".5rem"> • </Box>*/}
+        {/*<Box>by {author.name}</Box>*/}
+        {/*{tags.map((item: string) => (*/}
+        {/*  <Tag key={item} mr={2}>*/}
+        {/*    {item}*/}
+        {/*  </Tag>*/}
+        {/*))}*/}
       </Flex>
 
-      <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+      <Box>
+        <Box as="p" mb={4}>
+          {excerpt}
+        </Box>
+        <Flex mb="0.5rem" fontSize="13px" alignItems="center">
+          {/*<Avatar name={author.name} picture={author.picture} />*/}
+          {/*<DateFormatter dateString={date} /> <Box mx=".5rem"> • </Box>*/}
+          {/*<Box>by {author.name}</Box>*/}
+          {tags.map((item: string) => (
+            <Tag
+              key={item}
+              mr={2}
+              colorScheme={mode === 'dark' ? 'gray' : 'blackAlpha'}
+            >
+              {item}
+            </Tag>
+          ))}
+        </Flex>
+      </Box>
     </Box>
   )
 }

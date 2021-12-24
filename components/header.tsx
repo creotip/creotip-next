@@ -22,13 +22,14 @@ const Header = () => {
 
   return (
     <Box
-      position="sticky"
-      top="0"
-      zIndex="12"
-      bgColor={mode === 'light' ? 'white' : '#141922'}
-      borderBottom="1px solid #80808033"
+      // position="sticky"
+      // top="0"
+      // zIndex="12"
+      bgColor={mode === 'light' ? 'white' : 'gray.800'}
+      // borderBottom="1px solid #80808033"
       w="100%"
       mb="3rem"
+      // boxShadow="lg"
     >
       <Box
         as="header"

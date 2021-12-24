@@ -6,7 +6,7 @@ import PostHeader from 'components/post-header'
 import Layout from 'components/layout'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import PostTitle from 'components/post-title'
-import type { PostType } from 'types/post'
+import type { Post } from 'types/post'
 import SEO from 'components/seo'
 import siteConfig from 'configs/site-config'
 import { Box, useColorModeValue } from '@chakra-ui/react'
@@ -20,9 +20,9 @@ import RecommendedPosts from 'components/recommended-posts'
 import { shuffle } from 'lib/shuffle'
 
 type Props = {
-  post: PostType
+  post: Post
   base64: string
-  postsToRead: PostType[]
+  postsToRead: Post[]
   preview?: boolean
   content: MDXRemoteSerializeResult
 }
@@ -98,6 +98,7 @@ export async function getStaticProps({ params }: Params) {
     'content',
     'ogImage',
     'coverImage',
+    'tags',
   ])
 
   const allPosts = getAllPosts([
@@ -107,6 +108,7 @@ export async function getStaticProps({ params }: Params) {
     'author',
     'coverImage',
     'excerpt',
+    'tags',
   ])
 
   let randomPosts = shuffle(allPosts)

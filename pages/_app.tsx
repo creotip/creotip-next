@@ -8,15 +8,16 @@ import { EmotionCache } from '@emotion/cache'
 import { CacheProvider } from '@emotion/react'
 import createEmotionCache from 'lib/createEmotionCache'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
-import useAckee from 'use-ackee'
+import { useEffect, useMemo } from 'react'
+import * as ackeeTracker from 'lib/ackee'
+import { ackeeConfig } from 'configs/ackee-config'
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache
 }
 
 const clientSideEmotionCache = createEmotionCache()
-
+const { server, options, domainId } = ackeeConfig
 function MyApp({
   Component,
   pageProps,
@@ -26,28 +27,25 @@ function MyApp({
   const mode = useColorModeValue('light', 'dark')
   const router = useRouter()
 
-  const handleRouteChange = (url: any) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useAckee(
-      url,
-      {
-        server: 'https://ackee-creotip.vercel.app/',
-        domainId: 'ea31e3cd-6c5a-48a4-b290-99b4f734950e',
-      },
-      {
-        detailed: true,
-        ignoreLocalhost: true,
-        ignoreOwnVisits: true,
-      }
-    )
-  }
+  const instance: any = useMemo(() => {
+    return ackeeTracker.create(server, options)
+  }, [])
 
   useEffect(() => {
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
+    const pathname = router.asPath
+    const hasPathname = pathname !== ''
+
+    if (!hasPathname) return
+
+    const attributes = ackeeTracker.attributes(options.detailed)
+    const url = new URL(pathname, location as any)
+
+    return instance.record(domainId, {
+      ...attributes,
+      siteLocation: url.href,
+    }).stop
+  }, [instance, router.asPath])
+
   return (
     <CacheProvider value={emotionCache}>
       <ChakraProvider theme={customTheme}>

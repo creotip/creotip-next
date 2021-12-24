@@ -3,13 +3,13 @@ import Container from 'components/container'
 import SEO from 'components/seo'
 import { getAllPosts } from 'lib/api'
 import dynamic from 'next/dynamic'
-import type { PostType } from 'types/post'
+import type { Post } from 'types/post'
 
 const DynamicHeroPost = dynamic(() => import('components/hero-post'))
 const DynamicMoreStories = dynamic(() => import('components/more-stories'))
 
 type Props = {
-  allPosts: PostType[]
+  allPosts: Post[]
 }
 
 const Home = ({ allPosts }: Props) => {
@@ -20,16 +20,7 @@ const Home = ({ allPosts }: Props) => {
       <SEO title="A blog for fullstack comrades" />
 
       <Container>
-        {heroPost && (
-          <DynamicHeroPost
-            title={heroPost.title}
-            coverImage={heroPost.coverImage}
-            date={heroPost.date}
-            author={heroPost.author}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-          />
-        )}
+        {heroPost && <DynamicHeroPost {...heroPost} />}
         {morePosts.length > 0 && <DynamicMoreStories posts={morePosts} />}
       </Container>
     </Layout>
@@ -46,6 +37,7 @@ export const getStaticProps = async () => {
     'author',
     'coverImage',
     'excerpt',
+    'tags',
   ])
 
   return {

@@ -16,6 +16,7 @@
     "@giscus/react": "^1.0.1",
     "@loadable/component": "^5.15.2",
     "@stefanprobst/remark-shiki": "^2.0.2",
+    "ackee-tracker": "^5.1.0",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "date-fns": "^2.27.0",
     "framer-motion": "^4",

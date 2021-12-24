@@ -3,6 +3,7 @@ title: 'How to create free mongodb atlas cloud database and use it with mongoose
 excerpt: 'Create free mongodb cloud database with mongodb atlas and use it in your react application'
 coverImage: '/assets/blog/mongodb-atlas-how-to-create/cover.webp'
 date: '2021-12-16T05:35:07.322Z'
+tags: ["mongodb", "mongoose", "atlas"]
 author:
   name: Ruslan Elishaev
   picture: '/assets/blog/authors/ruslan.png'
