@@ -9,8 +9,6 @@ import { CacheProvider } from '@emotion/react'
 import createEmotionCache from 'lib/createEmotionCache'
 import { useRouter } from 'next/router'
 import { ackeeConfig } from 'configs/ackee-config'
-import useAckee from 'use-ackee'
-import { route } from 'next/dist/server/router'
 import { useEffect, useMemo } from 'react'
 import * as ackeeTracker from 'ackee-tracker'
 
@@ -29,30 +27,24 @@ function MyApp({
   const mode = useColorModeValue('light', 'dark')
   const router = useRouter()
 
-  let instance: any = null
-
-  instance = useMemo(() => {
+  let instance: any = useMemo(() => {
     if (typeof window !== 'undefined') {
       return ackeeTracker.create(server, options)
     }
   }, [])
 
-  const handleRouteChange = (pathname: string) => {
+  useEffect(() => {
     const attributes = ackeeTracker.attributes(options.detailed)
-    const url = new URL(pathname, location as any)
+    const url = new URL(router.asPath, location as any)
 
-    instance.record(domainId, {
+    const { stop } = instance.record(domainId, {
       ...attributes,
       siteLocation: url.href,
     })
-  }
-
-  useEffect(() => {
-    router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
-      router.events.off('routeChangeComplete', () => instance.stop())
+      stop()
     }
-  }, [router.events])
+  }, [router.asPath])
 
   return (
     <CacheProvider value={emotionCache}>
