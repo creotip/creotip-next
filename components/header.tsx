@@ -37,7 +37,7 @@ const Header = () => {
         h="60px"
         maxWidth="750px"
         mx="auto"
-        px={2}
+        px={3}
       >
         <Flex fontWeight="800" py={5}>
           <Link href="/">
