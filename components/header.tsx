@@ -10,10 +10,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { FaMoon, FaSun, FaYoutube } from 'react-icons/fa'
-import { CreotipLogo, Logo, ReactIcon } from 'components/logo'
-import logoImage from '../images/creotip-logo2.svg'
-import logoImageWhite from '../images/creotip-logo-white.svg'
-import yellowStroke from '../images/yellow-stroke.png'
+import { Logo } from 'components/logo'
 
 const Header = () => {
   const { toggleColorMode: toggleMode } = useColorMode()
@@ -30,6 +27,7 @@ const Header = () => {
       w="100%"
       mb="3rem"
       // boxShadow="lg"
+      py={2}
     >
       <Box
         as="header"
@@ -41,11 +39,7 @@ const Header = () => {
         mx="auto"
         px={2}
       >
-        <Flex
-          fontWeight="800"
-          letterSpacing="2px"
-          backgroundImage="/yellow-stroke.png"
-        >
+        <Flex fontWeight="800" py={5}>
           <Link href="/">
             <Box
               as="a"
@@ -53,12 +47,7 @@ const Header = () => {
               cursor="pointer"
               className="hover:underline"
             >
-              <Image
-                src={mode === 'light' ? logoImage : logoImageWhite}
-                height={60}
-                width={60}
-                alt="creotip logo"
-              />
+              <Logo color={mode === 'dark' ? 'white' : '#2d3748'} />
             </Box>
           </Link>
         </Flex>

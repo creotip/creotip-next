@@ -8,12 +8,9 @@ import { EmotionCache } from '@emotion/cache'
 import { CacheProvider } from '@emotion/react'
 import createEmotionCache from 'lib/createEmotionCache'
 import { useRouter } from 'next/router'
-// import { useEffect, useMemo } from 'react'
-// import * as ackeeTracker from 'lib/ackee'
 import { ackeeConfig } from 'configs/ackee-config'
-import useAckee from 'use-ackee'
-import { route } from 'next/dist/server/router'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
+import * as ackeeTracker from 'ackee-tracker'
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache
@@ -30,57 +27,30 @@ function MyApp({
   const mode = useColorModeValue('light', 'dark')
   const router = useRouter()
 
-  // const instance: any = useMemo(() => {
-  //   return ackeeTracker.create(server, options)
-  // }, [])
+  let instance: any = null
 
-  // useEffect(() => {
-  //   const pathname = router.asPath
-  //   const hasPathname = pathname !== ''
-  //
-  //   if (!hasPathname) return
-  //
-  //   const attributes = ackeeTracker.attributes(options.detailed)
-  //   const url = new URL(pathname, location as any)
-  //
-  //   return instance.record(domainId, {
-  //     ...attributes,
-  //     siteLocation: url.href,
-  //   }).stop
-  // }, [instance, router.asPath])
+  instance = useMemo(() => {
+    if (typeof window !== 'undefined') {
+      return ackeeTracker.create(server, options)
+    }
+  }, [])
+
+  const handleRouteChange = (pathname: string) => {
+    const attributes = ackeeTracker.attributes(options.detailed)
+    const url = new URL(pathname, location as any)
+
+    instance.record(domainId, {
+      ...attributes,
+      siteLocation: url.href,
+    }).stop
+  }
 
   useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      // eslint-disable-next-line react-hooks/rules-of-hooks
-      useAckee(
-        url,
-        {
-          server: 'https://your.app',
-          domainId: 'your-domain-id',
-        },
-        {
-          detailed: false,
-          ignoreLocalhost: true,
-          ignoreOwnVisits: true,
-        }
-      )
-    }
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
   }, [router.events])
-
-  // if (typeof window !== 'undefined') {
-  //   useAckee(
-  //     router.asPath,
-  //     {
-  //       server,
-  //       domainId,
-  //     },
-  //     options
-  //   )
-  // }
 
   return (
     <CacheProvider value={emotionCache}>
