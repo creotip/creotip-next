@@ -40,20 +40,20 @@ Brevity is the sister of talent only as long as the code remains readable. Perfo
 
 - **const & let vs. var**
     - <https://javascript.info/variables>
-    - <https://ui.dev/var-let-const/>
-    - <https://alligator.io/js/var-let-const/>
+    - <https://ui.dev/var-let-const>
+    - <https://alligator.io/js/var-let-const>
 - **Hoisting, Arrow function, IIFE**
   - <https://developer.mozilla.org/en-US/docs/Glossary/Hoisting>
   - <https://javascript.info/var>
   - <https://javascript.info/arrow-functions-basics>
   - <https://javascript.info/arrow-functions>
-  - <https://flaviocopes.com/javascript-iife/>
+  - <https://flaviocopes.com/javascript-iife>
   - <http://adripofjavascript.com/blog/drips/an-introduction-to-iffes-immediately-invoked-function-expressions.html>
 - **Differences between bind, call & apply functions**
   - <https://wesbos.com/javascript/11-prototypes-this-new-and-inheritance/65-bind-call-and-apply>
-  - <https://andela.com/insights/how-and-when-to-use-call-apply-bind-and-this-in-javascript/>
+  - <https://andela.com/insights/how-and-when-to-use-call-apply-bind-and-this-in-javascript>
 - **XSS & CSRF (security)**
-  - <https://www.neuralegion.com/blog/csrf-vs-xss/>
+  - <https://www.neuralegion.com/blog/csrf-vs-xss>
   - <https://owasp.org/www-community/attacks/csrf>
 - **Job queue & Event loop**
   - <https://www.youtube.com/watch?v=8aGhZQkoFbQ>
@@ -77,15 +77,37 @@ Brevity is the sister of talent only as long as the code remains readable. Perfo
   - <https://felixgerschau.com/javascript-memory-management/>
   - <https://felixgerschau.com/javascript-event-loop-call-stack/>
   - <https://levelup.gitconnected.com/understanding-call-stack-and-heap-memory-in-js-e34bf8d3c3a4>
-- REST API, Cross-origin , Ajax
-- Functional programming concepts
-- Network protocols such TCP, HTTP, HTTPS, FTP, SSH, SSL, Sockets
-- Promises, Async/await
-- Understanding the “this” Keyword
-- Big O notation basics
-- Performance optimizations techniques
+- **REST API, Cross-origin , Ajax**
+  - <https://flaviocopes.com/rest-api/>
+  - <https://javascript.info/network>
+  - <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS>
+  - <https://auth0.com/blog/cors-tutorial-a-guide-to-cross-origin-resource-sharing>
+  - <https://en.wikipedia.org/wiki/Ajax_(programming)>
+  - <https://www.ibm.com/docs/en/rational-soft-arch/9.6.1?topic=page-asynchronous-javascript-xml-ajax-overview>
+- **Functional programming concepts**
+  - <https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0>
+  - <https://snipcart.com/blog/functional-programming-paradigm-concepts>
+- **Network protocols such TCP, HTTP, HTTPS, FTP, SSH, SSL, Sockets**
+  - <https://www.computernetworkingnotes.com/networking-tutorials/types-of-network-protocols-explained-with-functions.html>
+  - <https://bluefinch.com/what-are-the-different-types-of-transfer-protocols-available>
+  - <https://www.raywenderlich.com/13209594-an-introduction-to-websockets>
+  - <https://www.html5rocks.com/en/tutorials/websockets/basics>
+- **Promises, Async/await**
+  - <https://javascript.info/async>
+  - <https://www.toptal.com/javascript/asynchronous-javascript-async-await-tutorial>
+  - <https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await>
+- **Understanding the “this” Keyword**
+  - <https://www.30secondsofcode.org/articles/s/javascript-this>
+  - <https://javascript.info/object-methods#method-examples>
+  - <https://dmitripavlutin.com/gentle-explanation-of-this-in-javascript>
+  - <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this>
+- **Big O notation basics**
+  - <https://www.youtube.com/watch?v=388nF8g8pvo>
+  - <https://javascript.plainenglish.io/learn-big-o-notation-in-5-minutes-c24e647c4309>
+  - <https://www.doabledanny.com/big-o-notation-in-javascript>
+  - <https://www.digitalocean.com/community/tutorials/js-big-o-notation>
+- **Performance optimizations techniques**
+  - <https://developer.mozilla.org/en-US/docs/Web/Performance>
+  - <https://sematext.com/blog/improve-website-performance>
+  - <https://mindstacktechnologies.com/blog/web-optimization-techniques>
 
-### Resources
-- [Recoil](https://recoiljs.org/)
-- [recoil-gear](https://github.com/creotip/recoil-gear)
-- [Redux DevTools](https://github.com/zalmoxisus/redux-devtools-extension)
