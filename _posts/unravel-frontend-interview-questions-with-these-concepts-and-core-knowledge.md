@@ -49,13 +49,30 @@ Brevity is the sister of talent only as long as the code remains readable. Perfo
   - <https://javascript.info/arrow-functions>
   - <https://flaviocopes.com/javascript-iife/>
   - <http://adripofjavascript.com/blog/drips/an-introduction-to-iffes-immediately-invoked-function-expressions.html>
-- **Differences between bind, call & apply for functions**
-- XSS & CSRF (security)
-- Job queue & Event loop
-- Design patterns like Prototype, Factory, Singleton, Observer
-- Reference vs Value
-- Differences between deep and shallow copies
-- Closures
+- **Differences between bind, call & apply functions**
+  - <https://wesbos.com/javascript/11-prototypes-this-new-and-inheritance/65-bind-call-and-apply>
+  - <https://andela.com/insights/how-and-when-to-use-call-apply-bind-and-this-in-javascript/>
+- **XSS & CSRF (security)**
+  - <https://www.neuralegion.com/blog/csrf-vs-xss/>
+  - <https://owasp.org/www-community/attacks/csrf>
+- **Job queue & Event loop**
+  - <https://www.youtube.com/watch?v=8aGhZQkoFbQ>
+  - <https://flaviocopes.com/javascript-event-loop/>
+- **Design patterns like Prototype, Factory, Singleton, Observer**
+  - <https://www.patterns.dev/posts/prototype-pattern/>
+  - <https://www.dofactory.com/javascript/design-patterns/prototype>
+  - <https://www.patterns.dev/posts/factory-pattern/>
+  - <https://www.patterns.dev/posts/singleton-pattern/>
+  - <https://www.dofactory.com/javascript/design-patterns/singleton>
+  - <https://www.patterns.dev/posts/observer-pattern/>
+- **Reference vs Value**
+  - <https://dmitripavlutin.com/value-vs-reference-javascript/>
+  - <https://ui.dev/primitive-vs-reference-values-in-javascript/>
+- **Differences between deep and shallow copies**
+  - <https://web.dev/structured-clone/>
+- **Closures**
+  - <https://javascript.info/closure>
+  - <https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/README.md>
 - Call Stack and Heap Memory
 - REST API, Cross-origin , Ajax
 - Functional programming concepts

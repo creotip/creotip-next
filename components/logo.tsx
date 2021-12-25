@@ -1,22 +1,29 @@
 import { Box } from '@chakra-ui/react'
+import { LogoJsonLd } from 'next-seo'
+import siteConfig from 'configs/site-config'
 
 export const Logo = ({ color }: { color?: string }) => (
-  <Box
-    as="svg"
-    version="1.0"
-    xmlns="http://www.w3.org/2000/svg"
-    width="70px"
-    height="70px"
-    viewBox="0 0 1624.000000 1623.000000"
-    preserveAspectRatio="xMidYMid meet"
-  >
-    <g
-      transform="translate(0.000000,1623.000000) scale(0.100000,-0.100000)"
-      fill={color}
-      stroke="none"
+  <>
+    <LogoJsonLd
+      logo={`${siteConfig.seo.siteUrl}/logo.png`}
+      url={siteConfig.seo.siteUrl}
+    />
+    <Box
+      as="svg"
+      version="1.0"
+      xmlns="http://www.w3.org/2000/svg"
+      width="70px"
+      height="70px"
+      viewBox="0 0 1624.000000 1623.000000"
+      preserveAspectRatio="xMidYMid meet"
     >
-      <path
-        d="M7670 15714 c-19 -2 -102 -8 -185 -14 -1158 -84 -2319 -452 -3335
+      <g
+        transform="translate(0.000000,1623.000000) scale(0.100000,-0.100000)"
+        fill={color}
+        stroke="none"
+      >
+        <path
+          d="M7670 15714 c-19 -2 -102 -8 -185 -14 -1158 -84 -2319 -452 -3335
 -1058 -741 -442 -1412 -1017 -1985 -1702 -230 -275 -526 -700 -719 -1030 -126
 -215 -332 -627 -431 -860 -345 -816 -538 -1640 -596 -2548 -23 -358 -3 -1005
 41 -1372 161 -1324 665 -2587 1455 -3650 1060 -1425 2578 -2442 4285 -2870
@@ -55,7 +62,8 @@ l102 1 0 -888z m860 862 c1389 -130 2675 -636 3775 -1484 437 -337 897 -791
 -571 -1904 -971 -2942 -1120 -258 -37 -630 -71 -782 -71 l-63 0 0 889 0 889
 88 7 c702 51 1252 179 1837 427 152 65 442 208 570 282 l80 46 647 -647 647
 -647 -82 -55z"
-      />
-    </g>
-  </Box>
+        />
+      </g>
+    </Box>
+  </>
 )
