@@ -2,15 +2,9 @@ const baseUrl = 'https://github.com/chakra-ui/chakra-ui'
 
 const siteConfig = {
   copyright: `Copyright © ${new Date().getFullYear()} creotip. All Rights Reserved.`,
-  algolia: {
-    apiKey: 'df1dcc41f7b8e5d68e73dd56d1e19701',
-    indexName: 'chakra-ui',
-    inputSelector: '#algolia-search',
-  },
   author: {
     name: 'Ruslan Elishaev',
     github: 'https://github.com/creotip',
-    twitter: 'https://twitter.com/thesegunadebayo',
     linkedin: 'https://www.linkedin.com/in/ruslan-elisha-aa6a5912a/',
     email: 'creotip@gmail.com',
   },
@@ -19,29 +13,17 @@ const siteConfig = {
     editUrl: `${baseUrl}/edit/main/website/pages`,
     blobUrl: `${baseUrl}/blob/main`,
   },
-  openCollective: {
-    url: 'https://opencollective.com/chakra-ui',
-  },
-  discord: {
-    url: 'https://discord.gg/chakra-ui',
-  },
-  youtube: 'https://www.youtube.com/channel/UC4TmDovH46TB4S0SM0Y4CIg',
   seo: {
-    title: 'creotip',
+    title: 'creotip - A blog for fullstack comrades',
     titleTemplate: '%s | creotip',
     description:
       'A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
-    siteUrl: 'https://chakra-ui.com',
-    twitter: {
-      handle: '@chakra-ui',
-      site: '@chakra-ui',
-      cardType: 'summary_large_image',
-    },
+    siteUrl: 'https://creotip.io',
     openGraph: {
       type: 'website',
       locale: 'en_US',
-      url: 'https://chakra-ui.com',
-      title: 'Chakra UI',
+      url: 'https://creotip.io',
+      title: 'Creotip',
       description:
         'A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
       site_name:

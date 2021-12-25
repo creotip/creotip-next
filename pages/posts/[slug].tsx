@@ -18,6 +18,7 @@ import rehypeHighlight from 'rehype-highlight'
 import { getPlaiceholder } from 'plaiceholder'
 import RecommendedPosts from 'components/recommended-posts'
 import { shuffle } from 'lib/shuffle'
+import { ArticleJsonLd } from 'next-seo'
 
 type Props = {
   post: Post
@@ -36,6 +37,17 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   }
   return (
     <Layout preview={preview}>
+      <ArticleJsonLd
+        url={`${siteConfig.seo.siteUrl}/posts/${post.slug}`}
+        title={post.title}
+        images={[siteConfig.seo.siteUrl + post.coverImage]}
+        datePublished={post.date}
+        dateModified={post.date}
+        authorName={post.author.name}
+        publisherName={post.author.name}
+        publisherLogo={siteConfig.seo.siteUrl + post.author.picture}
+        description={post.excerpt}
+      />
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
