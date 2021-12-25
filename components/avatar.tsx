@@ -18,10 +18,10 @@ const Avatar = ({ name, picture }: Props) => {
         <Img src={picture} alt={name} width="30px" height="30px" />
       </Box>
       <Box mx={2}>
-        By
+        By{' '}
         <span itemProp="author" itemScope itemType="http://schema.org/Person">
           <span itemProp="name">Ruslan Elishaev</span>
-        </span>{' '}
+        </span>
         ,
       </Box>
     </Flex>
