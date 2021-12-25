@@ -17,8 +17,12 @@ const Avatar = ({ name, picture }: Props) => {
       <Box>
         <Img src={picture} alt={name} width="30px" height="30px" />
       </Box>
-      <Box mx={2} itemProp="author">
-        By {name},
+      <Box mx={2}>
+        By
+        <span itemProp="author" itemScope itemType="http://schema.org/Person">
+          <span itemProp="name">Ruslan Elishaev,</span>
+        </span>{' '}
+        ,
       </Box>
     </Flex>
   )
