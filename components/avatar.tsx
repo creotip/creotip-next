@@ -17,7 +17,9 @@ const Avatar = ({ name, picture }: Props) => {
       <Box>
         <Img src={picture} alt={name} width="30px" height="30px" />
       </Box>
-      <Box mx={2}>By {name},</Box>
+      <Box mx={2} itemProp="author">
+        By {name},
+      </Box>
     </Flex>
   )
 }

@@ -1,9 +1,12 @@
+import { Box } from '@chakra-ui/react'
+
 export const Logo = ({ color }: { color?: string }) => (
-  <svg
+  <Box
+    as="svg"
     version="1.0"
     xmlns="http://www.w3.org/2000/svg"
-    width="60px"
-    height="60px"
+    width="70px"
+    height="70px"
     viewBox="0 0 1624.000000 1623.000000"
     preserveAspectRatio="xMidYMid meet"
   >
@@ -54,5 +57,5 @@ l102 1 0 -888z m860 862 c1389 -130 2675 -636 3775 -1484 437 -337 897 -791
 -647 -82 -55z"
       />
     </g>
-  </svg>
+  </Box>
 )

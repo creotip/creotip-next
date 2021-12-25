@@ -111,7 +111,7 @@ export async function getStaticProps({ params }: Params) {
     'tags',
   ])
 
-  let randomPosts = shuffle(allPosts)
+  let randomPosts = shuffle(allPosts).filter((item) => item.slug !== post.slug)
   let postsToRead = [randomPosts[0], randomPosts[1]]
 
   const { css, img, base64, blurhash } = await getPlaiceholder(post.coverImage)
