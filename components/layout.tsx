@@ -13,7 +13,7 @@ const Layout = ({ children }: Props) => {
     <>
       <Flex minHeight="100vh" alignItems="center" flexDir="column">
         <Header />
-        <Box as="main">{children}</Box>
+        {children}
         <Box as="footer" p={5} mt={8}>
           <a href="https://creotip.io/">Powered by creotip</a>
         </Box>
