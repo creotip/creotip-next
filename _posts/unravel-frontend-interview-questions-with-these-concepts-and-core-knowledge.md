@@ -36,7 +36,7 @@ Even if you are not doing tests for your code, you will probably have to do it i
 
 Brevity is the sister of talent only as long as the code remains readable. Performance and code cleanliness are important but don’t get too carried away with shortcuts or your code will end up being a hard-to-read set of methods.
 
-## Fundamental javascript topics to learn
+## Fundamental javascript and programming topics to learn
 
 - **const & let vs. var**
     - <https://javascript.info/variables>
