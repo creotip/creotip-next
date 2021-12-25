@@ -73,7 +73,10 @@ Brevity is the sister of talent only as long as the code remains readable. Perfo
 - **Closures**
   - <https://javascript.info/closure>
   - <https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/README.md>
-- Call Stack and Heap Memory
+- **Call Stack and Heap Memory**
+  - <https://felixgerschau.com/javascript-memory-management/>
+  - <https://felixgerschau.com/javascript-event-loop-call-stack/>
+  - <https://levelup.gitconnected.com/understanding-call-stack-and-heap-memory-in-js-e34bf8d3c3a4>
 - REST API, Cross-origin , Ajax
 - Functional programming concepts
 - Network protocols such TCP, HTTP, HTTPS, FTP, SSH, SSL, Sockets
