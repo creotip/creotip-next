@@ -48,7 +48,7 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
         publisherLogo={siteConfig.seo.siteUrl + post.author.picture}
         description={post.excerpt}
       />
-      <Container>
+      <Container mt={10}>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (

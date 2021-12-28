@@ -13,7 +13,13 @@ const Layout = ({ children }: Props) => {
     <>
       <Flex minHeight="100vh" alignItems="center" flexDir="column">
         <Header />
-        <Box as="main" display="flex" flexDirection="column" maxW="100%">
+        <Box
+          as="main"
+          display="flex"
+          flexDirection="column"
+          maxW="100%"
+          width="100%"
+        >
           {children}
         </Box>
         <Box as="footer" p={5} mt={8}>

@@ -1,13 +1,13 @@
 import { ReactNode } from 'react'
-import { Box } from '@chakra-ui/react'
+import { Box, BoxProps } from '@chakra-ui/react'
 
-type Props = {
+interface Props extends BoxProps {
   children?: ReactNode
 }
 
-const Container = ({ children }: Props) => {
+const Container = ({ children, ...props }: Props) => {
   return (
-    <Box maxW="750px" w="full" mx="auto" px={3}>
+    <Box maxW="750px" w="full" mx="auto" px={3} {...props}>
       {children}
     </Box>
   )

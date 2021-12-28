@@ -11,19 +11,28 @@ import {
 } from '@chakra-ui/react'
 import { FaMoon, FaSun, FaYoutube } from 'react-icons/fa'
 import { Logo } from 'components/logo'
+import { useRouter } from 'next/router'
 
 const Header = () => {
   const { toggleColorMode: toggleMode } = useColorMode()
   const mode = useColorModeValue('light', 'dark')
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
+  const router = useRouter()
 
+  console.log(router)
   return (
     <Box
       as="header"
       bgColor={mode === 'light' ? 'white' : 'gray.800'}
       w="100%"
-      mb="3rem"
       py={2}
+      bg={
+        router.pathname === '/'
+          ? mode === 'light'
+            ? 'linear-gradient(to right, rgb(227 234 241), #fafbfd)'
+            : 'linear-gradient(to right, rgb(26 32 43), #455062)'
+          : 'none'
+      }
     >
       <Box
         display="flex"
