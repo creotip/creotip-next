@@ -11,6 +11,10 @@ ogImage:
     url: '/assets/blog/interview.jpeg'
 ---
 
+- **Prepare yourself for a frontend/fullstack interview**
+- **Understand basic aspects of frontend/fullstack interview**
+- **Learn fundamental javascript topics which are must-have for a frontend developer**
+
 ## Front-end developer technical interview: tips
 
 Try not to google ready-made solutions
