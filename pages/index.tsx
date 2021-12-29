@@ -42,7 +42,7 @@ const Home = ({ allPosts }: Props) => {
         <Box
           as="h1"
           fontWeight={['300', '200']}
-          fontSize={['1rem', '1.2rem', '2rem']}
+          fontSize={['1.3rem', '1.4rem', '2rem']}
         >
           A Blog for FullStack Comrades
         </Box>
