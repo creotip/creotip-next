@@ -1,17 +1,23 @@
 import Link from 'next/link'
-import Image from 'next/image'
-
+import { HTMLMotionProps, motion } from 'framer-motion'
 import {
   Box,
+  chakra,
   Flex,
   Grid,
+  HTMLChakraProps,
   IconButton,
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { FaMoon, FaSun, FaYoutube } from 'react-icons/fa'
+import { FaMoon, FaSun } from 'react-icons/fa'
 import { Logo } from 'components/logo'
 import { useRouter } from 'next/router'
+import React from 'react'
+
+type Merge<P, T> = Omit<P, keyof T> & T
+type MotionBoxProps = Merge<HTMLChakraProps<'div'>, HTMLMotionProps<'div'>>
+export const MotionBox: React.FC<MotionBoxProps> = motion(chakra.div)
 
 const Header = () => {
   const { toggleColorMode: toggleMode } = useColorMode()
@@ -19,7 +25,7 @@ const Header = () => {
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
   const router = useRouter()
 
-  console.log(router)
+  console.log('rendered')
   return (
     <Box
       as="header"
