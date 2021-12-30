@@ -11,7 +11,7 @@ ogImage:
   url: '/assets/blog/question.jpeg'
 ---
 
-## Summarys
+## Summary
 - **Use query params as state manager in react app**
 - **Implement useQueryParams hook as state manager for e-commerce products filters**
 - **Share the stateful app link**

@@ -62,7 +62,13 @@ const HeroPost = ({
       backgroundColor={mode === 'dark' ? 'gray.700' : 'gray.100'}
     >
       <Box>
-        <Box as="h2" fontWeight="600" fontSize="1.3rem" mb="1rem">
+        <Box
+          as="h2"
+          lineHeight="1.3"
+          fontWeight="800"
+          fontSize={['1.5rem', '2rem']}
+          mb="1rem"
+        >
           <Link as={`/posts/${slug}`} href="/posts/[slug]">
             <a className="hover:underline">{title}</a>
           </Link>
