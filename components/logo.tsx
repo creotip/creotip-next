@@ -1,4 +1,3 @@
-import { Box } from '@chakra-ui/react'
 import { LogoJsonLd } from 'next-seo'
 import siteConfig from 'configs/site-config'
 
@@ -8,8 +7,7 @@ export const Logo = ({ color }: { color?: string }) => (
       logo={`${siteConfig.seo.siteUrl}/logo.png`}
       url={siteConfig.seo.siteUrl}
     />
-    <Box
-      as="svg"
+    <svg
       version="1.0"
       xmlns="http://www.w3.org/2000/svg"
       width="70px"
@@ -64,6 +62,6 @@ l102 1 0 -888z m860 862 c1389 -130 2675 -636 3775 -1484 437 -337 897 -791
 -647 -82 -55z"
         />
       </g>
-    </Box>
+    </svg>
   </>
 )
