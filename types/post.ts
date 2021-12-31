@@ -4,6 +4,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 export interface Post {
   slug: string
   title: string
+  description: string
   date: string
   coverImage: string
   author: Author

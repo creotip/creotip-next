@@ -62,6 +62,21 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
               <SEO
                 title={post.title}
                 description={post.excerpt || siteConfig.seo.description}
+                openGraph={{
+                  url: post.slug,
+                  title: `${post.title} | creotip.io`,
+                  description: post.description,
+                  images: [
+                    {
+                      url: `https://og-image-creotip.vercel.app/${post.title}.png`,
+                      width: 800,
+                      height: 600,
+                      alt: post.title,
+                      type: 'image/png',
+                    },
+                  ],
+                  site_name: 'creotip.io',
+                }}
               />
               <PostHeader
                 title={post.title}
