@@ -20,7 +20,7 @@ const Home = ({ allPosts }: Props) => {
 
   return (
     <Layout>
-      <SEO title="A blog for fullstack comrades" />
+      <SEO title="Creotip - A blog for fullstack comrades" />
       <Flex
         className="banner"
         justifyContent="center"
