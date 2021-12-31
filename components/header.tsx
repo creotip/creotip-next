@@ -9,7 +9,7 @@ import {
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { FaMoon, FaSun, FaYoutube } from 'react-icons/fa'
+import { FaMoon, FaSun } from 'react-icons/fa'
 import { Logo } from 'components/logo'
 import { useRouter } from 'next/router'
 
@@ -42,7 +42,7 @@ const Header = () => {
         mx="auto"
         px={3}
       >
-        <Flex fontWeight="800">
+        <Flex fontWeight="800" maxWidth="70px">
           <Link href="/">
             <Box
               as="a"
