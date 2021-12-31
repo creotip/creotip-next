@@ -52,7 +52,7 @@ function MyApp({
         <Head>
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
-          <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png" />
+          <link rel="icon" type="image/png" sizes="96x96" href="/logo.png" />
           <meta
             name="google-site-verification"
             content="aTbQBMj8oiDmPHyuWHqMoxuv3NGKzHWCLV3rzlIJawo"

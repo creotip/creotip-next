@@ -1,4 +1,4 @@
-const baseUrl = 'https://github.com/chakra-ui/chakra-ui'
+const baseUrl = 'https://github.com/creotip'
 
 const siteConfig = {
   copyright: `Copyright © ${new Date().getFullYear()} creotip. All Rights Reserved.`,
