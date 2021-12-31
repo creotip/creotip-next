@@ -17,7 +17,7 @@ const siteConfig = {
     title: 'creotip - A blog for fullstack comrades',
     titleTemplate: '%s | creotip',
     description:
-      'A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
+      'A fullstack development blog. Javascript, react, apollo, microservices and kubernetes',
     siteUrl: 'https://creotip.io',
     openGraph: {
       type: 'website',
@@ -25,21 +25,20 @@ const siteConfig = {
       url: 'https://creotip.io',
       title: 'Creotip',
       description:
-        'A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
-      site_name:
-        'creotip: A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
+        'A fullstack development blog. Javascript, react, apollo, microservices and kubernetes',
+      site_name: 'A Blog for FullStack Comrades',
       images: [
         {
           url: 'https://creotip.io/creotip-og-dark.png',
           width: 1240,
           height: 480,
-          alt: 'creotip: A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
+          alt: 'A fullstack development blog.',
         },
         {
           url: 'https://creotip.io/creotip-og-dark.png',
           width: 1012,
           height: 506,
-          alt: 'creotip: A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
+          alt: 'A fullstack development blog.',
         },
       ],
     },
