@@ -30,13 +30,13 @@ const siteConfig = {
         'creotip: A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
       images: [
         {
-          url: 'https://chakra-ui.com/og-image.png',
+          url: 'https://creotip.io/creotip-og-dark.png',
           width: 1240,
           height: 480,
           alt: 'creotip: A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
         },
         {
-          url: 'https://chakra-ui.com/twitter-og-image.png',
+          url: 'https://creotip.io/creotip-og-dark.png',
           width: 1012,
           height: 506,
           alt: 'creotip: A blog about fullstack development. Javascript, react, apollo, microservices and kubernetes',
