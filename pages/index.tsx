@@ -5,6 +5,8 @@ import { getAllPosts } from 'lib/api'
 import dynamic from 'next/dynamic'
 import type { Post } from 'types/post'
 import { Box, Flex, useColorModeValue } from '@chakra-ui/react'
+import { DefaultSeo } from 'next-seo'
+import { getSeo } from 'lib/getSeo'
 
 const DynamicHeroPost = dynamic(() => import('components/hero-post'))
 const DynamicMoreStories = dynamic(() => import('components/more-stories'))
@@ -14,13 +16,14 @@ type Props = {
 }
 
 const Home = ({ allPosts }: Props) => {
+  const seo = getSeo()
   const mode = useColorModeValue('light', 'dark')
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
 
   return (
     <Layout>
-      <SEO title="Creotip - A blog for fullstack comrades" />
+      <SEO {...seo} />
       <Flex
         className="banner"
         justifyContent="center"

@@ -68,7 +68,7 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
                   description: post.description,
                   images: [
                     {
-                      url: `https://og-image-creotip.vercel.app/${post.title}.png`,
+                      url: `https://og-image-creotip.vercel.app/${post.title}.png?theme=dark`,
                       width: 800,
                       height: 600,
                       alt: post.title,

@@ -23,7 +23,6 @@ function MyApp({
   pageProps,
   emotionCache = clientSideEmotionCache,
 }: MyAppProps) {
-  const seo = getSeo()
   const mode = useColorModeValue('light', 'dark')
   const router = useRouter()
 
@@ -63,7 +62,6 @@ function MyApp({
             content={mode === 'light' ? 'white' : '#141922'}
           />
         </Head>
-        <DefaultSeo {...seo} />
 
         <Component {...pageProps} />
       </ChakraProvider>
