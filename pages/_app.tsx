@@ -1,8 +1,6 @@
 import { Box, ChakraProvider, useColorModeValue } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { DefaultSeo } from 'next-seo'
-import { getSeo } from 'lib/getSeo'
 import customTheme from 'configs/theme'
 import { EmotionCache } from '@emotion/cache'
 import { CacheProvider } from '@emotion/react'
@@ -11,6 +9,7 @@ import { useRouter } from 'next/router'
 import { ackeeConfig } from 'configs/ackee-config'
 import { useEffect, useMemo } from 'react'
 import * as ackeeTracker from 'ackee-tracker'
+import PlausibleProvider from 'next-plausible'
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache
@@ -46,26 +45,31 @@ function MyApp({
   }, [router.asPath])
 
   return (
-    <CacheProvider value={emotionCache}>
-      <ChakraProvider theme={customTheme}>
-        <Head>
-          <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-          <meta content="width=device-width, initial-scale=1" name="viewport" />
-          <link rel="icon" type="image/png" sizes="96x96" href="/logo.png" />
-          <meta
-            name="google-site-verification"
-            content="aTbQBMj8oiDmPHyuWHqMoxuv3NGKzHWCLV3rzlIJawo"
-          />
-          <Box
-            as="meta"
-            name="theme-color"
-            content={mode === 'light' ? 'white' : '#141922'}
-          />
-        </Head>
+    <PlausibleProvider domain="https://creotip.io/">
+      <CacheProvider value={emotionCache}>
+        <ChakraProvider theme={customTheme}>
+          <Head>
+            <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+            <meta
+              content="width=device-width, initial-scale=1"
+              name="viewport"
+            />
+            <link rel="icon" type="image/png" sizes="96x96" href="/logo.png" />
+            <meta
+              name="google-site-verification"
+              content="aTbQBMj8oiDmPHyuWHqMoxuv3NGKzHWCLV3rzlIJawo"
+            />
+            <Box
+              as="meta"
+              name="theme-color"
+              content={mode === 'light' ? 'white' : '#141922'}
+            />
+          </Head>
 
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </CacheProvider>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </CacheProvider>
+    </PlausibleProvider>
   )
 }
 
