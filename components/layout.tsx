@@ -1,7 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react'
 import React from 'react'
 import Header from 'components/header'
-// import Meta from './meta'
 
 type Props = {
   preview?: boolean

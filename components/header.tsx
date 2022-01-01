@@ -41,7 +41,7 @@ const Header = () => {
         mx="auto"
         px={3}
       >
-        <Flex fontWeight="800" maxWidth="70px">
+        <Flex fontWeight="700" maxWidth="70px">
           <Link href="/">
             <Box
               as="a"

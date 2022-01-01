@@ -65,7 +65,7 @@ const HeroPost = ({
         <Box
           as="h2"
           lineHeight="1.3"
-          fontWeight="800"
+          fontWeight="700"
           fontSize={['1.5rem', '2rem']}
           mb="1rem"
         >

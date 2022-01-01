@@ -5,7 +5,6 @@ import { getAllPosts } from 'lib/api'
 import dynamic from 'next/dynamic'
 import type { Post } from 'types/post'
 import { Box, Flex, useColorModeValue } from '@chakra-ui/react'
-import { DefaultSeo } from 'next-seo'
 import { getSeo } from 'lib/getSeo'
 
 const DynamicHeroPost = dynamic(() => import('components/hero-post'))

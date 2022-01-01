@@ -955,6 +955,16 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/inter@^4.5.1":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.1.tgz#058d8a02354f3c78e369d452c15d33557ec1b705"
+  integrity sha512-mvtOvXNNVLlF1p/UbLgLrmz2RCOl6Ow+TqyiK10SosoLKX7edsXYiHFHb7XIZdjII6F2sJVPPsJXWhBnbXT2DQ==
+
+"@fontsource/playfair-display@^4.5.1":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/playfair-display/-/playfair-display-4.5.1.tgz#2cdbe3300013091ea02dc663e9ebf30b47e2d221"
+  integrity sha512-D+/7sLkDj9k7i5IfyF6BjtpIppLTE2N30lxmzWtVJJ0LA2PsyfNCXy+8/b3ZrkzNByaOtOlByVeGfE+9X/4tZA==
+
 "@giscus/react@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@giscus/react/-/react-1.0.1.tgz#3fae2b5e00912a76cb136679f6229d3d6ea28898"
