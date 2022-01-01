@@ -45,31 +45,26 @@ function MyApp({
   }, [router.asPath])
 
   return (
-    <PlausibleProvider domain="https://creotip.io">
-      <CacheProvider value={emotionCache}>
-        <ChakraProvider theme={customTheme}>
-          <Head>
-            <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-            <meta
-              content="width=device-width, initial-scale=1"
-              name="viewport"
-            />
-            <link rel="icon" type="image/png" sizes="96x96" href="/logo.png" />
-            <meta
-              name="google-site-verification"
-              content="aTbQBMj8oiDmPHyuWHqMoxuv3NGKzHWCLV3rzlIJawo"
-            />
-            <Box
-              as="meta"
-              name="theme-color"
-              content={mode === 'light' ? 'white' : '#141922'}
-            />
-          </Head>
+    <CacheProvider value={emotionCache}>
+      <ChakraProvider theme={customTheme}>
+        <Head>
+          <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
+          <link rel="icon" type="image/png" sizes="96x96" href="/logo.png" />
+          <meta
+            name="google-site-verification"
+            content="aTbQBMj8oiDmPHyuWHqMoxuv3NGKzHWCLV3rzlIJawo"
+          />
+          <Box
+            as="meta"
+            name="theme-color"
+            content={mode === 'light' ? 'white' : '#141922'}
+          />
+        </Head>
 
-          <Component {...pageProps} />
-        </ChakraProvider>
-      </CacheProvider>
-    </PlausibleProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </CacheProvider>
   )
 }
 

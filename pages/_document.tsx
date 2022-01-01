@@ -5,7 +5,13 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <script
+            defer
+            data-domain="creotip.io"
+            src="https://plausible.io/js/plausible.js"
+          />
+        </Head>
         <body>
           <ColorModeScript />
           <Main />
