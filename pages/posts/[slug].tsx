@@ -1,4 +1,3 @@
-import '@fontsource/playfair-display/500.css'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from 'components/container'
@@ -11,7 +10,7 @@ import type { Post } from 'types/post'
 import SEO from 'components/seo'
 import siteConfig from 'configs/site-config'
 import { Box, useColorModeValue } from '@chakra-ui/react'
-import { Giscus } from '@giscus/react'
+import { Giscus, GiscusProps } from '@giscus/react'
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import imageMetadata from 'lib/image-metadata'
@@ -21,6 +20,12 @@ import RecommendedPosts from 'components/recommended-posts'
 import { shuffle } from 'lib/shuffle'
 import { ArticleJsonLd } from 'next-seo'
 import { replaceWhitespace } from 'lib/utils'
+import { useInViewRef } from 'lib/use-in-view'
+import dynamic from 'next/dynamic'
+
+const DynamicGiscus: any = dynamic(() =>
+  import('@giscus/react').then((mod: any) => mod.Giscus)
+)
 
 type Props = {
   post: Post
@@ -33,6 +38,7 @@ type Props = {
 const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   const router = useRouter()
   const mode = useColorModeValue('light', 'dark')
+  const [myRef, inView] = useInViewRef()
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -99,16 +105,20 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
 
             <RecommendedPosts postsToRead={postsToRead} />
 
-            <Giscus
-              repo="creotip/creotip-next"
-              repoId="R_kgDOGgDw8A"
-              category="Announcements"
-              categoryId="DIC_kwDOGgDw8M4CAXd7"
-              mapping="pathname"
-              reactionsEnabled="1"
-              emitMetadata="0"
-              theme={mode === 'light' ? 'light' : 'dark'}
-            />
+            <Box ref={myRef}>
+              {inView && (
+                <DynamicGiscus
+                  repo="creotip/creotip-next"
+                  repoId="R_kgDOGgDw8A"
+                  category="Announcements"
+                  categoryId="DIC_kwDOGgDw8M4CAXd7"
+                  mapping="pathname"
+                  reactionsEnabled="1"
+                  emitMetadata="0"
+                  theme={mode === 'light' ? 'light' : 'dark'}
+                />
+              )}
+            </Box>
           </>
         )}
       </Container>

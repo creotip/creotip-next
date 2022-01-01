@@ -1,5 +1,3 @@
-import '@fontsource/inter/400.css'
-import '@fontsource/inter/700.css'
 import { Box, ChakraProvider, useColorModeValue } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
