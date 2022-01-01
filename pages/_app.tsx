@@ -5,44 +5,19 @@ import customTheme from 'configs/theme'
 import { EmotionCache } from '@emotion/cache'
 import { CacheProvider } from '@emotion/react'
 import createEmotionCache from 'lib/createEmotionCache'
-import { useRouter } from 'next/router'
-import { ackeeConfig } from 'configs/ackee-config'
-import { useEffect, useMemo } from 'react'
-import * as ackeeTracker from 'ackee-tracker'
-import PlausibleProvider from 'next-plausible'
 
 interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache
 }
 
 const clientSideEmotionCache = createEmotionCache()
-const { server, options, domainId } = ackeeConfig
+
 function MyApp({
   Component,
   pageProps,
   emotionCache = clientSideEmotionCache,
 }: MyAppProps) {
   const mode = useColorModeValue('light', 'dark')
-  const router = useRouter()
-
-  let instance: any = useMemo(() => {
-    if (typeof window !== 'undefined') {
-      return ackeeTracker.create(server, options)
-    }
-  }, [])
-
-  useEffect(() => {
-    const attributes = ackeeTracker.attributes(options.detailed)
-    const url = new URL(router.asPath, location as any)
-
-    const { stop } = instance.record(domainId, {
-      ...attributes,
-      siteLocation: url.href,
-    })
-    return () => {
-      stop()
-    }
-  }, [router.asPath])
 
   return (
     <CacheProvider value={emotionCache}>
