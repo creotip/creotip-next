@@ -3,14 +3,24 @@ import { NextSeo, NextSeoProps } from 'next-seo'
 import siteConfig from 'configs/site-config'
 
 export interface SEOProps
-  extends Pick<NextSeoProps, 'title' | 'description' | 'openGraph'> {}
+  extends Pick<
+    NextSeoProps,
+    'title' | 'description' | 'openGraph' | 'twitter'
+  > {}
 
-const SEO = ({ title, description, openGraph, ...props }: SEOProps) => (
+const SEO = ({
+  title,
+  description,
+  openGraph,
+  twitter,
+  ...props
+}: SEOProps) => (
   <NextSeo
     title={title}
     description={description}
     openGraph={{ title, description, ...openGraph }}
     titleTemplate={siteConfig.seo.titleTemplate}
+    twitter={twitter}
     {...props}
   />
 )

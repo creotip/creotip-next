@@ -80,6 +80,11 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
                   ],
                   site_name: 'creotip.io',
                 }}
+                twitter={{
+                  handle: '@handle',
+                  site: '@site',
+                  cardType: 'summary_large_image',
+                }}
               />
               <PostHeader
                 title={post.title}
