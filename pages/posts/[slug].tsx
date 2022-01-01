@@ -82,7 +82,7 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
                 }}
                 twitter={{
                   handle: '@handle',
-                  site: '@site',
+                  site: '@creotip',
                   cardType: 'summary_large_image',
                 }}
               />
