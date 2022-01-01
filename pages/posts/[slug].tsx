@@ -65,7 +65,7 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
                 description={post.excerpt || siteConfig.seo.description}
                 openGraph={{
                   url: post.slug,
-                  title: `${post.title} | creotip.io`,
+                  title: `${post.title}`,
                   description: post.description,
                   images: [
                     {
