@@ -10,7 +10,6 @@ import type { Post } from 'types/post'
 import SEO from 'components/seo'
 import siteConfig from 'configs/site-config'
 import { Box, useColorModeValue } from '@chakra-ui/react'
-import { Giscus, GiscusProps } from '@giscus/react'
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import imageMetadata from 'lib/image-metadata'
@@ -22,6 +21,7 @@ import { ArticleJsonLd } from 'next-seo'
 import { replaceWhitespace } from 'lib/utils'
 import { useInViewRef } from 'lib/use-in-view'
 import dynamic from 'next/dynamic'
+import Head from 'next/head'
 
 const DynamicGiscus: any = dynamic(() =>
   import('@giscus/react').then((mod: any) => mod.Giscus)
@@ -45,6 +45,12 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   }
   return (
     <Layout preview={preview}>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <ArticleJsonLd
         url={`${siteConfig.seo.siteUrl}/posts/${post.slug}`}
         title={post.title}

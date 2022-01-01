@@ -13,8 +13,9 @@ const customTheme = extendTheme({
     bez: '#f7ebd4',
   },
   fonts: {
-    heading: 'Inter, -apple-system, sans-serif',
-    body: 'Inter, -apple-system, sans-serif',
+    heading:
+      '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
+    body: '-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"',
   },
   styles: {
     global: (props: Dict<any> | StyleFunctionProps) => ({
