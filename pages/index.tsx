@@ -23,7 +23,14 @@ const Home = ({ allPosts }: Props) => {
 
   return (
     <Layout>
-      <SEO {...seo} />
+      <SEO
+        {...seo}
+        twitter={{
+          handle: '@handle',
+          site: '@creotip',
+          cardType: 'summary_large_image',
+        }}
+      />
       <Flex
         className="banner"
         justifyContent="center"
