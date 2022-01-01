@@ -19,6 +19,7 @@ import { getPlaiceholder } from 'plaiceholder'
 import RecommendedPosts from 'components/recommended-posts'
 import { shuffle } from 'lib/shuffle'
 import { ArticleJsonLd } from 'next-seo'
+import { replaceWhitespace } from 'lib/utils'
 
 type Props = {
   post: Post
@@ -68,7 +69,9 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
                   description: post.description,
                   images: [
                     {
-                      url: `https://og-image-creotip.vercel.app/${post.title}.png?theme=dark`,
+                      url: replaceWhitespace(
+                        `https://og-image-creotip.vercel.app/${post.title}.png?theme=dark`
+                      ),
                       width: 800,
                       height: 600,
                       alt: post.title,
