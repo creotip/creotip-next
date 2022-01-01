@@ -120,7 +120,7 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
             <RecommendedPosts postsToRead={postsToRead} />
 
             <Box ref={myRef}>
-              {inView && (
+              {showGuscus && (
                 <DynamicGiscus
                   repo="creotip/creotip-next"
                   repoId="R_kgDOGgDw8A"
