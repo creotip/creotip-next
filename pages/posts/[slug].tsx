@@ -22,6 +22,7 @@ import { replaceWhitespace } from 'lib/utils'
 import { useInViewRef } from 'lib/use-in-view'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 
 const DynamicGiscus: any = dynamic(() =>
   import('@giscus/react').then((mod: any) => mod.Giscus)
@@ -38,7 +39,14 @@ type Props = {
 const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   const router = useRouter()
   const mode = useColorModeValue('light', 'dark')
+  const [showGuscus, setGiscus] = useState(false)
   const [myRef, inView] = useInViewRef()
+
+  useEffect(() => {
+    if (inView && !showGuscus) {
+      setGiscus(true)
+    }
+  }, [inView])
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
