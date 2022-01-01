@@ -45,7 +45,7 @@ function MyApp({
   }, [router.asPath])
 
   return (
-    <PlausibleProvider domain="https://creotip.io/">
+    <PlausibleProvider domain="https://creotip.io">
       <CacheProvider value={emotionCache}>
         <ChakraProvider theme={customTheme}>
           <Head>
