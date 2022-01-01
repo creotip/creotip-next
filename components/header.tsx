@@ -19,7 +19,6 @@ const Header = () => {
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
   const router = useRouter()
 
-  console.log(router)
   return (
     <Box
       as="header"

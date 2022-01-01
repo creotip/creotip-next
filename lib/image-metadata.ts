@@ -37,7 +37,6 @@ async function addProps(node: ImageNode): Promise<void> {
   if (!isExternal) {
     res = await sizeOf(path.join(process.cwd(), 'public', node.properties.src))
     blur64 = (await getPlaiceholder(node.properties.src)).base64
-    console.log(blur64)
   } else {
     const imageRes = await fetch(node.properties.src)
     const arrayBuffer = await imageRes.arrayBuffer()
