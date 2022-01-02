@@ -5,7 +5,7 @@ type CallbackRef = (node: HTMLElementOrNull) => any
 
 const config: IntersectionObserverInit = {
   root: null,
-  rootMargin: '200px',
+  rootMargin: '300px',
   threshold: [0, 1],
 }
 
