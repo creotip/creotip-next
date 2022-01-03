@@ -1,16 +1,11 @@
-import {
-  Box,
-  ChakraProvider,
-  useColorModeValue,
-  ScaleFade,
-} from '@chakra-ui/react'
+import { Box, ChakraProvider, useColorModeValue } from '@chakra-ui/react'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import customTheme from 'configs/theme'
 
 interface MyAppProps extends AppProps {}
 
-function MyApp({ Component, pageProps, router }: MyAppProps) {
+function MyApp({ Component, pageProps }: MyAppProps) {
   const mode = useColorModeValue('light', 'dark')
 
   return (
@@ -30,9 +25,7 @@ function MyApp({ Component, pageProps, router }: MyAppProps) {
         />
       </Head>
 
-      <ScaleFade key={router.route} initialScale={0.9} in={true}>
-        <Component {...pageProps} />
-      </ScaleFade>
+      <Component {...pageProps} />
     </ChakraProvider>
   )
 }
