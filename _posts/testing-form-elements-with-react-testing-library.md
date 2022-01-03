@@ -1,9 +1,9 @@
 ---
 title: 'Testing form elements with React Testing Library'
-excerpt: 'React Testing Library is an extension of the excellent React Testing Library. Let's examine use cases by examples.'
+excerpt: 'React Testing Library is an extension of the excellent React Testing Library. Let's examine testing forms use cases by examples.'
 coverImage: '/assets/blog/mongodb-atlas-how-to-create/cover.webp'
-date: '2022-01-03T05:35:07.322Z'
-tags: ["mongodb", "mongoose", "atlas"]
+date: '2022-01-03'
+tags: ["react-testing-library", "react"]
 author:
   name: Ruslan Elishaev
   picture: '/assets/blog/authors/ruslan.png'

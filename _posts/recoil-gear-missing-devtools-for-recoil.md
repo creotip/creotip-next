@@ -1,6 +1,6 @@
 ---
 title: 'recoil-gear: The missing devtools for recoil.js'
-excerpt: 'recoil-gear is devtools connector to redux devtools. Observe and debug recoil atoms and selectors in redux devtools '
+excerpt: 'recoil-gear is devtools connector to redux devtools. Observe and debug recoil atoms and selectors in redux devtools'
 coverImage: '/assets/blog/recoil-gear/recoil-gear.jpeg'
 date: '2021-12-21T05:35:07.322Z'
 tags: ["recoil", "react", "redux-devtools"]
