@@ -2,7 +2,7 @@
 title: 'NX monorepo: Deploy and Run Node microservices locally with Docker and Kubernetes'
 excerpt: "Step-by-step guide on how to run node.js microservices locally in NX with Docker and Kubernetes. NX is build system with first class monorepo support and powerful integrations."
 coverImage: '/assets/blog/recoil-gear/recoil-gear.jpeg'
-date: '2022-01-03T16:43:32.340Z'
+date: '2022-01-06T16:43:32.340Z'
 tags: ["nx", "microservices", "docker", "kebernetes"]
 author:
   name: Ruslan Elishaev
