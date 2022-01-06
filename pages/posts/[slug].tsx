@@ -184,7 +184,7 @@ export async function getStaticProps({ params }: Params) {
         ...post,
         content: await serialize(post.content, {
           mdxOptions: {
-            rehypePlugins: [imageMetadata, rehypeHighlight],
+            rehypePlugins: [imageMetadata, rehypeHighlight as any],
           },
         }),
       },

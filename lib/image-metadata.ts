@@ -3,7 +3,7 @@ import { ISizeCalculationResult } from 'image-size/dist/types/interface'
 import path from 'path'
 import { getPlaiceholder } from 'plaiceholder'
 import { Node } from 'unist'
-import { visit } from 'unist-util-visit'
+import visit from 'unist-util-visit'
 import { promisify } from 'util'
 
 const sizeOf = promisify(imageSize)
