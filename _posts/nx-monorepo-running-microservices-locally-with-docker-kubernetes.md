@@ -1,9 +1,9 @@
 ---
-title: 'NX monorepo: Deploy and Run Node microservices locally with Docker Kubernetes and ArgoCD'
-excerpt: "Step-by-step guide on how to run node.js microservices with Docker, Kubernetes and ArgoCD inside NX monorepo"
+title: 'NX monorepo: Deploy and Run Node microservices locally with Docker and Kubernetes'
+excerpt: "Step-by-step guide on how to run node.js microservices locally in NX with Docker and Kubernetes. NX is build system with first class monorepo support and powerful integrations."
 coverImage: '/assets/blog/recoil-gear/recoil-gear.jpeg'
 date: '2022-01-03T16:43:32.340Z'
-tags: ["nx", "microservices", "kebernetes", "argocd"]
+tags: ["nx", "microservices", "docker", "kebernetes"]
 author:
   name: Ruslan Elishaev
   picture: '/assets/blog/authors/ruslan.png'
@@ -135,8 +135,6 @@ CMD node ./main.js
 ### NX is ready! 🚀
 ![nx-microservices](/assets/blog/nx-microservices.png)
 
-### Run docker desktop standalone app
-![docker](/assets/blog/docker.png)
 
 [//]: #
 ### Start the kubernetes cluster with minikube ([minikube is local Kubernetes](https://minikube.sigs.k8s.io/docs/start/))
@@ -160,6 +158,7 @@ minikube   Ready     master    40s        v1.14.0
 
 ## Build docker images of express microservices
 
+First build the express app. You will see the output in the _**dist**_ directory.
 ```shell
 nx build svc-cart && nx build svc-products && nx build svc-user
 ```
@@ -188,7 +187,10 @@ Copy and run the "eval" command from the output
 eval $(minikube -p minikube docker-env)
 ```
 
-Build the images
+> More on minikube docker-env  command: <br/>
+> https://newbedev.com/what-does-minikube-docker-env-mean
+
+Build the docker images
 ```shell
 docker build -f ./apps/svc-cart/Dockerfile . -t svc-cart
 docker build -f ./apps/svc-products/Dockerfile . -t svc-products
@@ -216,7 +218,8 @@ IMAGE ID       TAG       REPOSITORY
 ## Deploy to Kubernetes
 
 Create manifest config files in each microservice root dir:
-> I prefer JSON over YAML ,but you can use whatever you want. 
+> I prefer JSON over YAML ,but you can use whatever you want. Read more here:<br/>
+> https://kubernetes.io/docs/concepts/configuration/overview/
 
 _apps/svc-cart/deployment.json_
 
@@ -348,7 +351,7 @@ http://127.0.0.1:53401
 ❗  Because you are using a Docker driver on darwin, the terminal needs to be open to run it.
 ```
 
-**Open up** http://127.0.0.1:53401/api in your browser
+**Open up** http://127.0.0.1:53401/api 
 
 You should see the following JSON response: 
 ```json
@@ -364,93 +367,12 @@ minikube dashboard
 ```
 ![minikube](/assets/blog/minikube.png)
 
-<br/>
-<br/>
+### Github repository
+https://github.com/creotip/nx-monorepo-microservices-docker-kubernetes
 
+## The Outcome
 
+This tutorial is for learning purposes on your local machine. It's the first step before you deploy your microservices to the cloud services such [**_Google Cloud_**](https://cloud.google.com/), [**_AWS_**](https://aws.amazon.com/), [**_Azure_**](https://azure.microsoft.com/en-us/) or [**_Digital Ocean_**](https://www.digitalocean.com/products/kubernetes/). 
+In the next tutorial we will learn how to deploy microservices with [**_ArgoCD_**](https://argo-cd.readthedocs.io/en/stable/). 
+Stay tuned 🎧!
 
-## **Deploy services locally with ArgoCD**
-
-### Install Argo CD with kubectl
-```shell
-kubectl create namespace argocd
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-```
-
-### Download Argo CD CLI
-macOS:
-```shell
-brew install argocd
-```
-
-Linux and Windows:
-https://argoproj.github.io/argo-cd/cli_installation/
-
-### Expose ArgoCD API Server
-```shell
-kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
-```
-
-### Config ArgoCD CLI with username admin and password admin
-```shell
-kubectl -n argocd patch secret argocd-secret \
-    -p '{"stringData": {"admin.password": "$2a$10$mivhwttXM0U5eBrZGtAG8.VSRL1l9cZNAmaSaqotIzXRBRwID1NT.",
-        "admin.passwordMtime": "'$(date +%FT%T)'"
-    }}'
-argocd login localhost:8080 --username admin --password admin --insecure
-```
-
-### Expose ArgoCD UI
-```shell
-kubectl port-forward svc/argocd-server -n argocd 8080:443 
-```
-
-## Finally, open ArgoCD UI in your browser
-[https://localhost:8080/](https://localhost:8080/)
-
-![argocd login](/assets/blog/argocd-login.png)
-
-## Login
-**user**: ```admin``` <br/>
-**password**: ```admin```
-![argocd](/assets/blog/argocd.png)
-
-
-Create new App by Clicking on **_NEW APP_** button
-
-### Fill out the fields
-
-**_Application Name_**: `cart-service` <br/>
-**_Project_**: `default` <br/>
-**_Repository URL_**: [https://github.com/ruslan-byondxr/node-ms-deployment](https://github.com/ruslan-byondxr/node-ms-deployment)
-
-<br/>
-
-We are going to use separate git repo for our deployment config files, It's best practice.
-> The use of a different Git repository to hold your kubernetes manifests (separate from your application source code), is highly recommended. See best practices for further rationale. https://argoproj.github.io/argo-cd/user-guide/best_practices/
-
-**_Path_**: `svc-cart` <br/>
-**_Cluster URL_**: `https://kubernetes.default.svc` <br/>
-**_Namespace_**: `microservices`<br/>
-
-Click on **_Create_**
-
-
-
-You should see The service:
-![argocd](/assets/blog/argocd-svc.png)
-
-
-🔥 Click on **_SYNC_**
-
-## Access microservice locally
-```shell
-kubectl port-forward -n microservices svc/svc-cart 7000:8080
-```
-
-Open up your browser: [http://localhost:7000/api](http://localhost:7000/api)
-
-You should see the following JSON response:
-```json
-{"message":"Welcome to svc-cart!"}
-```

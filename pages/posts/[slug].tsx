@@ -9,7 +9,7 @@ import PostTitle from 'components/post-title'
 import type { Post } from 'types/post'
 import SEO from 'components/seo'
 import siteConfig from 'configs/site-config'
-import { Box, useColorModeValue } from '@chakra-ui/react'
+import { Box, Divider, useColorModeValue } from '@chakra-ui/react'
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import imageMetadata from 'lib/image-metadata'
@@ -118,6 +118,8 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
             </Box>
 
             <RecommendedPosts postsToRead={postsToRead} />
+
+            <Divider my={10} />
 
             <Box ref={myRef}>
               {showGuscus && (

@@ -62,12 +62,12 @@ const Home = ({ allPosts }: Props) => {
         </Box>
       </Flex>
       <Container>
-        {heroPost && <DynamicPost {...heroPost} />}
+        {heroPost && <DynamicPost isHero {...heroPost} />}
         {morePosts.length > 0 && (
           <section>
             <SimpleGrid columns={[1, 1, 2]} gridGap="40px">
               {morePosts.map((post) => (
-                <DynamicPost key={post.slug} {...post} />
+                <DynamicPost isHero={false} key={post.slug} {...post} />
               ))}
             </SimpleGrid>
           </section>

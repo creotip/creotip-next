@@ -11,9 +11,10 @@ type Props = {
   author: Author
   slug: string
   tags: string[]
+  isHero: boolean
 }
 
-const PostItem = ({ title, date, excerpt, slug, tags }: Props) => {
+const PostItem = ({ title, date, excerpt, slug, tags, isHero }: Props) => {
   const mode = useColorModeValue('light', 'dark')
 
   return (
@@ -30,15 +31,18 @@ const PostItem = ({ title, date, excerpt, slug, tags }: Props) => {
         <Box
           as="h2"
           lineHeight="1.3"
-          fontWeight="700"
-          fontSize={['1.5rem', '2rem']}
+          fontWeight="800"
+          fontSize={isHero ? ['1.6rem', '1.8rem'] : ['1.4rem', '1.6rem']}
           mb="1rem"
+          transition="all 300ms ease-in-out"
+          _hover={{
+            opacity: '0.6',
+          }}
         >
           <Link as={`/posts/${slug}`} href="/posts/[slug]">
             <a className="hover:underline">{title}</a>
           </Link>
         </Box>
-        <Flex mb="0.5rem" fontSize="13px" alignItems="center"></Flex>
       </Box>
       <div>
         <Box as="p" mb={4}>
