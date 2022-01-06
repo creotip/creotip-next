@@ -373,6 +373,7 @@ https://github.com/creotip/nx-monorepo-microservices-docker-kubernetes
 ## The Outcome
 
 This tutorial is for learning purposes on your local machine. It's the first step before you deploy your microservices to the cloud services such [**_Google Cloud_**](https://cloud.google.com/), [**_AWS_**](https://aws.amazon.com/), [**_Azure_**](https://azure.microsoft.com/en-us/) or [**_Digital Ocean_**](https://www.digitalocean.com/products/kubernetes/). 
+
 In the next tutorial we will learn how to deploy microservices with [**_ArgoCD_**](https://argo-cd.readthedocs.io/en/stable/). 
 Stay tuned 🎧!
 
