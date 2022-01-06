@@ -199,7 +199,7 @@ docker build -f ./apps/svc-user/Dockerfile . -t svc-user
 
 [//]: # (> You can run the above commands with NX IDE extension &#40;vscode or intellij&#41;)
 
-### Check whether docker images has been created
+Check whether docker images has been created
 
 ```shell
 docker images --format "table {{.ID}}\t{{.Tag}}\t{{.Repository}}"
