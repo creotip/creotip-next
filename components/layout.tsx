@@ -1,10 +1,10 @@
 import { Box, Flex } from '@chakra-ui/react'
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Header from 'components/header'
 
 type Props = {
   preview?: boolean
-  children: React.ReactNode
+  children: ReactNode
 }
 
 const Layout = ({ children }: Props) => {

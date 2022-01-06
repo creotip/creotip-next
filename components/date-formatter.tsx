@@ -1,15 +1,16 @@
 import { parseISO, format } from 'date-fns'
+import { Box, BoxProps } from '@chakra-ui/react'
 
-type Props = {
+interface Props extends BoxProps {
   dateString: string
 }
 
-const DateFormatter = ({ dateString }: Props) => {
+const DateFormatter = ({ dateString, ...props }: Props) => {
   const date = parseISO(dateString)
   return (
-    <time itemProp="datePublished" dateTime={dateString}>
+    <Box as="time" itemProp="datePublished" dateTime={dateString} {...props}>
       {format(date, 'LLLL	d, yyyy')}
-    </time>
+    </Box>
   )
 }
 

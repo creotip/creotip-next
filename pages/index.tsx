@@ -4,11 +4,10 @@ import SEO from 'components/seo'
 import { getAllPosts } from 'lib/api'
 import dynamic from 'next/dynamic'
 import type { Post } from 'types/post'
-import { Box, Flex, useColorModeValue } from '@chakra-ui/react'
+import { Box, Flex, SimpleGrid, useColorModeValue } from '@chakra-ui/react'
 import { getSeo } from 'lib/getSeo'
 
-const DynamicHeroPost = dynamic(() => import('components/hero-post'))
-const DynamicMoreStories = dynamic(() => import('components/more-stories'))
+const DynamicPost = dynamic(() => import('components/post-item'))
 
 type Props = {
   allPosts: Post[]
@@ -29,6 +28,7 @@ const Home = ({ allPosts }: Props) => {
           site: '@creotip',
           cardType: 'summary_large_image',
         }}
+        title="A Blog for FullStack Comrades"
       />
       <Flex
         className="banner"
@@ -62,8 +62,16 @@ const Home = ({ allPosts }: Props) => {
         </Box>
       </Flex>
       <Container>
-        {heroPost && <DynamicHeroPost {...heroPost} />}
-        {morePosts.length > 0 && <DynamicMoreStories posts={morePosts} />}
+        {heroPost && <DynamicPost {...heroPost} />}
+        {morePosts.length > 0 && (
+          <section>
+            <SimpleGrid columns={[1, 1, 2]} gridGap="40px">
+              {morePosts.map((post) => (
+                <DynamicPost key={post.slug} {...post} />
+              ))}
+            </SimpleGrid>
+          </section>
+        )}
       </Container>
     </Layout>
   )
