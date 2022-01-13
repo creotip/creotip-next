@@ -136,7 +136,7 @@ CMD node ./main.js
 ![nx-microservices](/assets/blog/nx-microservices.png)
 
 
-[//]: #
+
 ### Start the kubernetes cluster with minikube ([minikube is local Kubernetes](https://minikube.sigs.k8s.io/docs/start/))
 
 ```shell

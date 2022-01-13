@@ -1,9 +1,9 @@
 ---
 title: 'Testing form elements with React Testing Library'
-excerpt: "React Testing Library is an extension of the excellent React Testing Library. Let's examine testing forms use cases by examples."
+excerpt: "React Testing Library is an extension of the excellent Testing Library. Let's examine testing forms use cases by examples."
 coverImage: '/assets/blog/recoil-gear/recoil-gear.jpeg'
-date: '2022-01-03T16:43:32.340Z'
-tags: ["react-testing-library", "react"]
+date: '2022-01-11T16:43:32.340Z'
+tags: ["react-testing-library", "react", "jest"]
 author:
   name: Ruslan Elishaev
   picture: '/assets/blog/authors/ruslan.png'
@@ -21,7 +21,8 @@ Let's examine some use cases!
 
 ## Testing text input with React Testing Library
 
-```jsx
+_**Basic example**_
+```typescript jsx
 import { render, screen } from '@testing-library/react'
 import React, { useState } from 'react'
 import type { ChangeEvent } from 'react'
@@ -58,3 +59,50 @@ describe('<TestInput />', () => {
 })
 ```
 
+
+## Different ways to query a text input element
+
+**_getByTestId_** - Query single input element
+```typescript jsx
+const Input = () => {
+  return <input type='text' data-testid='city-test-input' />
+}
+
+describe('<Input />', () => {
+  it('should render', function () {
+    render(<Input />)
+
+    const input = screen.getByTestId('city-test-input')
+    expect(input).toBeDefined()
+  })
+})
+```
+
+**_getAllByTestId_** - Query multiple input elements
+```typescript jsx
+const Inputs = () => {
+  return (
+          <div>
+            <label>
+              First name: <input type='text' data-testid='user-test-input' />
+            </label>
+            <label>
+              Last name: <input type='text' data-testid='user-test-input' />
+            </label>
+            <label>
+              Age: <input type='text' data-testid='user-test-input' />
+            </label>
+          </div>
+  )
+}
+
+describe('<Inputs />', () => {
+  it('should render', function () {
+    render(<Inputs />)
+
+    const input = screen.getAllByTestId('user-test-input')
+    expect(input.length).toEqual(3)
+  })
+})
+
+```

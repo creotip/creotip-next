@@ -9,6 +9,7 @@ import Image from 'next/image'
 import 'highlight.js/styles/atom-one-dark.css'
 import { MDXRemote } from 'next-mdx-remote'
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
+import { InlineCode } from 'components/inline-code'
 
 type Props = {
   content: MDXRemoteSerializeResult
@@ -16,8 +17,8 @@ type Props = {
 
 const MDXComponents = {
   h1: (props: any) => <chakra.h1 apply="mdx.h1" {...props} />,
-  h2: (props: any) => <chakra.h2 apply="mdx.h3" mb={1} {...props} />,
-  h3: (props: any) => <chakra.h3 apply="mdx.h3" mb={1} {...props} />,
+  h2: (props: any) => <chakra.h2 apply="mdx.h2" {...props} />,
+  h3: (props: any) => <chakra.h3 apply="mdx.h3" {...props} />,
   hr: (props: any) => <chakra.hr apply="mdx.hr" {...props} />,
   strong: (props: any) => (
     <chakra.span as="strong" fontWeight="semibold" {...props} />
@@ -56,12 +57,12 @@ const MDXComponents = {
       {props.children}
     </chakra.li>
   ),
-  pre: (props: any) => (
-    <chakra.div borderRadius={8} overflow="hidden">
-      <chakra.pre {...props} />
-    </chakra.div>
-  ),
-  code: (props: any) => <chakra.code p={5} {...props} />,
+  pre: (props: any) => {
+    if (typeof props.children === 'string')
+      return <chakra.div my="2em" borderRadius="sm" {...props} />
+    return <chakra.pre {...props} />
+  },
+  code: InlineCode,
   img: (props: any) => {
     return (
       <Box position="relative" w="100%" h="100%" boxShadow="2xl" rounded="md">
