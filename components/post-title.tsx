@@ -1,11 +1,11 @@
 import { ReactNode } from 'react'
-import { Heading } from '@chakra-ui/react'
+import { BoxProps, Heading } from '@chakra-ui/react'
 
-type Props = {
+interface Props extends BoxProps {
   children?: ReactNode
 }
 
-const PostTitle = ({ children }: Props) => {
+const PostTitle = ({ children, ...props }: Props) => {
   return (
     <Heading
       as="h1"
@@ -14,6 +14,7 @@ const PostTitle = ({ children }: Props) => {
       fontSize={['1.75rem', '2rem', '2.5rem']}
       fontWeight="400"
       fontFamily="'Playfair Display', serif"
+      {...props}
     >
       {children}
     </Heading>
