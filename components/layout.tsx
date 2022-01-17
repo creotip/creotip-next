@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react'
 import React, { ReactNode } from 'react'
 import Header from 'components/header'
+import Footer from 'components/footer'
 
 type Props = {
   preview?: boolean
@@ -21,9 +22,7 @@ const Layout = ({ children }: Props) => {
         >
           {children}
         </Box>
-        <Box as="footer" p={5} mt={8}>
-          <a href="https://creotip.io/">Powered by creotip</a>
-        </Box>
+        <Footer />
       </Flex>
     </>
   )
