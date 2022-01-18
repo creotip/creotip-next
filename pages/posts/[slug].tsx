@@ -75,12 +75,7 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
           <PostTitle>Loading…</PostTitle>
         ) : (
           <>
-            <Box
-              as="article"
-              mb="2rem"
-              itemScope
-              itemType="http://schema.org/Article"
-            >
+            <Box as="article" mb="2rem">
               <SEO
                 title={post.title}
                 description={post.excerpt || siteConfig.seo.description}

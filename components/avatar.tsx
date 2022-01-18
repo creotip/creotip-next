@@ -19,8 +19,8 @@ const Avatar = ({ name, picture }: Props) => {
       </Box>
       <Box mx={2}>
         By{' '}
-        <span itemProp="author" itemScope itemType="http://schema.org/Person">
-          <span itemProp="name">Ruslan Elishaev</span>
+        <span>
+          <span>Ruslan Elishaev</span>
         </span>
         ,
       </Box>

@@ -12,7 +12,6 @@ type Props = {
 const CoverImage = ({ title, src, slug, base64 }: Props) => {
   const image = (
     <Image
-      itemProp="image"
       width={700}
       height={375}
       layout="responsive"

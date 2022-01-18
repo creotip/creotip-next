@@ -8,7 +8,7 @@ interface Props extends BoxProps {
 const DateFormatter = ({ dateString, ...props }: Props) => {
   const date = parseISO(dateString)
   return (
-    <Box as="time" itemProp="datePublished" dateTime={dateString} {...props}>
+    <Box as="time" dateTime={dateString} {...props}>
       {format(date, 'LLLL	d, yyyy')}
     </Box>
   )

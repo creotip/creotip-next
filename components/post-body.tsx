@@ -74,7 +74,7 @@ const MDXComponents = {
 
 const PostBody = ({ content }: Props) => {
   return (
-    <Box className="post-body" itemProp="articleBody">
+    <Box className="post-body">
       <MDXRemote {...content} components={MDXComponents} />
     </Box>
   )
