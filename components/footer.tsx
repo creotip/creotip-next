@@ -2,7 +2,11 @@ import React from 'react'
 import { Box, Divider, Stack, VStack, Link, Text } from '@chakra-ui/react'
 import Container from 'components/container'
 import { useRouter } from 'next/router'
-import { GITHUB_PROFILE, LINKEDIN_PROFILE } from 'configs/constants'
+import {
+  GITHUB_PROFILE,
+  LINKEDIN_PROFILE,
+  POLYWORK_PROFILE,
+} from 'configs/constants'
 import NextLink from 'next/link'
 
 const firstGroup = [
@@ -36,6 +40,10 @@ const secondGroup = [
   {
     href: LINKEDIN_PROFILE,
     label: 'LinkedIn',
+  },
+  {
+    href: POLYWORK_PROFILE,
+    label: 'Polywork',
   },
 ]
 
