@@ -11,17 +11,12 @@ import Head from 'next/head'
 import Container from 'components/container'
 import Href from 'components/Href'
 import { ArticleJsonLd } from 'next-seo'
+import siteConfig from 'configs/site-config'
 
 const About = () => {
   const seo = getSeo()
   return (
     <Layout>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <SEO
         {...seo}
         twitter={{
@@ -36,38 +31,38 @@ const About = () => {
           images: [
             {
               url: replaceWhitespace(
-                `https://og-image-creotip.vercel.app/About-me.png?theme=dark`
+                `https://og-image-creotip.vercel.app/About%20me.png?theme=dark`
               ),
               width: 800,
               height: 600,
-              alt: `About me`,
+              alt: `About Me`,
               type: 'image/png',
             },
           ],
           site_name: 'creotip.io',
         }}
-        title="About me"
+        title="About Me"
         description="My name is Ruslan Elishaev. Fullstack developer, father and husband. I'm passionate about technology, history and politics."
       />
       <ArticleJsonLd
         url="/about"
-        title="About me"
+        title="About Me"
         images={[
-          'https://example.com/photos/1x1/photo.jpg',
-          'https://example.com/photos/4x3/photo.jpg',
-          'https://example.com/photos/16x9/photo.jpg',
+          replaceWhitespace(
+            `https://og-image-creotip.vercel.app/About%20me.png?theme=dark`
+          ),
         ]}
-        datePublished="2015-02-05T08:00:00+08:00"
-        dateModified="2015-02-05T09:00:00+08:00"
-        authorName={['Jane Blogs', 'Mary Stone']}
-        publisherName="Gary Meehan"
-        publisherLogo="https://www.example.com/photos/logo.jpg"
-        description="This is a mighty good description of this article."
+        datePublished="2022-01-24T14:13:16.694Z"
+        dateModified="2022-01-24T14:13:16.694Z"
+        authorName={'Ruslan Elishaev'}
+        publisherName="creotip.io"
+        publisherLogo={`${siteConfig.seo.siteUrl}/logo.png`}
+        description="My name is Ruslan Elishaev. Fullstack developer, father and husband. I'm passionate about technology, history and politics."
       />
 
       <Container mt={10}>
         <PostTitle fontFamily="inherit" fontWeight="800" textAlign="center">
-          About me
+          About Me
         </PostTitle>
         <Flex
           mb={5}
@@ -76,7 +71,7 @@ const About = () => {
           textAlign="center"
           justifyContent="center"
         >
-          <DateFormatter dateString={'2022-01-18T16:43:32.340Z'} />
+          <DateFormatter dateString={'2022-01-24T14:13:16.694Z'} />
         </Flex>
 
         <Text>Hi!</Text>

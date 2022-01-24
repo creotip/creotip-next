@@ -18,18 +18,10 @@ const firstGroup = [
     href: '/about',
     label: 'About',
   },
-  // {
-  //   href: '/colophon',
-  //   label: 'Colophon',
-  // },
-  // {
-  //   href: '/talks',
-  //   label: 'Talks',
-  // },
-  // {
-  //   href: 'https://plausible.io/nikolovlazar.com',
-  //   label: 'Analytics',
-  // },
+  {
+    href: '/favorite-tools',
+    label: 'Favorite Tools',
+  },
 ]
 
 const secondGroup = [
