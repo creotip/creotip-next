@@ -53,12 +53,6 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   }
   return (
     <Layout preview={preview}>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
       <ArticleJsonLd
         url={`${siteConfig.seo.siteUrl}/posts/${post.slug}`}
         title={post.title}
