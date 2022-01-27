@@ -38,4 +38,17 @@ export const favoriteWebsites: Bookmark[] = [
     tags: [],
     cover: '../site-screenshots/hasty.png',
   },
+  {
+    link: 'https://github.com/alyssaxuu/omni',
+    title:
+      'alyssaxuu/omni: The all-in-one tool to supercharge your productivity ⌨️',
+    tags: [],
+    cover: '../site-screenshots/omni.png',
+  },
+  {
+    link: 'https://www.alfredapp.com/',
+    title: 'Alfred - Productivity App for macOS',
+    tags: [],
+    cover: '../site-screenshots/alfred.jpeg',
+  },
 ]
