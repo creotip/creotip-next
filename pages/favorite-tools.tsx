@@ -32,13 +32,13 @@ const FavoriteTools = () => {
           cardType: 'summary_large_image',
         }}
         openGraph={{
-          url: '/about',
+          url: '/favorite-tools',
           title: pageConfig.title,
           description: pageConfig.description,
           images: [
             {
               url: replaceWhitespace(
-                `https://og-image-creotip.vercel.app/About-me.png?theme=dark`
+                `https://og-image-creotip.vercel.app/Favorite%20Tools.png?theme=dark`
               ),
               width: 800,
               height: 600,
@@ -52,11 +52,11 @@ const FavoriteTools = () => {
         description={pageConfig.description}
       />
       <ArticleJsonLd
-        url="/about"
+        url="/favorite-tools"
         title={pageConfig.title}
         images={[
           replaceWhitespace(
-            `https://og-image-creotip.vercel.app/About%20me.png?theme=dark`
+            `https://og-image-creotip.vercel.app/Favorite%20Tools.png?theme=dark`
           ),
         ]}
         datePublished="2022-01-24T14:13:16.694Z"
