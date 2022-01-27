@@ -5,18 +5,15 @@ import { getSeo } from 'lib/getSeo'
 import SEO from 'components/seo'
 import { replaceWhitespace } from 'lib/utils'
 import PostTitle from 'components/post-title'
-import { Box, Flex, SimpleGrid, Text } from '@chakra-ui/react'
-import DateFormatter from 'components/date-formatter'
-import Head from 'next/head'
+import { SimpleGrid, Text } from '@chakra-ui/react'
 import Container from 'components/container'
-import Href from 'components/Href'
 import { ArticleJsonLd } from 'next-seo'
 import BookmarkCard from 'components/bookmark-card'
 import { favoriteWebsites } from 'configs/favorite-websites'
 import siteConfig from 'configs/site-config'
 
 const pageConfig = {
-  title: 'Favorites',
+  title: 'Favorite Tools',
   description: 'A collection of tools and websites that i use constantly',
 }
 
