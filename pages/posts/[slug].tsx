@@ -39,14 +39,14 @@ type Props = {
 const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   const router = useRouter()
   const mode = useColorModeValue('light', 'dark')
-  const [showGuscus, setGiscus] = useState(false)
+  const [showGiscus, setGiscus] = useState(false)
   const [myRef, inView] = useInViewRef()
 
   useEffect(() => {
-    if (inView && !showGuscus) {
+    if (inView && !showGiscus) {
       setGiscus(true)
     }
-  }, [inView])
+  }, [inView, showGiscus])
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -111,7 +111,7 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
             <Divider my={10} />
 
             <Box ref={myRef}>
-              {showGuscus && (
+              {showGiscus && (
                 <DynamicGiscus
                   repo="creotip/creotip-next"
                   repoId="R_kgDOGgDw8A"

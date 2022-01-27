@@ -26,4 +26,16 @@ export const favoriteWebsites: Bookmark[] = [
     tags: [],
     cover: '../site-screenshots/collect-ui.png',
   },
+  {
+    link: 'https://nx.dev/',
+    title: 'Nx: Smart, Fast and Extensible Build System',
+    tags: [],
+    cover: '../site-screenshots/nx-media.jpeg',
+  },
+  {
+    link: 'https://hasty.dev/',
+    title: 'HASTY | JS performance',
+    tags: [],
+    cover: '../site-screenshots/hasty.png',
+  },
 ]

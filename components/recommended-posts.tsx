@@ -11,7 +11,7 @@ const RecommendedPosts = ({ postsToRead }: Props) => {
   return (
     <Box mb={10}>
       <Box as="h3" apply="mdx.h3" mb={3}>
-        More Posts to read
+        More Posts To Read
       </Box>
       <UnorderedList>
         {postsToRead.map(({ slug, title }) => (
