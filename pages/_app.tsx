@@ -24,22 +24,20 @@ function MyApp({ Component, pageProps }: MyAppProps) {
           name="theme-color"
           content={mode === 'light' ? 'white' : '#141922'}
         />
-
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-RK486MRH74"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+      </Head>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-RK486MRH74"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', 'G-RK486MRH74');
         `}
-        </Script>
-      </Head>
-
+      </Script>
       <Component {...pageProps} />
     </ChakraProvider>
   )
