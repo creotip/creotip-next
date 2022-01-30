@@ -108,7 +108,7 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
 
             <RecommendedPosts postsToRead={postsToRead} />
 
-            <Divider my={10} />
+            {/*<Divider my={10} />*/}
 
             {/*<Box ref={myRef}>*/}
             {/*  {showGiscus && (*/}
