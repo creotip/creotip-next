@@ -3,11 +3,25 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import customTheme from 'configs/theme'
 import Script from 'next/script'
+import * as gtag from '../lib/gtag'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 interface MyAppProps extends AppProps {}
 
 function MyApp({ Component, pageProps }: MyAppProps) {
   const mode = useColorModeValue('light', 'dark')
+
+  const router = useRouter()
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url)
+    }
+    router.events.on('routeChangeComplete', handleRouteChange)
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange)
+    }
+  }, [router.events])
 
   return (
     <ChakraProvider theme={customTheme}>
@@ -29,15 +43,21 @@ function MyApp({ Component, pageProps }: MyAppProps) {
         src="https://www.googletagmanager.com/gtag/js?id=G-RK486MRH74"
         strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
 
-          gtag('config', 'G-RK486MRH74');
-        `}
-      </Script>
+      <Script
+        id="gtag-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-RK486MRH74', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
       <Component {...pageProps} />
     </ChakraProvider>
   )
