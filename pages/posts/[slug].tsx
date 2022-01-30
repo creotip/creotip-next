@@ -38,15 +38,15 @@ type Props = {
 
 const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   const router = useRouter()
-  const mode = useColorModeValue('light', 'dark')
-  const [showGiscus, setGiscus] = useState(false)
-  const [myRef, inView] = useInViewRef()
+  // const mode = useColorModeValue('light', 'dark')
+  // const [showGiscus, setGiscus] = useState(false)
+  // const [myRef, inView] = useInViewRef()
 
-  useEffect(() => {
-    if (inView && !showGiscus) {
-      setGiscus(true)
-    }
-  }, [inView, showGiscus])
+  // useEffect(() => {
+  //   if (inView && !showGiscus) {
+  //     setGiscus(true)
+  //   }
+  // }, [inView, showGiscus])
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -110,20 +110,20 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
 
             <Divider my={10} />
 
-            <Box ref={myRef}>
-              {showGiscus && (
-                <DynamicGiscus
-                  repo="creotip/creotip-next"
-                  repoId="R_kgDOGgDw8A"
-                  category="Announcements"
-                  categoryId="DIC_kwDOGgDw8M4CAXd7"
-                  mapping="pathname"
-                  reactionsEnabled="1"
-                  emitMetadata="0"
-                  theme={mode === 'light' ? 'light' : 'dark'}
-                />
-              )}
-            </Box>
+            {/*<Box ref={myRef}>*/}
+            {/*  {showGiscus && (*/}
+            {/*    <DynamicGiscus*/}
+            {/*      repo="creotip/creotip-next"*/}
+            {/*      repoId="R_kgDOGgDw8A"*/}
+            {/*      category="Announcements"*/}
+            {/*      categoryId="DIC_kwDOGgDw8M4CAXd7"*/}
+            {/*      mapping="pathname"*/}
+            {/*      reactionsEnabled="1"*/}
+            {/*      emitMetadata="0"*/}
+            {/*      theme={mode === 'light' ? 'light' : 'dark'}*/}
+            {/*    />*/}
+            {/*  )}*/}
+            {/*</Box>*/}
           </>
         )}
       </Container>
