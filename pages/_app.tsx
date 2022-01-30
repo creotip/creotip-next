@@ -38,17 +38,14 @@ function MyApp({ Component, pageProps }: MyAppProps) {
           name="theme-color"
           content={mode === 'light' ? 'white' : '#141922'}
         />
-      </Head>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-RK486MRH74"
-        strategy="afterInteractive"
-      />
 
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-RK486MRH74"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -56,8 +53,30 @@ function MyApp({ Component, pageProps }: MyAppProps) {
               page_path: window.location.pathname,
             });
           `,
-        }}
-      />
+          }}
+        />
+
+        {/*<Script*/}
+        {/*  src="https://www.googletagmanager.com/gtag/js?id=G-RK486MRH74"*/}
+        {/*  strategy="afterInteractive"*/}
+        {/*/>*/}
+
+        {/*<Script*/}
+        {/*  id="gtag-init"*/}
+        {/*  strategy="afterInteractive"*/}
+        {/*  dangerouslySetInnerHTML={{*/}
+        {/*    __html: `*/}
+        {/*    window.dataLayer = window.dataLayer || [];*/}
+        {/*    function gtag(){dataLayer.push(arguments);}*/}
+        {/*    gtag('js', new Date());*/}
+        {/*    gtag('config', 'G-RK486MRH74', {*/}
+        {/*      page_path: window.location.pathname,*/}
+        {/*    });*/}
+        {/*  `,*/}
+        {/*  }}*/}
+        {/*/>*/}
+      </Head>
+
       <Component {...pageProps} />
     </ChakraProvider>
   )
