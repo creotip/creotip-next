@@ -103,7 +103,7 @@ In our case, it's perfect for building a game of life layout. [Chakra-UI](https:
 ```
 
 Basically, That's it. We've created a hook that exposes states and methods to build the game. A CSS grid that represent the UI of the game.
-The entire source code is available on [**_https://github.com/creotip/game-of-life-react_**](**_https://github.com/creotip/game-of-life-react_**).
+The entire source code is available on [**_https://github.com/creotip/game-of-life-react_**](https://github.com/creotip/game-of-life-react)
 
 **_Demo_**: <br/>
 https://game-of-life-app.netlify.app/
