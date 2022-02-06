@@ -142,7 +142,11 @@ const About = () => {
             <ListItem>
               <Href url="https://redux.js.org/">Redux</Href> or{' '}
               <Href url="https://recoiljs.org/">Recoil</Href> for state
-              management
+              management (
+              <Href url="/posts/recoil-gear-missing-devtools-for-recoil">
+                Recoil devtools
+              </Href>
+              )
             </ListItem>
             <ListItem>
               <Href url="https://chakra-ui.com/">Chakra UI</Href> for UI

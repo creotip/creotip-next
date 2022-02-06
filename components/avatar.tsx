@@ -17,13 +17,13 @@ const Avatar = ({ name, picture }: Props) => {
       <Box>
         <Img src={picture} alt={name} width="30px" height="30px" />
       </Box>
-      <Box mx={2}>
+      <Flex mx={2}>
         By{' '}
-        <span>
-          <span>Ruslan Elishaev</span>
-        </span>
+        <Box as="address" className="author" ml={2}>
+          Ruslan Elishaev
+        </Box>
         ,
-      </Box>
+      </Flex>
     </Flex>
   )
 }
