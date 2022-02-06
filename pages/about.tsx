@@ -19,6 +19,8 @@ const About = () => {
     <Layout>
       <SEO
         {...seo}
+        title="About Me"
+        description="My name is Ruslan Elishaev. Fullstack developer, father and husband. I'm passionate about technology, history and politics."
         twitter={{
           handle: '@handle',
           site: '@creotip',
@@ -41,8 +43,6 @@ const About = () => {
           ],
           site_name: 'creotip.io',
         }}
-        title="About Me"
-        description="My name is Ruslan Elishaev. Fullstack developer, father and husband. I'm passionate about technology, history and politics."
       />
       <ArticleJsonLd
         url="/about"
@@ -54,7 +54,7 @@ const About = () => {
         ]}
         datePublished="2022-01-24T14:13:16.694Z"
         dateModified="2022-01-24T14:13:16.694Z"
-        authorName={'Ruslan Elishaev'}
+        authorName="Ruslan Elishaev"
         publisherName="creotip.io"
         publisherLogo={`${siteConfig.seo.siteUrl}/logo.png`}
         description="My name is Ruslan Elishaev. Fullstack developer, father and husband. I'm passionate about technology, history and politics."

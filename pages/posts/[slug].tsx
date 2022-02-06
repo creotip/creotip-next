@@ -23,6 +23,7 @@ import { useInViewRef } from 'lib/use-in-view'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import { getSeo } from 'lib/getSeo'
 
 const DynamicGiscus: any = dynamic(() =>
   import('@giscus/react').then((mod: any) => mod.Giscus)
@@ -38,6 +39,7 @@ type Props = {
 
 const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   const router = useRouter()
+  const seo = getSeo()
   // const mode = useColorModeValue('light', 'dark')
   // const [showGiscus, setGiscus] = useState(false)
   // const [myRef, inView] = useInViewRef()
@@ -53,15 +55,42 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   }
   return (
     <Layout preview={preview}>
+      <SEO
+        {...seo}
+        title={post.title}
+        description={post.excerpt || siteConfig.seo.description}
+        twitter={{
+          handle: '@handle',
+          site: '@creotip',
+          cardType: 'summary_large_image',
+        }}
+        openGraph={{
+          url: post.slug,
+          title: `${post.title}`,
+          description: post.description,
+          images: [
+            {
+              url: replaceWhitespace(
+                `https://og-image-creotip.vercel.app/${post.title}.png?theme=dark`
+              ),
+              width: 800,
+              height: 600,
+              alt: post.title,
+              type: 'image/png',
+            },
+          ],
+          site_name: 'creotip.io',
+        }}
+      />
       <ArticleJsonLd
-        url={`${siteConfig.seo.siteUrl}/posts/${post.slug}`}
+        url={`/posts/${post.slug}`}
         title={post.title}
         images={[siteConfig.seo.siteUrl + post.coverImage]}
         datePublished={post.date}
         dateModified={post.date}
         authorName={post.author.name}
-        publisherName={post.author.name}
-        publisherLogo={siteConfig.seo.siteUrl + post.author.picture}
+        publisherName="creotip.io"
+        publisherLogo={`${siteConfig.seo.siteUrl}/logo.png`}
         description={post.excerpt}
       />
       <Container mt={10}>
@@ -70,32 +99,6 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
         ) : (
           <>
             <Box as="article" mb="2rem">
-              <SEO
-                title={post.title}
-                description={post.excerpt || siteConfig.seo.description}
-                openGraph={{
-                  url: post.slug,
-                  title: `${post.title}`,
-                  description: post.description,
-                  images: [
-                    {
-                      url: replaceWhitespace(
-                        `https://og-image-creotip.vercel.app/${post.title}.png?theme=dark`
-                      ),
-                      width: 800,
-                      height: 600,
-                      alt: post.title,
-                      type: 'image/png',
-                    },
-                  ],
-                  site_name: 'creotip.io',
-                }}
-                twitter={{
-                  handle: '@handle',
-                  site: '@creotip',
-                  cardType: 'summary_large_image',
-                }}
-              />
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
