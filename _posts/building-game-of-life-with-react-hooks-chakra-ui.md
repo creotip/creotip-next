@@ -14,7 +14,7 @@ ogImage:
 
 Game of life game is a simple cellular automaton invented by the British mathematician John Horton Conway in 1970. 
 Jonathan Horton Conway was a British mathematician, logician, cryptanalyst, and theoretical biologist. He was the first to introduce the concept of a finite state machine to a formal language.
-According to [**_wikipedia_**](**_https://en.wikipedia.org/wiki/Conway's_Game_of_Life_**), the rules of the game are:
+According to [**_wikipedia_**](https://en.wikipedia.org/wiki/Conway's_Game_of_Life), the rules of the game are:
 
 1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
 2. Any live cell with two or three live neighbours lives on to the next generation.
