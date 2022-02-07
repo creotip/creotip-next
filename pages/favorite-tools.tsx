@@ -19,17 +19,21 @@ const pageConfig = {
 
 const FavoriteTools = () => {
   const seo = getSeo()
+  const postURL = `${siteConfig.seo.siteUrl}/favorite-tools`
   return (
     <Layout>
       <SEO
         {...seo}
+        title={pageConfig.title}
+        description={pageConfig.description}
+        canonical={postURL}
         twitter={{
           handle: '@handle',
           site: '@creotip',
           cardType: 'summary_large_image',
         }}
         openGraph={{
-          url: '/favorite-tools',
+          url: postURL,
           title: pageConfig.title,
           description: pageConfig.description,
           images: [
@@ -45,11 +49,9 @@ const FavoriteTools = () => {
           ],
           site_name: 'creotip.io',
         }}
-        title={pageConfig.title}
-        description={pageConfig.description}
       />
       <ArticleJsonLd
-        url="/favorite-tools"
+        url={postURL}
         title={pageConfig.title}
         images={[
           replaceWhitespace(

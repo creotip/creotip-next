@@ -15,19 +15,22 @@ import siteConfig from 'configs/site-config'
 
 const About = () => {
   const seo = getSeo()
+
+  const postURL = `${siteConfig.seo.siteUrl}/about`
   return (
     <Layout>
       <SEO
         {...seo}
         title="About Me"
         description="My name is Ruslan Elishaev. Fullstack developer, father and husband. I'm passionate about technology, history and politics."
+        canonical={postURL}
         twitter={{
           handle: '@handle',
           site: '@creotip',
           cardType: 'summary_large_image',
         }}
         openGraph={{
-          url: '/about',
+          url: postURL,
           title: `About me`,
           description: `My name is Ruslan Elishaev. Fullstack developer, father and husband. I'm passionate about technology, history and politics.`,
           images: [
@@ -45,7 +48,7 @@ const About = () => {
         }}
       />
       <ArticleJsonLd
-        url="/about"
+        url={postURL}
         title="About Me"
         images={[
           replaceWhitespace(
