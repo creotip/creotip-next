@@ -5,7 +5,7 @@ import siteConfig from 'configs/site-config'
 export interface SEOProps
   extends Pick<
     NextSeoProps,
-    'title' | 'description' | 'openGraph' | 'twitter'
+    'title' | 'description' | 'openGraph' | 'twitter' | 'canonical'
   > {}
 
 const SEO = ({

@@ -53,19 +53,22 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+
+  const postURL = `${siteConfig.seo.siteUrl}/posts/${post.slug}`
   return (
     <Layout preview={preview}>
       <SEO
         {...seo}
         title={post.title}
         description={post.excerpt || siteConfig.seo.description}
+        canonical={postURL}
         twitter={{
           handle: '@handle',
           site: '@creotip',
           cardType: 'summary_large_image',
         }}
         openGraph={{
-          url: post.slug,
+          url: postURL,
           title: `${post.title}`,
           description: post.description,
           images: [
@@ -83,7 +86,7 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
         }}
       />
       <ArticleJsonLd
-        url={`/posts/${post.slug}`}
+        url={postURL}
         title={post.title}
         images={[siteConfig.seo.siteUrl + post.coverImage]}
         datePublished={post.date}
