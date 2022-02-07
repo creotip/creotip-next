@@ -68,6 +68,7 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
           cardType: 'summary_large_image',
         }}
         openGraph={{
+          type: 'article',
           url: postURL,
           title: `${post.title}`,
           description: post.description,
