@@ -29,6 +29,7 @@ const Home = ({ allPosts }: Props) => {
           cardType: 'summary_large_image',
         }}
         title="A Blog for FullStack Comrades"
+        canonical={seo.siteUrl}
       />
       <Flex
         className="banner"
