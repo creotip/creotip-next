@@ -10,7 +10,7 @@ import {
   Heading,
   ListItem,
   Text,
-  UnorderedList,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import DateFormatter from 'components/date-formatter'
 import Container from 'components/container'
@@ -86,21 +86,17 @@ const Projects = () => {
         <PostTitle fontFamily="inherit" fontWeight="800" textAlign="center">
           {title}
         </PostTitle>
-        {/*<Flex*/}
-        {/*  mb={5}*/}
-        {/*  alignItems="center"*/}
-        {/*  fontSize="sm"*/}
-        {/*  textAlign="center"*/}
-        {/*  justifyContent="center"*/}
-        {/*>*/}
-        {/*  <DateFormatter dateString={datePublished} />*/}
-        {/*</Flex>*/}
 
         <Heading as="h2" fontSize="md" mb={5}>
           {description}
         </Heading>
 
-        <Box my={5}>
+        <Box
+          my={5}
+          bg={useColorModeValue('gray.50', 'gray.700')}
+          borderRadius="4px"
+          p={4}
+        >
           <Heading as="h3" size="md" mb={2}>
             <Box as="a" href="https://jsonserve.com/" color="green.500">
               <em>JSONSERVE</em>
@@ -117,9 +113,14 @@ const Projects = () => {
           </Text>
         </Box>
 
-        <Divider />
+        {/*<Divider />*/}
 
-        <Box my={5}>
+        <Box
+          my={10}
+          bg={useColorModeValue('gray.50', 'gray.700')}
+          borderRadius="4px"
+          p={4}
+        >
           <Heading as="h3" size="md" mb={2}>
             <Box as="a" href="https://quizio.io/" color="green.500">
               <em>Quizio</em>
@@ -137,9 +138,14 @@ const Projects = () => {
           <Text> Working on other languages and frameworks too.</Text>
         </Box>
 
-        <Divider />
+        {/*<Divider />*/}
 
-        <Box my={5}>
+        <Box
+          my={10}
+          bg={useColorModeValue('gray.50', 'gray.700')}
+          borderRadius="4px"
+          p={4}
+        >
           <Heading as="h3" size="md" mb={2}>
             <Box
               as="a"
@@ -173,9 +179,14 @@ const Projects = () => {
           </Box>
         </Box>
 
-        <Divider />
+        {/*<Divider />*/}
 
-        <Box my={5}>
+        <Box
+          my={10}
+          bg={useColorModeValue('gray.50', 'gray.700')}
+          borderRadius="4px"
+          p={4}
+        >
           <Heading as="h3" size="md" mb={2}>
             <Box
               as="a"
