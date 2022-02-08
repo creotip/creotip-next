@@ -20,7 +20,11 @@ const SEO = ({
     description={description}
     openGraph={{ title, description, ...openGraph }}
     titleTemplate={siteConfig.seo.titleTemplate}
-    twitter={twitter}
+    twitter={{
+      handle: '@creotip',
+      site: '@creotip',
+      cardType: 'summary_large_image',
+    }}
     {...props}
   />
 )

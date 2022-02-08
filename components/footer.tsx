@@ -19,6 +19,10 @@ const firstGroup = [
     label: 'About',
   },
   {
+    href: '/projects',
+    label: 'My Projects',
+  },
+  {
     href: '/favorite-tools',
     label: 'Favorite Tools',
   },
