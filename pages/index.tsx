@@ -23,11 +23,6 @@ const Home = ({ allPosts }: Props) => {
     <Layout>
       <SEO
         {...seo}
-        twitter={{
-          handle: '@handle',
-          site: '@creotip',
-          cardType: 'summary_large_image',
-        }}
         title="A Blog for FullStack Comrades"
         canonical={seo.siteUrl}
       />

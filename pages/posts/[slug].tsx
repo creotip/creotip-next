@@ -62,11 +62,6 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
         title={post.title}
         description={post.excerpt || siteConfig.seo.description}
         canonical={postURL}
-        twitter={{
-          handle: '@handle',
-          site: '@creotip',
-          cardType: 'summary_large_image',
-        }}
         openGraph={{
           type: 'article',
           url: postURL,

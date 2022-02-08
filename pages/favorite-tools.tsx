@@ -27,11 +27,6 @@ const FavoriteTools = () => {
         title={pageConfig.title}
         description={pageConfig.description}
         canonical={postURL}
-        twitter={{
-          handle: '@handle',
-          site: '@creotip',
-          cardType: 'summary_large_image',
-        }}
         openGraph={{
           url: postURL,
           title: pageConfig.title,

@@ -24,11 +24,6 @@ const About = () => {
         title="About Me"
         description="My name is Ruslan Elishaev. Fullstack developer, father and husband. I'm passionate about technology, history and politics."
         canonical={postURL}
-        twitter={{
-          handle: '@handle',
-          site: '@creotip',
-          cardType: 'summary_large_image',
-        }}
         openGraph={{
           url: postURL,
           title: `About me`,
