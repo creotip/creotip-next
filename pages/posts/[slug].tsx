@@ -21,7 +21,6 @@ import { ArticleJsonLd } from 'next-seo'
 import { replaceWhitespace } from 'lib/utils'
 import { useInViewRef } from 'lib/use-in-view'
 import dynamic from 'next/dynamic'
-import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { getSeo } from 'lib/getSeo'
 
@@ -40,15 +39,15 @@ type Props = {
 const Post = ({ post, postsToRead, preview, base64 }: Props) => {
   const router = useRouter()
   const seo = getSeo()
-  // const mode = useColorModeValue('light', 'dark')
-  // const [showGiscus, setGiscus] = useState(false)
-  // const [myRef, inView] = useInViewRef()
+  const mode = useColorModeValue('light', 'dark')
+  const [showGiscus, setGiscus] = useState(false)
+  const [myRef, inView] = useInViewRef()
 
-  // useEffect(() => {
-  //   if (inView && !showGiscus) {
-  //     setGiscus(true)
-  //   }
-  // }, [inView, showGiscus])
+  useEffect(() => {
+    if (inView && !showGiscus) {
+      setGiscus(true)
+    }
+  }, [inView, showGiscus])
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -110,22 +109,22 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
 
             <RecommendedPosts postsToRead={postsToRead} />
 
-            {/*<Divider my={10} />*/}
+            <Divider my={10} />
 
-            {/*<Box ref={myRef}>*/}
-            {/*  {showGiscus && (*/}
-            {/*    <DynamicGiscus*/}
-            {/*      repo="creotip/creotip-next"*/}
-            {/*      repoId="R_kgDOGgDw8A"*/}
-            {/*      category="Announcements"*/}
-            {/*      categoryId="DIC_kwDOGgDw8M4CAXd7"*/}
-            {/*      mapping="pathname"*/}
-            {/*      reactionsEnabled="1"*/}
-            {/*      emitMetadata="0"*/}
-            {/*      theme={mode === 'light' ? 'light' : 'dark'}*/}
-            {/*    />*/}
-            {/*  )}*/}
-            {/*</Box>*/}
+            <Box ref={myRef}>
+              {showGiscus && (
+                <DynamicGiscus
+                  repo="creotip/creotip-next"
+                  repoId="R_kgDOGgDw8A"
+                  category="Announcements"
+                  categoryId="DIC_kwDOGgDw8M4CAXd7"
+                  mapping="pathname"
+                  reactionsEnabled="1"
+                  emitMetadata="0"
+                  theme={mode === 'light' ? 'light' : 'dark'}
+                />
+              )}
+            </Box>
           </>
         )}
       </Container>
