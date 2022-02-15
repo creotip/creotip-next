@@ -1,5 +1,5 @@
 ---
-title: 'Building Game of Life with React, Hooks and Chakra-UI'
+title: 'Game of Life with React, Hooks and Chakra-UI'
 excerpt: "Simplest way to build Conway's Game of Life with Typescript, React, Hooks and Chakra-UI. Repository with the source code provided."
 coverImage: '/assets/blog/gol.png'
 date: '2022-01-27T22:10:24.309Z'

@@ -51,4 +51,10 @@ export const favoriteWebsites: Bookmark[] = [
     tags: [],
     cover: '../site-screenshots/alfred.jpeg',
   },
+  {
+    link: 'https://www.30secondsofcode.org/',
+    title: '30 seconds of code',
+    tags: [],
+    cover: '../site-screenshots/30-seconds-of-code.png',
+  },
 ]
