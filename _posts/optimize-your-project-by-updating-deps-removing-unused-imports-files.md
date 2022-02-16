@@ -1,6 +1,6 @@
 ---
 title: 'Optimization: Updating deps, removing unused imports, files and dependencies'
-excerpt: 'Learn how to update your dependencies, remove unused imports,files and unused deps to optimize your project. With these cleanups you can get a better project structure and a better build time.' 
+excerpt: 'Learn how to update your dependencies, remove unused imports,files and unused deps to optimize your project for a better project structure and a better build time.' 
 coverImage: '/assets/blog/optimize-your-project/cleaning.jpeg'
 date: '2022-02-14T08:47:34.236Z'
 tags: ["optimization", "cleanups"]
