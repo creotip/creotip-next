@@ -20,13 +20,13 @@ import { shuffle } from 'lib/shuffle'
 import { ArticleJsonLd } from 'next-seo'
 import { replaceWhitespace } from 'lib/utils'
 import { useInViewRef } from 'lib/use-in-view'
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { getSeo } from 'lib/getSeo'
 
-const DynamicGiscus: any = dynamic(() =>
-  import('@giscus/react').then((mod: any) => mod.Giscus)
-)
+// const DynamicGiscus: any = dynamic(() =>
+//   import('@giscus/react').then((mod: any) => mod.Giscus)
+// )
 
 type Props = {
   post: Post
@@ -109,22 +109,22 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
 
             <RecommendedPosts postsToRead={postsToRead} />
 
-            <Divider my={10} />
+            {/*<Divider my={10} />*/}
 
-            <Box ref={myRef}>
-              {showGiscus && (
-                <DynamicGiscus
-                  repo="creotip/creotip-next"
-                  repoId="R_kgDOGgDw8A"
-                  category="Announcements"
-                  categoryId="DIC_kwDOGgDw8M4CAXd7"
-                  mapping="pathname"
-                  reactionsEnabled="1"
-                  emitMetadata="0"
-                  theme={mode === 'light' ? 'light' : 'dark'}
-                />
-              )}
-            </Box>
+            {/*<Box ref={myRef}>*/}
+            {/*  {showGiscus && (*/}
+            {/*    <DynamicGiscus*/}
+            {/*      repo="creotip/creotip-next"*/}
+            {/*      repoId="R_kgDOGgDw8A"*/}
+            {/*      category="Announcements"*/}
+            {/*      categoryId="DIC_kwDOGgDw8M4CAXd7"*/}
+            {/*      mapping="pathname"*/}
+            {/*      reactionsEnabled="1"*/}
+            {/*      emitMetadata="0"*/}
+            {/*      theme={mode === 'light' ? 'light' : 'dark'}*/}
+            {/*    />*/}
+            {/*  )}*/}
+            {/*</Box>*/}
           </>
         )}
       </Container>
