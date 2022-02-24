@@ -111,22 +111,22 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
 
             <RecommendedPosts postsToRead={postsToRead} />
 
-            {/*<Divider my={10} />*/}
+            <Divider my={10} />
 
-            {/*<Box ref={myRef}>*/}
-            {/*  {showGiscus && (*/}
-            {/*    <Giscus*/}
-            {/*      repo="creotip/creotip-next"*/}
-            {/*      repoId="R_kgDOGgDw8A"*/}
-            {/*      category="Announcements"*/}
-            {/*      categoryId="DIC_kwDOGgDw8M4CAXd7"*/}
-            {/*      mapping="pathname"*/}
-            {/*      reactionsEnabled="1"*/}
-            {/*      emitMetadata="0"*/}
-            {/*      theme={mode === 'light' ? 'light' : 'dark'}*/}
-            {/*    />*/}
-            {/*  )}*/}
-            {/*</Box>*/}
+            <Box ref={myRef}>
+              {showGiscus && (
+                <Giscus
+                  repo="creotip/creotip-next"
+                  repoId="R_kgDOGgDw8A"
+                  category="Announcements"
+                  categoryId="DIC_kwDOGgDw8M4CAXd7"
+                  mapping="title"
+                  reactionsEnabled="1"
+                  emitMetadata="0"
+                  theme={mode === 'light' ? 'light' : 'dark'}
+                />
+              )}
+            </Box>
             {/*<Giscus*/}
             {/*  repo="creotip/creotip-next"*/}
             {/*  repoId="R_kgDOGgDw8A"*/}
