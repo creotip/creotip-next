@@ -23,6 +23,7 @@ import { useInViewRef } from 'lib/use-in-view'
 // import dynamic from 'next/dynamic'
 import { useEffect, useState } from 'react'
 import { getSeo } from 'lib/getSeo'
+import { Giscus } from '@giscus/react'
 
 // const DynamicGiscus: any = dynamic(() =>
 //   import('@giscus/react').then((mod: any) => mod.Giscus)
@@ -109,11 +110,11 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
 
             <RecommendedPosts postsToRead={postsToRead} />
 
-            {/*<Divider my={10} />*/}
+            <Divider my={10} />
 
             {/*<Box ref={myRef}>*/}
             {/*  {showGiscus && (*/}
-            {/*    <DynamicGiscus*/}
+            {/*    <Giscus*/}
             {/*      repo="creotip/creotip-next"*/}
             {/*      repoId="R_kgDOGgDw8A"*/}
             {/*      category="Announcements"*/}
@@ -125,6 +126,33 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
             {/*    />*/}
             {/*  )}*/}
             {/*</Box>*/}
+            <Giscus
+              repo="creotip/creotip-next"
+              repoId="R_kgDOGgDw8A"
+              category="Announcements"
+              categoryId="DIC_kwDOGgDw8M4CAXd7"
+              mapping="title"
+              reactionsEnabled="1"
+              emitMetadata="0"
+              lang="en"
+              theme={mode === 'light' ? 'light' : 'dark'}
+            />
+            {/*<Box className="giscus" />*/}
+
+            {/*<script src="https://giscus.app/client.js"*/}
+            {/*        data-repo="creotip/creotip-next"*/}
+            {/*        data-repo-id="R_kgDOGgDw8A"*/}
+            {/*        data-category="Announcements"*/}
+            {/*        data-category-id="DIC_kwDOGgDw8M4CAXd7"*/}
+            {/*        data-mapping="title"*/}
+            {/*        data-reactions-enabled="1"*/}
+            {/*        data-emit-metadata="0"*/}
+            {/*        data-input-position="bottom"*/}
+            {/*        data-theme="light"*/}
+            {/*        data-lang="en"*/}
+            {/*        crossOrigin="anonymous"*/}
+            {/*        async>*/}
+            {/*</script>*/}
           </>
         )}
       </Container>
