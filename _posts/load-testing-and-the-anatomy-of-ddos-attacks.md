@@ -441,21 +441,21 @@ Press <kbd>i</kbd> to insert a new job.
 
 For MAC users, add the following commands to the crontab file:
 ```shell
-30 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron.txt
-35 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron.txt
-40 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron.txt
+30 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron-log.txt
+35 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron-log.txt
+40 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron-log.txt
 ```
 
 
 The above command will run the script every day at **_14:30_**, **_14:35_**, **_14:40_**. <br/>
-**_cron.txt_** is a log file that will be created in the same directory as the script.
+**_cron-log.txt_** is a log file that will be created in the same directory as the script.
 
 
 Now, The crontab file should look like this:
 ```shell
-30 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron.txt
-35 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron.txt
-40 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron.txt                                                                                                                                                                                                                                                    
+30 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron-log.txt
+35 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron-log.txt
+40 14 * * * cd /Users/your_user/Desktop && sh ./script.sh >> /Users/your_user/Desktop/cron-log.txt                                                                                                                                                                                                                                                    
 ~                                                                                                                                                                                                                                                      
 ~                                                                                                                                                                                                                                                      
 ~                                                                                                                                                                                                                                                      
