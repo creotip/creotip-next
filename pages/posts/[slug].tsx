@@ -24,7 +24,7 @@ import { useInViewRef } from 'lib/use-in-view'
 import { useEffect, useState } from 'react'
 import { getSeo } from 'lib/getSeo'
 import { Giscus } from '@giscus/react'
-import Script from 'next/script'
+// import Script from 'next/script'
 
 // const DynamicGiscus: any = dynamic(() =>
 //   import('@giscus/react').then((mod: any) => mod.Giscus)

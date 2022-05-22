@@ -72,8 +72,7 @@ const About = () => {
           <DateFormatter dateString={'2022-01-24T14:13:16.694Z'} />
         </Flex>
 
-        <Text>Hi!</Text>
-        <Text>My name is Ruslan.</Text>
+        <Text>Hi , My name is Ruslan.</Text>
         <Text mb={5}>
           I'm a full-stack developer for almost 10 years, with a deep knowledge
           of HTML, CSS, Javascript, React.js and Node.js. I'm passionate about

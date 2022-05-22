@@ -4,6 +4,7 @@ import {
   UnorderedList,
   OrderedList,
   Alert,
+  Kbd,
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import 'highlight.js/styles/atom-one-dark.css'
@@ -21,9 +22,10 @@ const MDXComponents = {
   h3: (props: any) => <chakra.h3 apply="mdx.h3" {...props} />,
   hr: (props: any) => <chakra.hr apply="mdx.hr" {...props} />,
   strong: (props: any) => (
-    <chakra.span as="strong" fontWeight="semibold" {...props} />
+    <chakra.span as="strong" fontWeight="bold" {...props} />
   ),
   a: (props: any) => <chakra.a apply="mdx.a" color="green.500" {...props} />,
+  kbd: Kbd,
   blockquote: (props: any) => (
     <Alert
       mt="4"
@@ -43,20 +45,16 @@ const MDXComponents = {
       <chakra.p apply="mdx.p" mt="1rem" {...props} />
     ),
   ul: (props: any) => (
-    <UnorderedList node={props.node} mt="1.5rem" ml="1.25rem">
+    <UnorderedList mt="1.5rem" ml="1.25rem">
       {props.children}
     </UnorderedList>
   ),
   ol: (props: any) => (
-    <OrderedList node={props.node} mt="1.5rem" ml="1.25rem">
+    <OrderedList mt="1.5rem" ml="1.25rem">
       {props.children}
     </OrderedList>
   ),
-  li: (props: any) => (
-    <chakra.li pb={3} node={props.node}>
-      {props.children}
-    </chakra.li>
-  ),
+  li: (props: any) => <chakra.li pb={3}>{props.children}</chakra.li>,
   pre: (props: any) => {
     if (typeof props.children === 'string')
       return <chakra.div my="2em" borderRadius="sm" {...props} />

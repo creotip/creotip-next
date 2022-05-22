@@ -51,16 +51,17 @@ const PostItem = ({ title, date, excerpt, slug, tags, isHero }: Props) => {
         <Divider mb={5} />
         <Flex justifyContent="space-between" flexWrap="wrap">
           <Flex fontSize="13px" alignItems="center" flexWrap="wrap">
-            {tags.map((item: string) => (
-              <Tag
-                key={item}
-                mr={2}
-                colorScheme={mode === 'dark' ? 'gray' : 'blackAlpha'}
-                mb="0.5rem"
-              >
-                {item}
-              </Tag>
-            ))}
+            {tags &&
+              tags.map((item: string) => (
+                <Tag
+                  key={item}
+                  mr={2}
+                  colorScheme={mode === 'dark' ? 'gray' : 'blackAlpha'}
+                  mb="0.5rem"
+                >
+                  {item}
+                </Tag>
+              ))}
           </Flex>
           <DateFormatter dateString={date} fontSize="sm" />
         </Flex>
