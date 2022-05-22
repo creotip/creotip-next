@@ -32,7 +32,6 @@ const BookmarkCard = ({ cover, title, link, tags }: Partial<Bookmark>) => {
             <Image
               alt={`Thumbnail of ${title}`}
               src={cover}
-              layout="fill"
               fallback={<Skeleton w="full" h="full" />}
             />
           </AspectRatio>
