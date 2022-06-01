@@ -33,6 +33,7 @@ Contents
         <li><a href="#load_testing_with_crontab">Using crontab to schedule the load testing</a></li>
     </ul>
   </li>
+  <li><a href="#conclusion">Conclusion</a></li>
 </ul>
 
 <div id="introduction_ddos">
@@ -485,4 +486,14 @@ The cron jobs are now set.
 
 
 </div>
+
+</div>
+
+
+<div id="conclusion">
+## Conclusion
+
+In the above article, we learned the basics of DDoS attacks as well as load testing.
+I'm planning to write an article about another topic, namely, how to mitigate DDoS attacks.
+
 </div>
