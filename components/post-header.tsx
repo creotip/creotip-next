@@ -2,7 +2,7 @@ import Avatar from './avatar'
 import DateFormatter from './date-formatter'
 import CoverImage from './cover-image'
 import PostTitle from './post-title'
-import type { Author } from 'types/author'
+import type { Author } from 'types/Author'
 import { Box, Flex } from '@chakra-ui/react'
 
 type Props = {

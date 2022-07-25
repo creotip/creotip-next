@@ -6,14 +6,15 @@ import PostHeader from 'components/post-header'
 import Layout from 'components/layout'
 import { getPostBySlug, getAllPosts } from 'lib/api'
 import PostTitle from 'components/post-title'
-import type { Post } from 'types/post'
+import type { Post } from 'types/Post'
 import SEO from 'components/seo'
 import siteConfig from 'configs/site-config'
 import { Box, Divider, useColorModeValue } from '@chakra-ui/react'
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import imageMetadata from 'lib/image-metadata'
-import rehypeHighlight from 'rehype-highlight'
+import rehypePrism from 'rehype-prism-plus'
+
 import { getPlaiceholder } from 'plaiceholder'
 import RecommendedPosts from 'components/recommended-posts'
 import { shuffle } from 'lib/shuffle'
@@ -127,34 +128,6 @@ const Post = ({ post, postsToRead, preview, base64 }: Props) => {
                 />
               )}
             </Box>
-            {/*<Giscus*/}
-            {/*  repo="creotip/creotip-next"*/}
-            {/*  repoId="R_kgDOGgDw8A"*/}
-            {/*  category="Announcements"*/}
-            {/*  categoryId="DIC_kwDOGgDw8M4CAXd7"*/}
-            {/*  mapping="title"*/}
-            {/*  reactionsEnabled="1"*/}
-            {/*  emitMetadata="0"*/}
-            {/*  lang="en"*/}
-            {/*  theme={mode === 'light' ? 'light' : 'dark'}*/}
-            {/*/>*/}
-            {/*<Box className="giscus" />*/}
-
-            {/*<Script*/}
-            {/*  src="https://giscus.app/client.js"*/}
-            {/*  data-repo="creotip/creotip-next"*/}
-            {/*  data-repo-id="R_kgDOGgDw8A"*/}
-            {/*  data-category="Announcements"*/}
-            {/*  data-category-id="DIC_kwDOGgDw8M4CAXd7"*/}
-            {/*  data-mapping="url"*/}
-            {/*  data-reactions-enabled="1"*/}
-            {/*  data-emit-metadata="0"*/}
-            {/*  data-input-position="bottom"*/}
-            {/*  data-theme="light"*/}
-            {/*  data-lang="en"*/}
-            {/*  crossOrigin="anonymous"*/}
-            {/*  async*/}
-            {/*/>*/}
           </>
         )}
       </Container>
@@ -206,7 +179,7 @@ export async function getStaticProps({ params }: Params) {
         ...post,
         content: await serialize(post.content, {
           mdxOptions: {
-            rehypePlugins: [imageMetadata, rehypeHighlight as any],
+            rehypePlugins: [imageMetadata, rehypePrism],
           },
         }),
       },

@@ -5,15 +5,47 @@ import {
   OrderedList,
   Alert,
   Kbd,
+  useDisclosure,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  Image as ChakraImage,
+  ModalCloseButton,
 } from '@chakra-ui/react'
 import Image from 'next/image'
-import 'highlight.js/styles/atom-one-dark.css'
+
 import { MDXRemote } from 'next-mdx-remote'
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { InlineCode } from 'components/inline-code'
 
 type Props = {
   content: MDXRemoteSerializeResult
+}
+
+const PostInnerImage = (props: any) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  return (
+    <Box
+      onClick={onOpen}
+      className="post-image"
+      position="relative"
+      w="100%"
+      h="100%"
+      boxShadow="2xl"
+      rounded="md"
+      cursor="zoom-in"
+    >
+      <Image {...props} layout="responsive" loading="lazy" quality={100} />
+      <Modal onClose={onClose} size="5xl" isOpen={isOpen} isCentered>
+        <ModalOverlay />
+        <ModalContent alignItems="center" justifyContent="center">
+          <ModalCloseButton />
+          <img {...props} />
+        </ModalContent>
+      </Modal>
+    </Box>
+  )
 }
 
 const MDXComponents = {
@@ -57,16 +89,21 @@ const MDXComponents = {
   li: (props: any) => <chakra.li pb={3}>{props.children}</chakra.li>,
   pre: (props: any) => {
     if (typeof props.children === 'string')
-      return <chakra.div my="2em" borderRadius="sm" {...props} />
-    return <chakra.pre {...props} />
+      return (
+        <chakra.div
+          className="chakra-pre-div"
+          my="2em"
+          borderRadius="sm"
+          {...props}
+        />
+      )
+    return <chakra.pre className="chakra-pre" {...props} />
   },
-  code: InlineCode,
+  code: (props: any) => {
+    return <chakra.code apply="mdx.code" className="chakra-code" {...props} />
+  },
   img: (props: any) => {
-    return (
-      <Box position="relative" w="100%" h="100%" boxShadow="2xl" rounded="md">
-        <Image {...props} layout="responsive" loading="lazy" quality={100} />
-      </Box>
-    )
+    return <PostInnerImage {...props} />
   },
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import PostType from 'types/post'
+import PostType from 'types/Post'
 import { Box, List, ListItem, UnorderedList } from '@chakra-ui/react'
 import Link from 'next/link'
 

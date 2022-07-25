@@ -1,6 +1,6 @@
 import DateFormatter from './date-formatter'
 import Link from 'next/link'
-import type { Author } from 'types/author'
+import type { Author } from 'types/Author'
 import { Box, Divider, Flex, Tag, useColorModeValue } from '@chakra-ui/react'
 
 type Props = {

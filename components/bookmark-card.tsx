@@ -10,7 +10,7 @@ import {
   Text,
   Skeleton,
 } from '@chakra-ui/react'
-import { Bookmark } from 'types/bookmark'
+import { Bookmark } from 'types/Bookmark'
 
 const BookmarkCard = ({ cover, title, link, tags }: Partial<Bookmark>) => {
   return (

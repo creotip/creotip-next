@@ -1,4 +1,4 @@
-import type { Author } from './author'
+import type { Author } from './Author'
 import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 export interface Post {

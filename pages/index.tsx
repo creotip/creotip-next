@@ -3,7 +3,7 @@ import Container from 'components/container'
 import SEO from 'components/seo'
 import { getAllPosts } from 'lib/api'
 import dynamic from 'next/dynamic'
-import type { Post } from 'types/post'
+import type { Post } from 'types/Post'
 import { Box, Flex, SimpleGrid, useColorModeValue } from '@chakra-ui/react'
 import { getSeo } from 'lib/getSeo'
 
