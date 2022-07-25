@@ -3,7 +3,7 @@ title: 'NX: Integration testing Apollo GraphQL and MongoDB Mongoose with Jest '
 excerpt: 'How to test microservices with Jest, Apollo GraphQL,  '
 coverImage: '/assets/blog/apollo-test.jpeg'
 date: '2022-07-25T13:26:41.142Z'
-tags: ["graphql", "mongodb", "testing", "apollo"]
+tags: ["graphql", "mongodb", "integration testing", "apollo"]
 author:
     name: Ruslan Elishaev
     picture: '/assets/blog/authors/ruslan.png'
