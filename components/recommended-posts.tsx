@@ -17,12 +17,7 @@ const RecommendedPosts = ({ postsToRead }: Props) => {
         {postsToRead.map(({ slug, title }) => (
           <ListItem key={slug} mb="1rem">
             <Link as={`/posts/${slug}`} href="/posts/[slug]" passHref>
-              <Box
-                as="a"
-                className="hover:underline"
-                apply="mdx.a"
-                color="green.500"
-              >
+              <Box className="hover:underline" apply="mdx.a" color="green.500">
                 {title}
               </Box>
             </Link>

@@ -15,7 +15,7 @@ const Avatar = ({ name, picture }: Props) => {
   return (
     <Flex alignItems="center">
       <Box>
-        <Img src={picture} alt={name} width="30px" height="30px" />
+        <Img src={picture} alt={name} width="30" height="30" />
       </Box>
       <Flex mx={2}>
         By{' '}

@@ -42,7 +42,7 @@ const Header = () => {
       >
         <Flex fontWeight="700" maxWidth="70px">
           <Link href="/" passHref>
-            <Box as="a" display="flex" cursor="pointer">
+            <Box display="flex" cursor="pointer">
               <Logo color={mode === 'dark' ? 'white' : '#2d3748'} />
             </Box>
           </Link>

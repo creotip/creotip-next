@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Divider, Stack, VStack, Link, Text } from '@chakra-ui/react'
+import { Box, Divider, Stack, VStack, Link } from '@chakra-ui/react'
 import Container from 'components/container'
 import { useRouter } from 'next/router'
 import {
@@ -81,27 +81,30 @@ const Footer = () => {
         >
           <VStack alignItems="flex-start">
             {firstGroup.map(({ href, label }) => (
-              <NextLink key={href} href={href} passHref>
-                <Link
-                  isExternal={href.startsWith('http')}
-                  color={pathname === href ? 'green.500' : 'gray.500'}
-                >
-                  {label}
-                </Link>
-              </NextLink>
+              <Link
+                as={NextLink}
+                key={href}
+                href={href}
+                passHref
+                color={pathname === href ? 'green.500' : 'gray.500'}
+              >
+                {label}
+              </Link>
             ))}
           </VStack>
           <VStack alignItems="flex-start">
             {secondGroup.map(({ href, label }) => (
-              <NextLink key={href} href={href} passHref>
-                <Link
-                  isExternal={href.startsWith('http')}
-                  target="_blank"
-                  color="gray.500"
-                >
-                  {label}
-                </Link>
-              </NextLink>
+              <Link
+                as={NextLink}
+                key={href}
+                href={href}
+                passHref
+                isExternal={href.startsWith('http')}
+                target="_blank"
+                color="gray.500"
+              >
+                {label}
+              </Link>
             ))}
           </VStack>
           <VStack alignItems="flex-start">

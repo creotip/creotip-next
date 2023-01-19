@@ -14,7 +14,6 @@ const CoverImage = ({ title, src, slug, base64 }: Props) => {
     <Image
       width={700}
       height={375}
-      layout="responsive"
       src={src}
       alt={`Cover Image for ${title}`}
       blurDataURL={base64}
@@ -33,7 +32,7 @@ const CoverImage = ({ title, src, slug, base64 }: Props) => {
     >
       {slug ? (
         <Link as={`/posts/${slug}`} href="/posts/[slug]">
-          <a aria-label={title}>{image}</a>
+          {image}
         </Link>
       ) : (
         image

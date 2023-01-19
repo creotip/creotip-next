@@ -9,7 +9,6 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  Image as ChakraImage,
   ModalCloseButton,
 } from '@chakra-ui/react'
 import Image from 'next/image'
@@ -36,7 +35,7 @@ const PostInnerImage = (props: any) => {
       rounded="md"
       cursor="zoom-in"
     >
-      <Image {...props} layout="responsive" loading="lazy" quality={100} />
+      <Image {...props} loading="lazy" quality={100} />
       <Modal onClose={onClose} size="5xl" isOpen={isOpen} isCentered>
         <ModalOverlay />
         <ModalContent alignItems="center" justifyContent="center">
