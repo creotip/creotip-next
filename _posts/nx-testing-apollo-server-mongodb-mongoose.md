@@ -1,57 +1,45 @@
 ---
 title: 'NX: Integration testing Apollo GraphQL and MongoDB Mongoose with Jest '
 excerpt: 'How to test microservices with Jest, Apollo GraphQL and MongoDB Mongoose'
-coverImage: '/assets/blog/apollo-test.jpeg'
+coverImage: '/assets/blog/testing.jpeg'
 date: '2022-07-25T13:26:41.142Z'
-tags: ["graphql", "mongodb", "integration testing", "apollo"]
+tags: ['graphql', 'mongodb', 'integration testing', 'apollo']
 author:
-    name: Ruslan Elishaev
-    picture: '/assets/blog/authors/ruslan.png'
+  name: Ruslan Elishaev
+  picture: '/assets/blog/authors/ruslan.png'
 ogImage:
-    url: '/assets/blog/apollo-test.jpeg'
+  url: '/assets/blog/apollo-test.jpeg'
 ---
 
-Contents
---------
+## Contents
 
+- [Install NX and initialize a new project](#install-nx-and-initialize-a-new-project)
+- [Create an Apollo Server Express app](#create-an-apollo-server-express-app)
+  - [Define Mongoose schema and model](#define-mongoose-schema-and-model)
+- [Create MongoDB database instance](#create-mongodb-database-instance)
+- [Create Apollo Server](#create-apollo-server)
+- [Running the Apollo server](#running-the-apollo-server)
 
-<ul>
-  <li><a href="#install_nx">Install NX and initialize a new project</a></li>
-  <li><a href="#create_app">Create an Apollo Server Express app</a>
-    <ul>
-        <li><a href="#define_mongoose_schema">Define Mongoose schema and model</a></li>
-    </ul>
-  </li>
-  <li><a href="#create_db">Create MongoDB database instance</a></li>
-  <li><a href="#create_apollo_server">Create Apollo Server</a></li>
-  <li><a href="#running_apollo_server">Running the Apollo server</a>
-      <ul>
-        <li><a href="#create_new_product">Create a new product in the database with Apollo Studio</a></li>
-        <li><a href="#query_products">Query the products</a></li>
-    </ul>  
-  </li>
-  <li><a href="#integration_testing">Integration testing Apollo Server and Mongoose with Jest and mongodb-memory-server</a></li>
-  <li><a href="#conclusion">Conclusion</a></li>
-</ul>
+  - [Create a new product in the database with Apollo Studio](#create-a-new-product-in-the-database-with-apollo-studio)
+  - [Query the products](#query-the-products)
 
-
+- [Integration testing Apollo Server and Mongoose with Jest and mongodb memory server](#integration-testing-apollo-server-and-mongoose-with-jest-and-mongodb-memoryserver)
+- [Conclusion](#conclusion)
 
 <br/>
 
 In the previous NX article, we learned how to [deploy and run microservices locally with Docker and Kubernetes](https://creotip.io/posts/nx-monorepo-running-microservices-locally-with-docker-kubernetes).
 In this article, we will learn how to construct simple integration tests for microservices that was built with apollo-server-express and MongoDB Mongoose within [NX](https://nx.dev) monorepo build system.
 
-
-<div id="install_nx">
-
 ## Install NX and initialize a new project
 
 Create a Node workspace:
+
 ```shell
 npx create-nx-workspace --preset=express
 ```
 
-Choose *Workspace name* and *Application name* 
+Choose _Workspace name_ and _Application name_
 
 ```shell
 ➜  npx create-nx-workspace --preset=express
@@ -83,25 +71,16 @@ Install the following dependencies:
 - [mongodb-memory-server](https://github.com/nodkz/mongodb-memory-server)
 - [chalk](https://github.com/chalk/chalk)
 
-
 ```shell
 yarn add apollo-server-express graphql mongoose graphql-compose graphql-compose-mongoose mongodb-memory-server-core chalk
 ```
-
-
-</div>
-
-
-<div id="create_app">
 
 ## Create an Apollo Server Express app
 
 In the previous section we generated a new app called "svc-products". Now, let's modify it. <br/>
 
-
-<div id="define_mongoose_schema">
-
 ### Define Mongoose schema and model
+
 First we will define the structure of the app by designing a GraphQL schema. <br/>
 Create a new file in with the following content:
 
@@ -145,7 +124,10 @@ export const ProductSchema = new mongoose.Schema({
   },
 })
 
-export const Product = mongoose.model<IProductDocument>('Product', ProductSchema)
+export const Product = mongoose.model<IProductDocument>(
+  'Product',
+  ProductSchema
+)
 
 const customizationOptions = {}
 
@@ -165,40 +147,29 @@ schemaComposer.Mutation.addFields({
 })
 
 export const schema = schemaComposer.buildSchema()
-
-
 ```
+
 This code snippet defines a simple, valid Mongoose schema and model.
 
 1. The `composeMongoose` function converts the Mongoose model to a GraphQL schema.
-2. The `schemaComposer` function adds the needed CRUD operations to the GraphQL schema. 
+2. The `schemaComposer` function adds the needed CRUD operations to the GraphQL schema.
 3. Finally, the `schemaComposer.buildSchema()` function builds the final GraphQL schema for our use.
-
-</div>
-</div>
-
-
-<div id="create_db">
 
 ### Create MongoDB database instance
 
 There is already an article in my blog on [how to free mongodb atlas cloud database](https://creotip.io/posts/how-to-create-mongo-db-).
 After you have created a database instance, get the connection string and pass it to your dotenv file.
 
-Add to your `.env`  file in the root of your nx monorepo:
+Add to your `.env` file in the root of your nx monorepo:
 
 ```text
 MONGODB_URI=mongodb+srv://your_username:somepassword@cluster0.jdx0tj3.mongodb.net/?retryWrites=true&w=majority
 MONGODB_NAME=shop
 ```
 
-</div>
+### Create Apollo Server
 
-<div id="create_apollo_server">
-
-### Create Apollo Server 
-
-We are going to create an Apollo Server instance and connect to our MongoDB database with help of the `mongoose` library. 
+We are going to create an Apollo Server instance and connect to our MongoDB database with help of the `mongoose` library.
 
 ```typescript
 // apps/svc-products/src/main.ts
@@ -218,11 +189,15 @@ export const connectDB = async (mongodbURI: string, dbName: string) => {
     return Promise.reject('MongoDB URI or DB Name is not defined')
   }
   try {
-    await mongoose.connect(mongodbURI, { autoIndex: false, dbName }, (error) => {
-      if (error) {
-        console.log(redBright(error))
+    await mongoose.connect(
+      mongodbURI,
+      { autoIndex: false, dbName },
+      (error) => {
+        if (error) {
+          console.log(redBright(error))
+        }
       }
-    })
+    )
     console.log(blueBright('🐣 mongodb database started'))
     console.log(green(`🙉 dbURL `, mongodbURI))
     console.log(green(`🙉 dbName `, dbName))
@@ -250,9 +225,13 @@ async function startApolloServer() {
 
     server.applyMiddleware({ app })
 
-    await new Promise<void>((resolve) => httpServer.listen({ port: 4000 }, resolve))
+    await new Promise<void>((resolve) =>
+      httpServer.listen({ port: 4000 }, resolve)
+    )
 
-    console.log(magentaBright`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+    console.log(
+      magentaBright`🚀 Server ready at http://localhost:4000${server.graphqlPath}`
+    )
   } catch (err) {
     throw new ApolloError('Something went wrong in Apollo')
   }
@@ -261,8 +240,6 @@ async function startApolloServer() {
 const server = startApolloServer()
 
 export default server
-
-
 ```
 
 The above code snippet accomplish the following:
@@ -270,14 +247,9 @@ The above code snippet accomplish the following:
 1. Creates a `connectDB` function that connects to the MongoDB database.
 2. Creates a `startApolloServer` function that connects to the MongoDB database and creates an Apollo Server instance.
 
-
 Now we are ready to move forward. Let's start the server.
 
-</div>
-
-<div id="running_apollo_server">
-
-### Running the Apollo server 
+### Running the Apollo server
 
 Execute the following command to start the server:
 
@@ -286,6 +258,7 @@ nx run svc-products:serve
 ```
 
 Output:
+
 ```shell
 > nx run svc-products:serve
 
@@ -302,18 +275,11 @@ For help, see: https://nodejs.org/en/docs/inspector
 ```
 
 > Open the browser and navigate to [http://localhost:4000/graphql](http://localhost:4000/graphql). <br/>
-You should see the Apollo studio app, which allows us to run queries and mutations.
+> You should see the Apollo studio app, which allows us to run queries and mutations.
 
 ![apollo studio](/assets/blog/apollo-studio.png)
 
-</div>
-
-
-<div id="create_new_product">
-
-
-### Create a new product in the database with _**Apollo Studio**_
-
+### Create a new product in the database with Apollo Studio
 
 Let's create our first product. We will use the `productCreateOne` mutation.
 
@@ -321,23 +287,22 @@ Let's create our first product. We will use the `productCreateOne` mutation.
 2. Click on **_productCreateOne_** button.
 3. Click on **_record_** button under **_Arguments_** section.
 4. Select all fields under **_Input Fields_** section.
-5. In the **_Variables_** area of the app, fill the **_record_** object properties with the values you want to create.<br/>    Example product object:
-    ```json
-    {
-      "record": {
-        "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-        "price": 109.99,
-        "category": "men's clothing",
-        "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-        "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-      }
-    }
-    ```
+5. In the **_Variables_** area of the app, fill the **_record_** object properties with the values you want to create.<br/> Example product object:
+   ```json
+   {
+     "record": {
+       "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+       "price": 109.99,
+       "category": "men's clothing",
+       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+       "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+     }
+   }
+   ```
 6. On the sidebar click on the back button.
 7. Select the **_record_** field under **_Fields_** section
 8. Select all fields under **_Fields_** section.
 9. Click on the blue **_Mutation_** button.
-
 
 You should see the succeeded operation in the **_Response_** area.
 
@@ -345,17 +310,10 @@ You should see the succeeded operation in the **_Response_** area.
 
 You can create few more products now.
 
-
-
 Here is how it looks on MongoDB Atlas:
 ![apollo studio mutations](/assets/blog/mongodb-atlas-products.png)
 
-</div>
-
-
-<div id="query_products">
-
-### Query the products 
+### Query the products
 
 Now we have few products in our data set. Let's query them.
 
@@ -406,12 +364,7 @@ And here is the Response:
 }
 ```
 
-</div>
-
-<div id="integration_testing">
-
-###  Integration testing **_Apollo Server_** and **_Mongoose_** with **_Jest_** and **_mongodb-memory-server_**
-
+## Integration testing Apollo Server and Mongoose with Jest and mongodb memory server
 
 Create a new file `main.spec.ts` and add the following code:
 
@@ -436,64 +389,62 @@ let server: ApolloServer
 const mockDBName = 'shop'
 
 beforeAll(async () => {
-	let mongoUri = ''
-	mongod = await MongoMemoryServer.create()
-	mongoUri = mongod.getUri()
-	await connectDB(mongoUri, mockDBName)
+  let mongoUri = ''
+  mongod = await MongoMemoryServer.create()
+  mongoUri = mongod.getUri()
+  await connectDB(mongoUri, mockDBName)
 
-	const app = express()
-	const httpServer = http.createServer(app)
+  const app = express()
+  const httpServer = http.createServer(app)
 
-	server = new ApolloServer({
-		schema,
-		plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
-	})
+  server = new ApolloServer({
+    schema,
+    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
+  })
 })
 
 async function closeMongoConnection(
-	mongod: MongoMemoryServer,
-	mongooseConnection: mongoose.Connection
+  mongod: MongoMemoryServer,
+  mongooseConnection: mongoose.Connection
 ) {
-	return new Promise<void>((resolve) => {
-		setTimeout(() => {
-			resolve()
-		}, 2000)
-		try {
-			mongod?.stop().then(() => {
-				mongooseConnection.close().then(() => {
-					resolve()
-				})
-			})
-		} catch (err) {
-			console.error(err)
-		}
-	})
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {
+      resolve()
+    }, 2000)
+    try {
+      mongod?.stop().then(() => {
+        mongooseConnection.close().then(() => {
+          resolve()
+        })
+      })
+    } catch (err) {
+      console.error(err)
+    }
+  })
 }
 
 afterAll(async () => {
-	await closeMongoConnection(mongod, mongoose.connection)
-	await server.stop()
+  await closeMongoConnection(mongod, mongoose.connection)
+  await server.stop()
 })
 
 describe('Integration test with apollo server and MongoMemoryServer', () => {
-  
-	const mockProduct: IProduct & { _id: string } = {
-		title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-		price: 109.99,
-		description:
-			'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-		category: "men's clothing",
-		image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-		_id: '62d6b1998fb10a613f67a021',
-	}
+  const mockProduct: IProduct & { _id: string } = {
+    title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
+    price: 109.99,
+    description:
+      'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
+    category: "men's clothing",
+    image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+    _id: '62d6b1998fb10a613f67a021',
+  }
 
-	const publishedProduct = new ProductModel(mockProduct)
+  const publishedProduct = new ProductModel(mockProduct)
 
-	it('should return valid result', async () => {
-    
-		await publishedProduct.save()
-		const result = await server.executeOperation({ 
-          query: `
+  it('should return valid result', async () => {
+    await publishedProduct.save()
+    const result = await server.executeOperation({
+      query: `
             query Query {
               productMany {
                 title
@@ -505,41 +456,28 @@ describe('Integration test with apollo server and MongoMemoryServer', () => {
               }
             }
 			`,
-		})
+    })
 
-		expect(result.data.productMany).toHaveLength(1)
-		expect(result.data.productMany[0]).toMatchObject(mockProduct)
-	})
+    expect(result.data.productMany).toHaveLength(1)
+    expect(result.data.productMany[0]).toMatchObject(mockProduct)
+  })
 })
-
 ```
-
-</div>
 
 The code above allows us to test the **_Apollo Server_** service with **_Mongoose_** and **_MongoDB Memory Server_**.
 MongoDB In-Memory Server is a tool that allows us to create a local MongoDB instance from within nodejs, for testing or mocking purposes.
 
-The following  steps are taken:
+The following steps are taken:
 
 1. In _**beforeAll()**_ function we are getting the **_MongoDB Memory Server_** URI and connecting to **_Mongoose_**. Then Apollo server is created. _**beforeAll()**_ function is executed before any of the tests in this file run.
 2. In _**afterAll()**_ function we are closing the connection to **_Mongoose_**, **_MongoDB Memory Server_** and **_Apollo Server_**. _**afterAll()**_ function is called after all tests in the file have completed.
-3. **_describe()_** function is the test suite. 
+3. **_describe()_** function is the test suite.
 4. _**it()**_ function is the actual test. The code is straightforward, simple and understandable. The api call is executed with the help of Apollo's [**_executeOperation()_**](https://www.apollographql.com/docs/apollo-server/v2/testing/testing/#executeoperation) function.
 
 Check the repository: <br/>
 https://github.com/creotip/nx-testing-apollo-mongoose
 
-
-<div id="conclusion">
-
 ## Conclusion
 
 In the development process, integration testing is crucial.
 On the surface, tests appear to take an excessive amount of time. However, tests are a critical factor in the development process, and they will save you a lot of time in the future.
-
-
-
-</div>
-
-
-

@@ -40,7 +40,7 @@ const PostItem = ({ title, date, excerpt, slug, tags, isHero }: Props) => {
           }}
         >
           <Link as={`/posts/${slug}`} href="/posts/[slug]">
-            <a className="hover:underline">{title}</a>
+            {title}
           </Link>
         </Box>
       </Box>

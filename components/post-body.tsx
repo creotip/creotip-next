@@ -11,12 +11,16 @@ import {
   ModalContent,
   Image as ChakraImage,
   ModalCloseButton,
+  HTMLChakraProps,
 } from '@chakra-ui/react'
 import Image from 'next/image'
-
+import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { InlineCode } from 'components/inline-code'
+import { Children, forwardRef, ReactNode } from 'react'
+import { convert } from 'html-to-text'
+import ReactDOMServer from 'react-dom/server'
 
 type Props = {
   content: MDXRemoteSerializeResult
@@ -48,10 +52,55 @@ const PostInnerImage = (props: any) => {
   )
 }
 
+// eslint-disable-next-line react/display-name
+export const Anchor = forwardRef((props: any, ref: any) => (
+  <chakra.a ref={ref} apply="mdx.a" {...props} />
+))
+
+export function getAnchor(text: any) {
+  const html = ReactDOMServer.renderToStaticMarkup(text)
+  const rex = convert(html)
+  if (rex) {
+    return rex
+      .toLowerCase()
+      .replace(/[^a-z0-9 ]/g, '')
+      .replace(/[ ]/g, '-')
+  }
+}
+
+export const LinkedHeading = (props: HTMLChakraProps<'h2'>) => {
+  const anchor = getAnchor(props.children)
+  const link = `#${anchor}`
+  return (
+    <chakra.h2
+      data-group=""
+      id={anchor}
+      css={{ scrollMarginBlock: '6.875rem' }}
+      {...props}
+    >
+      <span className="content">{props.children}</span>
+      <chakra.a
+        aria-label="anchor"
+        color="teal.500"
+        fontWeight="normal"
+        outline="none"
+        _focus={{ opacity: 1, boxShadow: 'outline' }}
+        opacity={0}
+        _groupHover={{ opacity: 1 }}
+        ml="0.375rem"
+        href={link}
+      >
+        #
+      </chakra.a>
+    </chakra.h2>
+  )
+}
+
 const MDXComponents = {
   h1: (props: any) => <chakra.h1 apply="mdx.h1" {...props} />,
-  h2: (props: any) => <chakra.h2 apply="mdx.h2" {...props} />,
-  h3: (props: any) => <chakra.h3 apply="mdx.h3" {...props} />,
+  h2: (props: any) => <LinkedHeading apply="mdx.h2" {...props} />,
+  h3: (props: any) => <LinkedHeading as="h3" apply="mdx.h3" {...props} />,
+  h4: (props: any) => <LinkedHeading as="h4" apply="mdx.h4" {...props} />,
   hr: (props: any) => <chakra.hr apply="mdx.hr" {...props} />,
   strong: (props: any) => (
     <chakra.span as="strong" fontWeight="bold" {...props} />

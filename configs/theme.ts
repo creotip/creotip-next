@@ -32,6 +32,9 @@ const customTheme = extendTheme({
         pre: {
           overflowX: 'auto',
         },
+        'ul li > p': {
+          marginTop: '0',
+        },
       },
     }),
   },
@@ -106,6 +109,9 @@ const customTheme = extendTheme({
       mt: '1.25rem',
       lineHeight: 1.7,
       'blockquote &': {
+        mt: 0,
+      },
+      'li &': {
         mt: 0,
       },
     },
