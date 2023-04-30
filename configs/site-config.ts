@@ -17,7 +17,7 @@ const siteConfig = {
     title: 'creotip - A blog for fullstack comrades',
     titleTemplate: '%s | creotip',
     description:
-      'A fullstack development blog. Javascript, react, apollo, microservices and kubernetes',
+      'A fullstack development blog. Javascript, React, GraphQL, Microservices and Kubernetes',
     siteUrl: 'https://creotip.io',
     openGraph: {
       type: 'website',
@@ -25,7 +25,7 @@ const siteConfig = {
       url: 'https://creotip.io',
       title: 'Creotip',
       description:
-        'A fullstack development blog. Javascript, react, apollo, microservices and kubernetes',
+        'A fullstack development blog. Javascript, React, GraphQL, Microservices and Kubernetes',
       site_name: 'A Blog for FullStack Comrades',
       images: [
         {

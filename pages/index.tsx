@@ -53,7 +53,7 @@ const Home = ({ allPosts }: Props) => {
         </Box>
         <Box>※</Box>
         <Box textAlign="center" fontSize="0.9rem" color="gray.400">
-          Javascript, React, Apollo, Node.js, Mongodb,
+          Javascript, React, GraphQL, Node.js, Mongodb,
           <br /> Microservices, Docker, Kubernetes...
         </Box>
       </Flex>
