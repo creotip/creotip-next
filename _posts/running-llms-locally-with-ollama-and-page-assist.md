@@ -5,43 +5,43 @@ coverImage: '/assets/blog/greek.jpeg'
 date: '2024-08-19T12:00:00.000Z'
 tags: ['LLM', 'Ollama', 'Page Assist', 'AI', 'local AI development', 'REST API']
 author:
-  name: AI Assistant
-  picture: '/assets/blog/authors/ruslan.png'
+   name: AI Assistant
+   picture: '/assets/blog/authors/ruslan.png'
 ogImage:
-  url: '/assets/blog/greek.jpeg'
+   url: '/assets/blog/greek.jpeg'
 ---
 
 ## Summary
 
-- **Set up Ollama to run LLMs locally on your machine**
-- **Learn how to interact with Ollama using its REST API**
-- **Install and configure Page Assist Chrome extension for a ChatGPT-like interface**
+- **Set up [Ollama](https://ollama.ai/) to run [LLMs](https://en.wikipedia.org/wiki/Large_language_model) locally on your machine**
+- **Learn how to interact with Ollama using its [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer)**
+- **Install and configure [Page Assist](https://chrome.google.com/webstore/detail/page-assist-a-web-ui-for/hhfkcobomkalakplejpokopagjdnkjnl) Chrome extension for a [ChatGPT](https://openai.com/chatgpt)-like interface**
 - **Explore advanced usage and best practices for local LLM deployment**
 
 ## Contents
 
-- [Ollama and Page Assist are not replacements for cloud-based AI services](#ollama-and-page-assist-are-not-replacements-for-cloud-based-ai-services)
-- [Local LLMs with a user-friendly interface](#local-llms-with-a-user-friendly-interface)
-- [Ollama: Your gateway to local LLMs](#ollama-your-gateway-to-local-llms)
-- [Getting started with Ollama](#getting-started-with-ollama)
-- [Interacting with Ollama using REST API](#interacting-with-ollama-using-rest-api)
-- [Page Assist: A Web UI for Local AI Models](#page-assist-a-web-ui-for-local-ai-models)
-- [Setting up Page Assist](#setting-up-page-assist)
-- [Advanced usage and tips](#advanced-usage-and-tips)
-- [The outcome](#the-outcome)
-- [Resources](#resources)
+1. [Ollama and Page Assist are not replacements for cloud-based AI services](#ollama-and-page-assist-are-not-replacements-for-cloud-based-ai-services)
+2. [Local LLMs with a user-friendly interface](#local-llms-with-a-user-friendly-interface)
+3. [Ollama: Your gateway to local LLMs](#ollama-your-gateway-to-local-llms)
+4. [Getting started with Ollama](#getting-started-with-ollama)
+5. [Interacting with Ollama using REST API](#interacting-with-ollama-using-rest-api)
+6. [Page Assist: A Web UI for Local AI Models](#page-assist-a-web-ui-for-local-ai-models)
+7. [Setting up Page Assist](#setting-up-page-assist)
+8. [Advanced usage and tips](#advanced-usage-and-tips)
+9. [The outcome](#the-outcome)
+10. [Resources](#resources)
 
 ## Ollama and Page Assist are not replacements for cloud-based AI services
 
-While Ollama and Page Assist provide powerful tools for running LLMs locally, they complement rather than replace cloud-based AI services. These tools offer unique advantages in terms of privacy, customization, and offline capabilities.
+While [Ollama](https://ollama.com/) and [Page Assist](https://chromewebstore.google.com/detail/page-assist-a-web-ui-for/jfgfiigpkhlkbnfnbobbkinehhfdhndo?hl=en&pli=1) provide powerful tools for running [LLMs](https://en.wikipedia.org/wiki/Large_language_model) locally, they complement rather than replace [cloud-based AI services](https://en.wikipedia.org/wiki/Cloud_computing). These tools offer unique advantages in terms of [privacy](https://en.wikipedia.org/wiki/Privacy), customization, and [offline capabilities](https://en.wikipedia.org/wiki/Offline_storage).
 
 ## Local LLMs with a user-friendly interface
 
-Imagine having the power of advanced AI models right on your local machine, with an interface as sleek as ChatGPT. That's exactly what the combination of Ollama and Page Assist offers to full-stack developers. Whether you're prototyping AI-powered applications or exploring natural language processing, these tools provide a robust and user-friendly solution.
+Imagine having the power of advanced [AI models](https://en.wikipedia.org/wiki/Artificial_intelligence) right on your local machine, with an interface as sleek as [ChatGPT](https://openai.com/chatgpt). That's exactly what the combination of Ollama and Page Assist offers to [full-stack developers](https://www.w3schools.com/whatis/whatis_fullstack.asp). Whether you're prototyping AI-powered applications or exploring [natural language processing](https://en.wikipedia.org/wiki/Natural_language_processing), these tools provide a robust and user-friendly solution.
 
 ## Ollama: Your gateway to local LLMs
 
-Ollama simplifies the process of running large language models on your local machine. It provides an easy way to download, run, and manage various LLMs, making it an excellent choice for developers who want to experiment with AI without relying on cloud-based services.
+[Ollama](https://ollama.com/) simplifies the process of running large language models on your local machine. It provides an easy way to download, run, and manage various LLMs, making it an excellent choice for developers who want to experiment with AI without relying on cloud-based services.
 
 ## Getting started with Ollama
 
@@ -83,7 +83,7 @@ Ollama simplifies the process of running large language models on your local mac
 
 ## Interacting with Ollama using REST API
 
-Ollama provides a REST API that allows you to interact with your local models programmatically. This is particularly useful for integrating LLMs into your applications or scripts.
+Ollama provides a [REST API](https://en.wikipedia.org/wiki/Representational_state_transfer) that allows you to interact with your local models programmatically. This is particularly useful for integrating LLMs into your applications or scripts.
 
 1. **Starting the Ollama server**
 
@@ -95,7 +95,7 @@ Ollama provides a REST API that allows you to interact with your local models pr
 
 2. **Basic API Usage**
 
-   Here's a Python example of how to use the Ollama REST API:
+   Here's a [Python](https://www.python.org/) example of how to use the Ollama REST API:
 
    ```python
    import requests
@@ -123,7 +123,7 @@ Ollama provides a REST API that allows you to interact with your local models pr
 
 3. **Advanced API Features**
 
-   The Ollama API also supports more advanced features like streaming responses and setting model parameters:
+   The Ollama API also supports more advanced features like [streaming responses](https://developer.mozilla.org/en-US/docs/Web/API/Streams_API) and setting model parameters:
 
    ```python
    import requests
@@ -156,13 +156,13 @@ This API allows for greater flexibility in how you interact with your local LLMs
 
 ## Page Assist: A Web UI for Local AI Models
 
-While Ollama provides a powerful command-line interface and REST API, many developers prefer a more visual and interactive experience. This is where Page Assist comes in. Page Assist is a Chrome extension that offers a ChatGPT-like user interface for interacting with your local AI models.
+While Ollama provides a powerful [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) and REST API, many developers prefer a more visual and interactive experience. This is where [Page Assist](https://chrome.google.com/webstore/detail/page-assist-a-web-ui-for/hhfkcobomkalakplejpokopagjdnkjnl) comes in. Page Assist is a [Chrome extension](https://developer.chrome.com/docs/extensions/) that offers a ChatGPT-like user interface for interacting with your local AI models.
 
 ## Setting up Page Assist
 
 1. **Install the Chrome Extension**
 
-   - Open the Chrome Web Store and search for "Page Assist - A Web UI for Local AI Models"
+   - Open the [Chrome Web Store](https://chrome.google.com/webstore/category/extensions) and search for "Page Assist - A Web UI for Local AI Models"
    - Click on "Add to Chrome" to install the extension
 
 2. **Configure Page Assist**
@@ -204,11 +204,11 @@ While Ollama provides a powerful command-line interface and REST API, many devel
    ```
 
 3. **Best practices for using local LLMs**
-   - Manage system resources carefully
-   - Consider privacy when inputting data
+   - Manage [system resources](https://en.wikipedia.org/wiki/System_resource) carefully
+   - Consider [privacy](https://en.wikipedia.org/wiki/Privacy) when inputting data
    - Keep both Ollama and Page Assist updated
    - Experiment with different models
-   - Practice effective prompt engineering
+   - Practice effective [prompt engineering](https://en.wikipedia.org/wiki/Prompt_engineering)
 
 ## The outcome
 
